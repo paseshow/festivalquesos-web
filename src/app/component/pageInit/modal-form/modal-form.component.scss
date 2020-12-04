@@ -1,0 +1,27 @@
+.modal-content {
+    width: fit-content;
+    padding: 3rem;
+}
+
+.modal-body > h2 {
+    text-align: center;
+}
+
+.btnStyle{
+    background-color: #e8be33;
+    width: 100%;
+}
+
+.formCheckbox{
+    font-size: 13px;
+}
+
+input[type="checkbox"] .formCheckbox {
+    background-color: #e8be33;
+    color: #e8be33;
+}
+
+input[type="checkbox"] + label{
+    background-color: #e8be33;
+    color: #e8be33;
+}
