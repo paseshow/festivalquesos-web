@@ -1,11 +1,19 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
 
-const routes: Routes = [];
+export const AppRoutes: Routes = [
+  {
+    path: '',
+    children: [
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+      {
+        path: '',
+        loadChildren: () => import('./component/pageInit/page-init.module').then(m => m.PageInitModule)
+      },
+      {
+        path: 'form',
+        loadChildren: () => import('./component/pageInit/modal-form/modal-form.component').then(m => m.ModalFormComponent)
+      }
+    ]
+  }
+];
