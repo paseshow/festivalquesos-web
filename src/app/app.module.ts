@@ -3,16 +3,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar/navbar.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { PageInitModule } from './component/pageInit/page-init.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
+    PageInitModule,
     RouterModule.forRoot(AppRoutes)
   ],
   providers: [],
