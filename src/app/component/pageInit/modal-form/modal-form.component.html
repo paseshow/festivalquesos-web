@@ -1,0 +1,52 @@
+<p>modal-form works!</p>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content d-flex justify-content-center">
+      <div class="modal-body">
+
+        <h2>Bienvenido</h2>
+
+        <!--START FORM-->
+        <form>
+          <div class="form-group">
+            <label for="nombreForm" aria-placeholder="nombre completo"></label>
+            <input type="text" class="form-control" id="nombreForm" placeholder="nombre completo">
+
+            <label for="exampleInputEmail1" aria-placeholder="email"></label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+            <label for="telForm" aria-placeholder="telefono"></label>
+            <input type="tel" class="form-control" id="telForm" placeholder="telefono">
+
+            <label for="questionForm" aria-placeholder="telefono"></label>
+            <input type="text" class="form-control" id="questionForm" placeholder="¿Cómo conseguiste la entrada?">
+
+          </div>
+
+          <!-- Check 1 -->
+          <div class="form-group form-check d-flex justify-content-start">
+            <label class="form-check-label formCheckbox" for="exampleCheck1">Quedar registrado en la base de datos</label>
+            <input type="checkbox" class="form-check-input formCheckbox" name="dealtype[]" id="exampleCheck1">
+          </div>
+
+          <!-- Check 2 -->
+          <div class="form-group form-check d-flex justify-content-start">
+            <label class="form-check-label formCheckbox" for="exampleCheck2">Suscribirme a noticias</label>
+            <input type="checkbox" class="form-check-input" id="exampleCheck2">
+          </div>
+
+          <button type="submit" class="btn btnStyle">Continuar</button>
+        </form>
+        <!--END FORM-->
+
+      </div>
+
+    </div>
+  </div>
+</div>
