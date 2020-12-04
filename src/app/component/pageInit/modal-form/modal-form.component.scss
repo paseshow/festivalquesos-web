@@ -1,6 +1,11 @@
 .modal-content {
     width: fit-content;
-    padding: 3rem;
+    padding: 2rem;
+    border-radius: 0%;
+}
+
+.form-group > input{
+    font-size: 14px;
 }
 
 .modal-body > h2 {
@@ -10,6 +15,7 @@
 .btnStyle{
     background-color: #e8be33;
     width: 100%;
+    margin-top: 3rem ;
 }
 
 .formCheckbox{

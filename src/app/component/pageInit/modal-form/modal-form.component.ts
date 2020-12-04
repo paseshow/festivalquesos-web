@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-modal-form',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal-form.component.scss']
 })
 export class ModalFormComponent implements OnInit {
+
+  @ViewChild("container") templateModal: ElementRef;
 
   constructor() { }
 

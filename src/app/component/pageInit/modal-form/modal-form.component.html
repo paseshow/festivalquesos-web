@@ -4,7 +4,9 @@
   Launch demo modal
 </button>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<ng-template #content>
+
+<div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content d-flex justify-content-center">
       <div class="modal-body">
@@ -15,14 +17,14 @@
         <form>
           <div class="form-group">
             <label for="nombreForm" aria-placeholder="nombre completo"></label>
-            <input type="text" class="form-control" id="nombreForm" placeholder="nombre completo">
+            <input type="text" class="form-control" id="nombreForm" placeholder="Nombre Completo">
 
             <label for="exampleInputEmail1" aria-placeholder="email"></label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email con otras personas.</small>
 
             <label for="telForm" aria-placeholder="telefono"></label>
-            <input type="tel" class="form-control" id="telForm" placeholder="telefono">
+            <input type="tel" class="form-control" id="telForm" placeholder="Teléfono">
 
             <label for="questionForm" aria-placeholder="telefono"></label>
             <input type="text" class="form-control" id="questionForm" placeholder="¿Cómo conseguiste la entrada?">
@@ -50,3 +52,4 @@
     </div>
   </div>
 </div>
+</ng-template>
