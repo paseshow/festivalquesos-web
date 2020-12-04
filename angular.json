@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "festivalQuesoWeb": {
@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "festivalQuesoWeb"
+    }
+  },
+  "defaultProject": "festivalQuesoWeb",
+  "cli": {
+    "analytics": "bbfb272f-5423-4094-8b73-130e10681153"
+  }
 }
