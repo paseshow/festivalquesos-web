@@ -4,7 +4,7 @@
     <div class="container-fluid ">
         <div class="row" style="margin-top: 50px;">
             <div class="col-sm centerCards ">
-                <div class="card mx-auto">
+                <div class="card mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
                     <img class="card-img-top" src="https://images.unsplash.com/photo-1551790629-9d5c2d781d8b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=799&q=80" alt="cheese1">
                     <div class="card-body">
                         <h4>Carta de Quesos</h4>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="col-sm centerCards">
-                <div class="card mx-auto">
+                <div class="card mx-auto" data-toggle="modal" data-target="#exampleModalCenter">
                     <img class="card-img-top" src="https://images.unsplash.com/photo-1551790629-9d5c2d781d8b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=799&q=80" alt="cheese1">
                     <div class="card-body">
                         <h4>Carta de Quesos</h4>
@@ -91,7 +91,8 @@
                 <p class="font-weight-normal text-break">
                     En el sexto paso <strong>será el turno de los “Duros”,</strong> como el Queso Parmesano, Reggiano, Reggianito, Sbrinz o Sardo. Estos son quesos de baja humedad, de consistencia dura, de textura compacta, quebradiza y granulosa. Son
                     aquellos con mayor tiempo de maduración, lo que produce
-                    <strong>notas más intensas, agradables, con un leve picor en su sabor y con una textura única, </strong>deales para rallar.
+                    <strong>notas más intensas, agradables, con un leve picor en su sabor y con una textura única,
+                    </strong>deales para rallar.
                 </p>
             </li>
             <li>
@@ -108,7 +109,8 @@
             <li>
                 <p class="font-weight-normal text-break">
                     <strong>
-                        Retirar el box de quesos de la heladera una hora antes de la conexión, sacar el plástico para que se atemperen y puedan manifestar
+                        Retirar el box de quesos de la heladera una hora antes de la conexión, sacar el plástico para
+                        que se atemperen y puedan manifestar
                         todos los sabores y aromas propios de cada variedad.
                     </strong>
                 </p>
@@ -130,7 +132,8 @@
             <li>
                 <p class="font-weight-normal text-break">
                     <strong>
-                        Sugerimos tener manzanas verdes cortadas en gajos y sumergidas en un bol con agua, para consumir entre queso y queso, y así limpiar el paladar.
+                        Sugerimos tener manzanas verdes cortadas en gajos y sumergidas en un bol con agua, para consumir
+                        entre queso y queso, y así limpiar el paladar.
                     </strong>
                 </p>
             </li>
@@ -142,5 +145,26 @@
                 </p>
             </li>
         </ul>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <h5 class="modal-title" id="exampleModalCenterTitle">CATA DE QUESOS</h5>
+            </div>
+            <div class="modal-body">
+                <p class="font-weight-normal text-break textCodigos">
+                    En el interior de la caja encontraras el código de ingreso.
+                </p>
+                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+            </div>
+            <div class="modal-footer" style="align-items: center;">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
+                <button type="button" class="btn btn-warning">INGRESAR</button>
+            </div>
+        </div>
     </div>
 </div>
