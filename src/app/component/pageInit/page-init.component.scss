@@ -3,7 +3,7 @@
 }
 
 .fondoPageInit {
-    background-image: url("../../../assets/images/fondo\ con\ quesos.jpg");
+    background-image: url("../../../assets/images/fondo_tabla.jpg");
     background-size: cover;
     padding: 0;
 }
@@ -15,4 +15,21 @@
 .card-img-top {
     width: 100%;
     height: 100% !important;
+}
+
+.cartadequesos {
+    background-color: white;
+}
+
+.font-weight-bolder {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.textoCata {
+    align-items: center;
+    text-align: left;
+    margin: 10px auto;
+    max-width: 55rem;
 }
