@@ -15,5 +15,14 @@ export const AppRoutes: Routes = [
         loadChildren: () => import('./component/pageInit/modal-form/modal-form.component').then(m => m.ModalFormComponent)
       }
     ]
+  },
+  {
+    path: '',
+    children: [
+      {
+        path: 'configuracionEvento',
+        loadChildren: () => import('./component/administracion/administracion.module').then(m => m.AdministracionModule)
+      }
+    ]
   }
 ];
