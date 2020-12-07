@@ -9,6 +9,7 @@ import { AppRoutes } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { AuthenticationComponent } from './component/authentication/authentication.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -19,6 +20,7 @@ import { AuthenticationComponent } from './component/authentication/authenticati
     AuthenticationComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     RouterModule.forRoot(AppRoutes)
   ],
