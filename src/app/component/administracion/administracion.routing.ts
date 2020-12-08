@@ -4,6 +4,7 @@ import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar
 // COMPONENTES --------------------------------------------------------------------
 import { ConfiguracionEventoComponent } from './configuracion-evento.component';
 import { ConfiguracionStreamComponent } from './configuracion-stream/configuracion-stream.component';
+import { PageErrorComponent } from './page-error/page-error.component';
 
 export const AdministracionRoutes: Routes = [
     {
@@ -20,6 +21,10 @@ export const AdministracionRoutes: Routes = [
             {
                 path: 'stream',
                 component: ConfiguracionStreamComponent
+            },
+            {
+                path: 'error',
+                component: PageErrorComponent
             }
 
         ]

@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
 
   @Input() isconfig: boolean;
 
-  config: boolean;
+  config: string;
   constructor(
     @Inject(DOCUMENT) document: any,
   ) {
@@ -22,10 +22,12 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     let url = document.location.href;
 
-    if (url.indexOf('configuracionEvento') != -1 || url.indexOf('autentificacion') != -1) {
-      this.config = true;
+    if (url.indexOf('configuracionEvento') != -1) {
+      this.config = 'configuracionEvento';
+    } else if (url.indexOf('autentificacion') != -1) {
+      this.config = 'autentificacion';
     } else {
-      this.config = false;
+      this.config = 'pageInit'
     }
   }
 

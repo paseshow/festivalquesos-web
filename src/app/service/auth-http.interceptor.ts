@@ -12,7 +12,7 @@ export class AuthHttpInterceptor implements HttpInterceptor {
     constructor(private router: Router) { }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        const token: string = localStorage.getItem('token_id');
+        const token: string = localStorage.getItem('token_user');
 
         //saltea el agregado del token
         if (req.headers.has(InterceptorSkipHeader)) {
@@ -22,9 +22,10 @@ export class AuthHttpInterceptor implements HttpInterceptor {
 
         // modifique ?token por &token
         if (token) {
-            req = req.clone({
-                url: req.url.concat('?token=' + token)
-            });
+            // req = req.clone({
+            //     url: req.url.concat('?token=' + token)
+            // });
+            req = req.clone({ headers: req.headers.set('Authorization', 'Bearer ' + token) })
         }
 
         if (!req.headers.has('Content-Type')) {
@@ -32,11 +33,11 @@ export class AuthHttpInterceptor implements HttpInterceptor {
                 headers: req.headers.set('Content-Type', 'application/json')
             });
         }
-        if (!req.headers.has('Accept')) {
-            req = req.clone({
-                headers: req.headers.set('Accept', 'application/json')
-            });
-        }
+        // if (!req.headers.has('Accept')) {
+        //     req = req.clone({
+        //         headers: req.headers.set('Accept', 'application/json')
+        //     });
+        // }
 
 
         return next.handle(req).pipe(

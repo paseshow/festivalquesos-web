@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
+import { JwtDTO } from '@models/user';
 
 @Injectable({ providedIn: 'root' })
 export class CommonService {
 
+    user: JwtDTO;
     config: boolean;
     menu: string[];
 
@@ -17,13 +19,12 @@ export class CommonService {
     setConfig(config): void {
         this.config = config;
     }
-
-    setMenu(menu: string[]): void {
-        this.menu = menu;
+    setUser(user): void {
+        this.user = user;
     }
 
-    getMenu(): string[] {
-        return this.menu;
+    getUser(): JwtDTO {
+        return this.user;
     }
 
 }

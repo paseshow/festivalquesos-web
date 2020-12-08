@@ -35,24 +35,20 @@
         <form class="form-inline my-2 my-lg-0">
             <ul class="navbar-nav mr-auto">
                 <ul class="navbar-nav">
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item active">
+                        <a class="nav-link" (click)="reDirectoa('stream')">
                             CONFIGURACIÓN EVENTO
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" [routerLink]="['/configuracionEvento/stream']">Streaming</a>
-                            <a class="dropdown-item" href="#">Codigos</a>
-                        </div>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" [routerLink]="['/configuracionEvento/adminUsuarios']">
+                        <a class="nav-link" (click)="reDirectoa('adminUsuarios')">
                             ADMINISTRAR USUARIOS
                         </a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item active" (click)="reDirectoa('report')">
                         <a class="nav-link">REPORTES</a>
                     </li>
-                    <li class="nav-item active">
+                    <li *ngIf="logoutB" class="nav-item active" (click)="logout()">
                         <a class="nav-link">Cerrar Sesión</a>
                     </li>
                 </ul>

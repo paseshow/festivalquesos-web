@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
-import { JwtDTO, UserLogin } from '@models/user';
+import { JwtDTO, NewUser, UserLogin } from '@models/user';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -15,8 +15,8 @@ export class UsersService {
         private http: HttpClient
     ) { }
 
-    createdNewuser() {
-        //return this.http.put()
+    createdNewuser(newUser: NewUser) {
+        return this.http.post(environment.apiUrl + this.endpoints + 'new', JSON.stringify(newUser)).pipe(take(1));
     }
 
     loadUsers() {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '@models/user';
+import { NewUser, User } from '@models/user';
 import { UsersService } from '@services/users.service';
-
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-administrar-usuarios',
   templateUrl: './administrar-usuarios.component.html',
@@ -13,12 +13,14 @@ export class AdministrarUsuariosComponent implements OnInit {
   formNewUser: FormGroup;
   users: User[];
   isLoading: boolean;
+  msjError: string;
 
   constructor(
     private fb: FormBuilder,
     private usersService: UsersService
   ) {
     this.isLoading = true;
+    this.msjError = '';
   }
 
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class AdministrarUsuariosComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       passwordRepeat: ['', [Validators.required]],
-      roles: ['']
+      roleAdmin: [false]
     })
   }
 
@@ -60,6 +62,36 @@ export class AdministrarUsuariosComponent implements OnInit {
   // ---------------------------------------
   saveUsuario() {
 
+    this.msjError = '';
+
+    let newUser = new NewUser();
+
+    newUser.name = this.formNewUser.get("name").value;
+    newUser.nameUser = this.formNewUser.get("nameUser").value;
+    newUser.email = this.formNewUser.get("email").value;
+    newUser.password = this.formNewUser.get("password").value;
+    newUser.roles = this.formNewUser.get("roleAdmin").value ? ["admin"] : [""];
+
+    this.usersService.createdNewuser(newUser).subscribe(
+      next => {
+        this.loadUsers();
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Usuario creado exitosamente!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+      }, error => {
+
+        this.formNewUser.reset();
+
+        let errorObj = JSON.parse(JSON.stringify(error));
+
+        this.msjError = errorObj.error.error.descripcion;
+
+      }
+    )
   }
 
 }

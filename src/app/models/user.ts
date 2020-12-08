@@ -28,3 +28,11 @@ export class JwtDTO {
 export class Authority extends CommonUser {
     authority: string;
 }
+
+export class NewUser {
+    name: string;
+    nameUser: string;
+    email: string;
+    password: string;
+    roles: string[];
+}

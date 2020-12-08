@@ -11,6 +11,7 @@ import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar
 import { ConfiguracionStreamComponent } from './configuracion-stream/configuracion-stream.component';
 import { ModalEventoComponent } from './configuracion-stream/modal-evento/modal-evento.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PageErrorComponent } from './page-error/page-error.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
         ConfiguracionEventoComponent,
         AdministrarUsuariosComponent,
         ConfiguracionStreamComponent,
-        ModalEventoComponent
+        ModalEventoComponent,
+        PageErrorComponent
     ],
     providers: [],
 })
