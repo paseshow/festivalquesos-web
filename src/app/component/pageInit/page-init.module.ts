@@ -1,18 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { ComponentModule } from '../component.module';
 import { PageInitComponent } from './page-init.component';
 import { pageInitRoutes } from './page-Init.routing';
 
 
 
 @NgModule({
-  declarations: [PageInitComponent,
-    NavbarComponent],
+  declarations: [
+    PageInitComponent,
+  ],
   imports: [
     CommonModule,
-    RouterModule.forChild(pageInitRoutes)
+    RouterModule.forChild(pageInitRoutes),
+    ComponentModule,
+    ReactiveFormsModule
+  ],
+  exports: [
+
   ]
 })
 export class PageInitModule { }

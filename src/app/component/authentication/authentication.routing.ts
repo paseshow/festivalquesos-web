@@ -9,7 +9,7 @@ export const AuthenticationRoutes: Routes = [
                 path: '', pathMatch: 'full', redirectTo: 'login'
             },
             {
-                path: 'login',
+                path: '',
                 component: AuthenticationComponent
             }
         ]

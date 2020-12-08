@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '@services/common.service';
 
 @Component({
   selector: 'app-configuracion-evento',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfiguracionEventoComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+  ) {
+  }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,82 @@
+<div *ngIf="isLoading" class="spinner-border text-info" role="status">
+    <span class="sr-only">Loading...</span>
+</div>
+
+<div *ngIf="!isLoading" class="tableStream">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        Agregar Usuario
+    </button>
+</div>
+
+<form [formGroup]="formNewUser" (ngSubmit)="saveUsuario()">
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nuevo usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="basic-url">Nombre:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="name">
+                    </div>
+                    <label for="basic-url">Usuario:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="nameUser">
+                    </div>
+                    <label for="basic-url">Email:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="email">
+                    </div>
+                    <label for="basic-url">Contraseña :</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="password">
+                    </div>
+                    <label for="basic-url">Repetir Contraseña :</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="passwordRepeat">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" [disabled]="formNewUser.invalid">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
