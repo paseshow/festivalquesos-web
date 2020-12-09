@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import 'sweetalert2/src/sweetalert2.scss';
 
 @Component({
     selector: 'page-init-app',
@@ -7,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
     
 })
 
+
 export class PageInitComponent implements OnInit {
+
+    showModalFormCondition: boolean = true;
 
     constructor() { }
 
     ngOnInit() { }
-    
+        
 }

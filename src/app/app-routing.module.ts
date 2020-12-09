@@ -12,7 +12,7 @@ export const AppRoutes: Routes = [
       },
       {
         path: 'form',
-        loadChildren: () => import('./component/pageInit/modal-form/modal-form.component').then(m => m.ModalFormComponent)
+        loadChildren: () => import('./component/modal-form/modal-form.component').then(m => m.ModalFormComponent)
       }
     ]
   }
