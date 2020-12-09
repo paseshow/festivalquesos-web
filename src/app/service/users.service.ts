@@ -35,4 +35,9 @@ export class UsersService {
         if (localStorage.length > 0)
             localStorage.clear();
     }
+
+
+    deleteUser(idUser) {
+        return this.http.delete(environment.apiUrl + this.endpoints + idUser).pipe(take(1));
+    }
 }

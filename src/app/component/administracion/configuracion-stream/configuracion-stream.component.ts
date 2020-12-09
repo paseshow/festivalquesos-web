@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Evento } from '@models/evento';
 import { EventoesService } from '@services/eventoes.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-configuracion-stream',
@@ -10,7 +11,7 @@ import { EventoesService } from '@services/eventoes.service';
 })
 export class ConfiguracionStreamComponent implements OnInit {
 
-
+  @ViewChild('modal', { static: false }) modal: ElementRef;
   listEvent: Evento[];
   formNewEvent: FormGroup;
 
@@ -67,9 +68,18 @@ export class ConfiguracionStreamComponent implements OnInit {
       next => {
 
       }, error => {
-
-      }
-    )
+        if (error.status == 201) {
+          this.modal.nativeElement.click();
+          this.loadEvents();
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Evento guardado con exito!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      });
   };
 
   // ---------------------------------------------------------------------------------------------
@@ -77,6 +87,46 @@ export class ConfiguracionStreamComponent implements OnInit {
   // ----------------------------------------------------------------------------------------------
   editEvent(i: number): void {
     debugger
+  }
+
+  // -------------------------------------------------------------------------------------
+  // Buscamos el id del respectivo evento con el indice que trae de parametro y eliminamos
+  // -------------------------------------------------------------------------------------
+  deletEvent(i: number): void {
+
+    let idEvento = this.listEvent[i].id;
+
+    Swal.fire({
+      title: '¿Seguro que quiere eliminar esté evento?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, quiero eliminarlo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.eventoesService.deleteEvent(idEvento).subscribe(
+          next => {
+
+          }, (error: Response) => {
+            if (error.status == 201) {
+              this.loadEvents();
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Evento eliminado!',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          });
+      }
+    })
+  };
+
+  codigosEvent(i: number): void {
+
   }
 
 }

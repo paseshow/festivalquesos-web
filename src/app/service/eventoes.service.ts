@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
 import { Evento } from '@models/evento';
 import { Observable, Observer } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { map, take } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class EventoesService {
@@ -21,5 +21,9 @@ export class EventoesService {
 
     saveNewEvent(formEvent) {
         return this.http.post(environment.apiUrl + this.endPoint + 'add', formEvent).pipe(take(1));
+    }
+
+    deleteEvent(IdEvent) {
+        return this.http.delete(environment.apiUrl + this.endPoint + IdEvent).pipe(take(1));
     }
 }

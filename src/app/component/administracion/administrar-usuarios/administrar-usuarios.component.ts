@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewUser, User } from '@models/user';
 import { UsersService } from '@services/users.service';
@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class AdministrarUsuariosComponent implements OnInit {
 
+  @ViewChild('modal', { static: false }) modal: ElementRef;
   formNewUser: FormGroup;
   users: User[];
   isLoading: boolean;
@@ -58,14 +59,11 @@ export class AdministrarUsuariosComponent implements OnInit {
 
   // ---------------------------------------
   // Metodo para crear nuevo usuarios.
-  // Solo para roles super admin
+  // Solo para roles admin
   // ---------------------------------------
-  saveUsuario() {
-
+  saveUsuario(): void {
     this.msjError = '';
-
     let newUser = new NewUser();
-
     newUser.name = this.formNewUser.get("name").value;
     newUser.nameUser = this.formNewUser.get("nameUser").value;
     newUser.email = this.formNewUser.get("email").value;
@@ -74,24 +72,58 @@ export class AdministrarUsuariosComponent implements OnInit {
 
     this.usersService.createdNewuser(newUser).subscribe(
       next => {
-        this.loadUsers();
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Usuario creado exitosamente!',
-          showConfirmButton: false,
-          timer: 1500
-        })
       }, error => {
-
-        this.formNewUser.reset();
-
-        let errorObj = JSON.parse(JSON.stringify(error));
-
-        this.msjError = errorObj.error.error.descripcion;
-
+        if (error.status == 201) {
+          this.modal.nativeElement.click();
+          this.loadUsers();
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Usuario creado exitosamente!',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        } else {
+          this.formNewUser.reset();
+          let errorObj = JSON.parse(JSON.stringify(error));
+          this.msjError = errorObj.error.error.descripcion;
+        }
       }
     )
+  };
+
+  // ----------------------------------------------------------------------------------------------
+  // Eliminamos usuario , partiendo del indice obtenemos el id del usuario correspondiente de Users
+  // ----------------------------------------------------------------------------------------------
+  deletUser(i: number): void {
+    let idUser = this.users[i].id;
+
+    Swal.fire({
+      title: '¿Seguro que quiere eliminar esté usuario?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, quiero eliminarlo!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.usersService.deleteUser(idUser).subscribe(
+          next => {
+          }, (error: Response) => {
+            if (error.status == 200) {
+              this.loadUsers();
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Usuario eliminado!',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          });
+      }
+    })
   }
 
 }
