@@ -12,6 +12,7 @@ export class ModalFormComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     ($('#modalFormInit') as any).modal('show');
+  
   }
 
   ngOnInit(): void {

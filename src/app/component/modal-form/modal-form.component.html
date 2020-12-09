@@ -3,7 +3,7 @@
   Launch demo modal
 </button> aria-hidden="true" -->
 
-<div class="modal fade" id="modalFormInit" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="modalFormInit" aria-labelledby="exampleModalLabel" data-backdrop="static">
   <div class="modal-dialog">
     <div class="modal-content d-flex justify-content-center">
       <div class="modal-body">
@@ -14,17 +14,17 @@
         <form>
           <div class="form-group">
             <label for="nombreForm" aria-placeholder="nombre completo"></label>
-            <input type="text" class="form-control" id="nombreForm" placeholder="Nombre Completo">
+            <input type="text" required class="form-control" id="nombreForm" placeholder="Nombre Completo">
 
             <label for="exampleInputEmail1" aria-placeholder="email"></label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            <input type="email" required class="form-control" id="exampleInputEmail1" placeholder="Email">
             <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email con otras personas.</small>
 
             <label for="telForm" aria-placeholder="telefono"></label>
-            <input type="tel" class="form-control" id="telForm" placeholder="Teléfono">
+            <input type="tel" required class="form-control" id="telForm" placeholder="Teléfono">
 
             <label for="questionForm" aria-placeholder="telefono"></label>
-            <input type="text" class="form-control" id="questionForm" placeholder="¿Cómo conseguiste la entrada?">
+            <input type="text" required class="form-control" id="questionForm" placeholder="¿Cómo conseguiste la entrada?">
 
           </div>
 
@@ -40,7 +40,7 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck2">
           </div>
 
-          <button type="submit" class="btn btnStyle">Continuar</button>
+          <button type="submit" class="btn btnStyle" data-dismiss="modal">Continuar</button>
         </form>
         <!--END FORM-->
 
