@@ -9,8 +9,9 @@ export class ModalFormComponent implements AfterViewInit {
   @ViewChild("container") templateModal: ElementRef;
 
   constructor() { }
+
   ngAfterViewInit(): void {
-    ($('#exampleModal') as any).modal('show')
+    ($('#modalFormInit') as any).modal('show');
   }
 
   ngOnInit(): void {
