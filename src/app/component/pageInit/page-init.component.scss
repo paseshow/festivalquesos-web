@@ -10,7 +10,28 @@
 
 .card {
     max-width: 35rem;
+    cursor: pointer;
 }
+
+.orderTextOfImage{
+    display: inline-flex;
+    justify-content: space-around;
+    position: relative;
+    bottom: 38px;
+    color:white;
+    
+}
+
+.orderTextOfImage > h3{
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.orderTextOfImage > span{
+    font-size: 18px;
+    font-weight: 600;
+}
+
 
 .card-img-top {
     width: 100%;
@@ -24,7 +45,7 @@
 .font-weight-bolder {
     font-size: 50px;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 8px;
 }
 
 .textoCata {
@@ -58,6 +79,12 @@
 .btnIngresar {
     background-color: #e8be33;
     color: white;
+}
+
+.titlePageInit{
+    text-align: center;
+    color: white;
+    margin-top: 2rem;
 }
 
 @media screen and (max-width: 878px) {
