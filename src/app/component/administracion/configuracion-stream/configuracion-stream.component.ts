@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Evento } from '@models/evento';
 import { EventoesService } from '@services/eventoes.service';
 import Swal from 'sweetalert2';
@@ -17,7 +18,8 @@ export class ConfiguracionStreamComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private eventoesService: EventoesService
+    private eventoesService: EventoesService,
+    private route: Router
   ) {
   }
 
@@ -125,7 +127,13 @@ export class ConfiguracionStreamComponent implements OnInit {
     })
   };
 
+
+  // -----------------------------------------------------------------------------------------
+  // Redirigimos hacia el modal evento para poder cargar los codigos correspondiente al evento
+  // -----------------------------------------------------------------------------------------
   codigosEvent(i: number): void {
+
+    this.route.navigate(['configuracionEvento/stream/codigos/', this.listEvent[i].id]);
 
   }
 

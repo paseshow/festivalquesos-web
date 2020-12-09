@@ -27,7 +27,6 @@ import { PageErrorComponent } from './page-error/page-error.component';
         ConfiguracionEventoComponent,
         AdministrarUsuariosComponent,
         ConfiguracionStreamComponent,
-        ModalEventoComponent,
         PageErrorComponent
     ],
     providers: [],

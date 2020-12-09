@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-modal-form',
   templateUrl: './modal-form.component.html',
@@ -8,7 +9,11 @@ export class ModalFormComponent implements AfterViewInit {
 
   @ViewChild("container") templateModal: ElementRef;
 
-  constructor() { }
+  formInit: FormGroup;
+
+  constructor(
+    private fb: FormBuilder
+  ) { }
 
   ngAfterViewInit(): void {
     ($('#modalFormInit') as any).modal('show');
