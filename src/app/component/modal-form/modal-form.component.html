@@ -10,20 +10,22 @@
                 <h2>Bienvenido</h2>
 
                 <!--START FORM-->
-                <form [formGroup]="formInit">
+                <form [formGroup]="modalForm" (ngSubmit)="onSubmit()">
                     <div class="form-group">
+
                         <label for="nombreForm" aria-placeholder="nombre completo"></label>
-                        <input type="text" required class="form-control" id="nombreForm" placeholder="Nombre Completo">
+                        <input type="text" formControlName="completeName" class="form-control" id="nombreForm" placeholder="Nombre Completo" [ngClass]="{ 'is-invalid': submitted && fm.completeName.errors }">
 
                         <label for="exampleInputEmail1" aria-placeholder="email"></label>
-                        <input type="email" required class="form-control" id="exampleInputEmail1" placeholder="Email">
+                        <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && fm.email.errors }">
+
                         <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email con otras personas.</small>
 
                         <label for="telForm" aria-placeholder="telefono"></label>
-                        <input type="tel" required class="form-control" id="telForm" placeholder="Teléfono">
+                        <input type="tel" formControlName="phone" class="form-control" id="telForm" placeholder="Teléfono" [ngClass]="{ 'is-invalid': submitted && fm.phone.errors }">
 
                         <label for="questionForm" aria-placeholder="telefono"></label>
-                        <input type="text" required class="form-control" id="questionForm" placeholder="¿Cómo conseguiste la entrada?">
+                        <input type="text" formControlName="question" class="form-control" id="questionForm" placeholder="¿Cómo conseguiste la entrada?" [ngClass]="{ 'is-invalid': submitted && fm.question.errors }">
 
                     </div>
 
@@ -39,9 +41,9 @@
                         <input type="checkbox" class="form-check-input" id="exampleCheck2">
                     </div>
 
-                    <button type="submit" class="btn btnStyle" data-dismiss="modal">Continuar</button>
+                    <button #buttonCloseModal type="submit" class="btn btnStyle" [attr.data-dismiss]="modalForm.valid ?'modal' : ''">Continuar</button>
                 </form>
-                <!--END FORM-->
+                <!--END FORM -->
 
             </div>
 
