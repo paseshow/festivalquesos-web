@@ -1,0 +1,3 @@
+<div class="container-fluid">
+    <div id="player" [plyrOptions]="opcionesReproductor" plyr [plyrPlaysInline]="true" [plyrSources]="sourceVideo" (plyrInit)="reproductor = $event" (plyrPlay)="played($event)"></div>
+</div>
