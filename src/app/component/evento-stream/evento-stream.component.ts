@@ -1,6 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '@services/common.service';
 import * as CryptoJS from "crypto-js";
 import * as Plyr from "plyr";
+
+
+export class Marcas {
+  title: string;
+  telefono: string;
+  gmail: string;
+  direccion: string;
+  link: string;
+};
 
 @Component({
   selector: 'app-evento-stream',
@@ -14,8 +24,12 @@ export class EventoStreamComponent implements OnInit {
   opcionesReproductor: Plyr.Options;
   reproductor: Plyr;
   sourceVideo: Plyr.Source[];
+  marcas: Marcas[];
 
-  constructor() {
+  constructor(
+    private commonService: CommonService
+  ) {
+    this.marcas = [];
     this.urlStream = '';
     this.reproductor = new Plyr("#player");
     this.opcionesReproductor = {
@@ -25,6 +39,7 @@ export class EventoStreamComponent implements OnInit {
       keyboard: { focused: false, global: false },
       youtube: { noCookie: false },
     };
+    this.loadCatalogosMarca();
   }
 
   // ---------------------------------------
@@ -102,6 +117,13 @@ export class EventoStreamComponent implements OnInit {
   //----------------------------------
   // Metodo propio de la libreria Plyr
   //----------------------------------
-  played(event: Plyr.PlyrEvent) { }
+  played(event: Plyr.PlyrEvent) { };
+
+  // ----------------------------------------------
+  // Creamos arreglo de marcas , cargando los datos
+  // ----------------------------------------------
+  loadCatalogosMarca() {
+    this.marcas = this.commonService.getMarcas();
+  }
 
 }

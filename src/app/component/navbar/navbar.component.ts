@@ -84,4 +84,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/autentificacion/']);
   }
 
+
+  smmoothScroll(seccion: string) {
+    document.getElementById(`${seccion}`).scrollIntoView();
+  }
 }
