@@ -8,15 +8,20 @@
     padding: 0;
 }
 
+.row{
+    margin-left: 4rem;
+    margin-right: 4rem;
+}
+
 .card {
-    max-width: 35rem;
+    max-width: 29rem;
     cursor: pointer;
     margin-bottom: 3rem;
     
 }
 
 .card-body{
-    max-height: 105px;
+    max-height: 94px;
     padding: 12px;
 }
 
@@ -116,5 +121,9 @@
     .card-text {
         font-size: 14px;
         margin-bottom: unset;
+    }
+    .row{
+        margin-left: unset;
+        margin-right: unset;
     }
 }
