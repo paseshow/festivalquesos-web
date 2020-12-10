@@ -15,7 +15,7 @@ import { ModalFormComponent } from './modal-form/modal-form.component';
         ModalFormComponent
     ],
     declarations: [
-        ModalFormComponent
+        ModalFormComponent,
     ],
     providers: [],
 })
