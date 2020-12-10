@@ -10,7 +10,7 @@
                 <h2>Bienvenido</h2>
 
                 <!--START FORM-->
-                <form [formGroup]="modalForm" (ngSubmit)="onSubmit()">
+                <form [formGroup]="modalForm">
                     <div class="form-group">
 
                         <label for="nombreForm" aria-placeholder="nombre completo"></label>
@@ -40,8 +40,8 @@
                         <label class="form-check-label formCheckbox" for="exampleCheck2">Suscribirme a noticias</label>
                         <input type="checkbox" class="form-check-input" id="exampleCheck2">
                     </div>
-
-                    <button #buttonCloseModal type="submit" class="btn btnStyle" [attr.data-dismiss]="modalForm.valid ?'modal' : ''">Continuar</button>
+                    <!-- [attr.data-dismiss]="modalForm.valid ?'modal' : ''" -->
+                    <button #buttonCloseModal type="button" class="btn btnStyle" (click)="onSubmit()" data-dismiss="modal">Continuar</button>
                 </form>
                 <!--END FORM -->
 

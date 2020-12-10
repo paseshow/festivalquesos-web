@@ -48,7 +48,7 @@ export class EventoStreamComponent implements OnInit {
   ngOnInit(): void {
 
     if (localStorage.length > 1) {
-      this.urlStream = localStorage.getItem("enc");
+      this.urlStream = localStorage.getItem("dghjoi3543u");
 
       const fechaActual = new Date().getTime();
 
@@ -84,7 +84,7 @@ export class EventoStreamComponent implements OnInit {
   // @params: url del stream (desencriptada)
   // --------------------------------------------------
   comenzarStream(urlStream: string, controles?: string[]): void {
-
+    this.esHoraShow = true;
     this.opcionesReproductor = {
       clickToPlay: this.esHoraShow,
       fullscreen: { enabled: true, fallback: true, iosNative: false },

@@ -196,7 +196,7 @@
         </div>
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header ">
@@ -212,28 +212,28 @@
                         <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
                         <button type="button" class="btn btn-warning">INGRESAR</button>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- Modal -->
-                <form [formGroup]="formCodigo" (ngSubmit)="openStream()">
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header ">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">CATA DE QUESOS</h5>
-                                </div>
-                                <div class="modal-body">
-                                    <p class="font-weight-normal text-break textCodigos">
-                                        En el interior de la caja encontraras el código de ingreso.
-                                    </p>
-                                    <input formControlName="codigoIngreso" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
-                                </div>
-                                <div class="modal-footer" style="align-items: center;">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
-                                    <button type="button" class="btn btn-warning" [disabled]="formCodigo.invalid">INGRESAR</button>
-                                </div>
-                            </div>
+        <!-- Modal -->
+        <form [formGroup]="formCodigo" (ngSubmit)="openStream()">
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header ">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">CATA DE QUESOS</h5>
+                        </div>
+                        <div class="modal-body">
+                            <p class="font-weight-normal text-break textCodigos">
+                                En el interior de la caja encontraras el código de ingreso.
+                            </p>
+                            <input formControlName="codigoIngreso" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+                        </div>
+                        <div class="modal-footer" style="align-items: center;">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
+                            <button type="submit" class="btn btn-warning" [disabled]="formCodigo.invalid">INGRESAR</button>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
+        </form>
+    </div>

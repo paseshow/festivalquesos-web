@@ -26,6 +26,7 @@
     "bootstrap": "^4.5.3",
     "crypto-js": "^4.0.0",
     "jquery": "^3.5.1",
+    "ngx-plyr": "^4.0.0",
     "plyr": "^3.6.3",
     "rxjs": "~6.5.4",
     "sweetalert2": "^10.12.3",

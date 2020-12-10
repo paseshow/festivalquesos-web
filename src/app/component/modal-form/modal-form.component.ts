@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Formulario } from '@models/formulario';
+import { FormularioInitService } from '@services/formularioInit.service';
 @Component({
   selector: 'app-modal-form',
   templateUrl: './modal-form.component.html',
@@ -14,7 +16,10 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
   submitted = false;
   buttonCloseModal: any;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private formularioInitService: FormularioInitService
+  ) { }
 
   ngAfterViewInit(): void {
     ($('#modalFormInit') as any).modal('show');
@@ -29,21 +34,43 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
       completeName: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
-      question: ['', [Validators.required, Validators.minLength(4)]]
+      question: ['', [Validators.required, Validators.minLength(4)]],
+      loaddb: [true],
+      suscripcion: [true]
     });
 
   }
 
+  // ----------------------------------------------------------
+  // Validacion de campos requeridos en el formulario modalForm
+  // ----------------------------------------------------------
   onSubmit() {
     this.submitted = true;
-
     if (this.modalForm.valid) {
 
-      this.buttonCloseModal.
+      const form = new Formulario();
 
-        return;
+      form.nombre = this.modalForm.get("completeName").value;
+      form.email = this.modalForm.get("email").value;
+      form.telefono = this.modalForm.get("phone").value;
+      form.descripcionentrada = this.modalForm.get("question").value;
+      form.loaddb = this.modalForm.get("loaddb").value;
+      form.suscripcion = this.modalForm.get("suscripcion").value;
 
+      // guardamos el formulario y la respuesta del back guardamos el id del usuario.
+      this.formularioInitService.addForm(form).subscribe(
+        (resp: Formulario) => {
+          localStorage.setItem("id_user", resp.id.toString());
+        }, error => {
+
+        }
+      )
+
+      return;
     }
   };
+
+
+
 
 }

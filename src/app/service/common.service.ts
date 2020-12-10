@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Formulario } from '@models/formulario';
 import { JwtDTO } from '@models/user';
 import { Marcas } from '../component/evento-stream/evento-stream.component';
 
@@ -8,7 +9,6 @@ export class CommonService {
     user: JwtDTO;
     config: boolean;
     menu: string[];
-
     marcas: Marcas[];
 
     constructor() {
@@ -16,6 +16,8 @@ export class CommonService {
         this.menu = [];
         this.cargarMarcas();
     }
+
+
 
     getConfig(): boolean {
         return this.config;
