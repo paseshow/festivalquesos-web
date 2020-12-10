@@ -133,7 +133,7 @@ export class ConfiguracionStreamComponent implements OnInit {
   // -----------------------------------------------------------------------------------------
   codigosEvent(i: number): void {
 
-    this.route.navigate(['configuracionEvento/stream/codigos/', this.listEvent[i].id]);
+    this.route.navigate([this.route.url, 'codigos']);
 
   }
 

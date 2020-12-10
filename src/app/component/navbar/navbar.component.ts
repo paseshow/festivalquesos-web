@@ -47,9 +47,16 @@ export class NavbarComponent implements OnInit {
         this.logoutB = true;
         let aux = false;
         user.authorities.forEach(anAuth => {
-          if (anAuth.authority.indexOf("ADMIN") != -1) {
-            this.router.navigate(['/configuracionEvento/' + endPoint]);
-            aux = true;
+          if (endPoint == "adminUsuarios") {
+            if (anAuth.authority.indexOf("SUPER") != -1) {
+              this.router.navigate(['/configuracionEvento/' + endPoint]);
+              aux = true;
+            }
+          } else {
+            if (anAuth.authority.indexOf("ADMIN") != -1) {
+              this.router.navigate(['/configuracionEvento/' + endPoint]);
+              aux = true;
+            }
           }
         });
         if (!aux)
@@ -62,6 +69,10 @@ export class NavbarComponent implements OnInit {
       this.router.navigate(['/autentificacion/']);
     }
   };
+
+  validRedirigir(user: JwtDTO, endpoint: string): void {
+
+  }
 
   //-----------------------------------------------------------------------------
   // Metodo para cerrar sesion , borrando localStorage y redireccionando al login
