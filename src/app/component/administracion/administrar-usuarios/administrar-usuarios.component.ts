@@ -15,6 +15,8 @@ export class AdministrarUsuariosComponent implements OnInit {
   users: User[];
   isLoading: boolean;
   msjError: string;
+  viewPassow: boolean;
+  typePassword: string;
 
   constructor(
     private fb: FormBuilder,
@@ -22,6 +24,8 @@ export class AdministrarUsuariosComponent implements OnInit {
   ) {
     this.isLoading = true;
     this.msjError = '';
+    this.viewPassow = false;
+    this.typePassword = "password";
   }
 
   ngOnInit(): void {
@@ -39,9 +43,31 @@ export class AdministrarUsuariosComponent implements OnInit {
       email: ['', [Validators.required]],
       password: ['', [Validators.required]],
       passwordRepeat: ['', [Validators.required]],
-      roleAdmin: [false]
+      roleAdmin: [false],
+      roleSuperAdmin: [false]
     })
   }
+
+  get pass2NoValid() {
+    const pass1 = this.formNewUser.get('password').value;
+    const pass2 = this.formNewUser.get('passwordRepeat').value;
+    return (pass1 === pass2) ? true : false
+  }
+
+  //------------------------------------------
+  // Validamos que ambas contraseñas coincidan
+  //------------------------------------------
+  passwordIguales(password: string, passwordRepeat: string) {
+    return (formGroup: FormGroup) => {
+      const pass1control = formGroup.controls[password];
+      const pass2control = formGroup.controls[passwordRepeat];
+      if (pass1control.value === pass1control.value) {
+        pass2control.setErrors(null);
+      } else {
+        pass2control.setErrors({ noEsigual: true });
+      }
+    }
+  };
 
   // --------------------------------------------
   // Metodo para visualizar los usuarios creados
@@ -68,7 +94,11 @@ export class AdministrarUsuariosComponent implements OnInit {
     newUser.nameUser = this.formNewUser.get("nameUser").value;
     newUser.email = this.formNewUser.get("email").value;
     newUser.password = this.formNewUser.get("password").value;
-    newUser.roles = this.formNewUser.get("roleAdmin").value ? ["admin"] : [""];
+    if (this.formNewUser.get("roleSuperAdmin").value) {
+      newUser.roles = ["super"]
+    } else if (this.formNewUser.get("roleAdmin").value) {
+      newUser.roles = ["admin"];
+    }
 
     this.usersService.createdNewuser(newUser).subscribe(
       next => {
@@ -124,6 +154,11 @@ export class AdministrarUsuariosComponent implements OnInit {
           });
       }
     })
+  };
+
+  viewPass() {
+    this.viewPassow = !this.viewPassow;
+    this.typePassword = this.viewPassow ? "text" : "password";
   }
 
 }

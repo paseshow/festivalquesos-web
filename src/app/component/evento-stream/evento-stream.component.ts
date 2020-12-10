@@ -12,10 +12,12 @@ export class EventoStreamComponent implements OnInit {
   urlStream: string;
   esHoraShow: boolean;
   opcionesReproductor: Plyr.Options;
+  reproductor: Plyr;
   sourceVideo: Plyr.Source[];
 
   constructor() {
     this.urlStream = '';
+    this.reproductor = new Plyr("#player");
     this.opcionesReproductor = {
       clickToPlay: false,
       fullscreen: { enabled: false, fallback: false, iosNative: false },

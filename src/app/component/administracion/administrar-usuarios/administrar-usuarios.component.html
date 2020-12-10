@@ -48,36 +48,66 @@
                 <div class="modal-body">
                     <label for="basic-url">Nombre:</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="name">
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" formControlName="name">
                     </div>
                     <label for="basic-url">Usuario:</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="nameUser">
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" formControlName="nameUser">
                     </div>
                     <label for="basic-url">Email:</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="email">
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" formControlName="email">
                     </div>
                     <label for="basic-url">Contraseña :</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="password">
+                        <input type="{{typePassword}}" class="form-control inputPass" aria-describedby="basic-addon3" formControlName="password">
+                        <svg *ngIf="viewPassow" (click)="viewPass()" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                        </svg>
+                        <svg *ngIf="!viewPassow" (click)="viewPass()" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-eye-slash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.79 12.912l-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                            <path
+                                d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708l-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829z" />
+                            <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z" />
+                        </svg>
                     </div>
                     <label for="basic-url">Repetir Contraseña :</label>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3" formControlName="passwordRepeat">
+                        <input type="{{typePassword}}" class="form-control inputPass" aria-describedby="basic-addon3" formControlName="passwordRepeat">
+                        <svg *ngIf="viewPassow" (click)="viewPass()" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                        </svg>
+                        <svg *ngIf="!viewPassow" (click)="viewPass()" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-eye-slash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.79 12.912l-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                            <path
+                                d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708l-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829z" />
+                            <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z" />
+                        </svg>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" formControlName="roleAdmin">
+                        <input class="form-check-input" type="checkbox" value="" formControlName="roleAdmin">
                         <label class="form-check-label" for="defaultCheck1">
                             ADMIN
                         </label>
                     </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" formControlName="roleSuperAdmin">
+                        <label class="form-check-label" for="defaultCheck1">
+                            SUPER ADMIN
+                        </label>
+                    </div>
                 </div>
                 <label *ngIf="msjError != ''" for="basic-url" style="color: red; text-align: center;">{{msjError}}</label>
-
+                <small *ngIf="!pass2NoValid">No coinciden las contraseñas.</small>
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> -->
-                    <button type="submit" class="btn btn-success" [disabled]="formNewUser.invalid">Guardar</button>
+                    <button type="submit" class="btn btn-success" [disabled]="formNewUser.invalid || !pass2NoValid">Guardar</button>
                 </div>
             </div>
         </div>
