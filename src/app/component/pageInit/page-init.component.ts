@@ -11,9 +11,11 @@ import 'sweetalert2/src/sweetalert2.scss';
 
 export class PageInitComponent implements OnInit {
 
+    
     showModalFormCondition: boolean = true;
-
+    
     constructor() { }
+  
 
     ngOnInit() { }
         
