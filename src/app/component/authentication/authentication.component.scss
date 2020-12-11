@@ -1,0 +1,34 @@
+.card-header {
+    text-align: center;
+    background-color: #e8be33;
+    color: white;
+    font-weight: bold;
+}
+
+.card {
+    max-width: 450px;
+    margin: 15px auto;
+}
+
+.bi-eye-fill {
+    margin: 0 5px;
+}
+
+.bi-eye-slash-fill {
+    margin: 0 5px;
+}
+
+.bi-person-fill {
+    margin: 0 5px;
+}
+
+.btn-outline-success {
+    margin: 0 15px 8px 15px;
+}
+
+@media screen and(max-width: 457px) {
+    .card {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

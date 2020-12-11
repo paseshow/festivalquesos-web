@@ -3,20 +3,21 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { ModalFormComponent } from '../modal-form/modal-form.component';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { ComponentModule } from '../component.module';
 import { PageInitComponent } from './page-init.component';
 import { pageInitRoutes } from './page-Init.routing';
 
 
 @NgModule({
-  declarations: [PageInitComponent,
-    NavbarComponent, ModalFormComponent],
+  declarations: [
+    PageInitComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(pageInitRoutes),
+    ReactiveFormsModule,
     SweetAlert2Module,
-    ReactiveFormsModule
+    ComponentModule
   ]
 })
 export class PageInitModule { }

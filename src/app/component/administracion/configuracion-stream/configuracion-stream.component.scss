@@ -1,0 +1,26 @@
+.tableStream {
+    //max-width: 800px;
+    margin: 10px auto;
+}
+
+.table {
+    margin: 0 auto;
+    // max-width: 300px;
+}
+
+.bi-trash-fill {
+    margin: 0 10px;
+}
+
+.btn {
+    margin-left: 15px;
+}
+
+@media screen and(max-width:360px) {
+    .txtLink {
+        max-width: 73px;
+    }
+    .bi-file-earmark-text-fill {
+        margin: 10px auto;
+    }
+}
