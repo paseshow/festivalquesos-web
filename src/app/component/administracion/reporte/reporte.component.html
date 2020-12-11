@@ -1,1 +1,23 @@
-<p>reporte works!</p>
+<div class="container-fluid">
+    <label>Evento :</label>
+    <div class="input-group mb-3">
+        <select class="custom-select" (change)="onChangeSelect($event.target.value)">
+          <option value="0" selected>Seleccione un evento...</option>
+          <option *ngFor="let event of listEvent" [ngValue]="event.id" >{{event.nameEvent}}</option>
+        </select>
+    </div>
+
+    <div *ngIf="tipoReport">
+        <label>Tipo de reporte :</label>
+        <div class="input-group mb-3">
+            <select class="custom-select" (change)="oncChangeSelectReporte($event.target.value)">
+              <option value="0" selected>Seleccione un evento...</option>
+              <option value="1">Formularios</option>
+              <option value="2">Codigos</option>
+            </select>
+        </div>
+    </div>
+
+    <button *ngIf="validDownloadReport" type="button" class="btn btn-warning btn-lg btn-block">DESCARGAR REPORTE</button>
+
+</div>

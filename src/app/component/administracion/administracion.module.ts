@@ -10,7 +10,7 @@ import { ComponentModule } from '../component.module';
 import { AdministrarUsuariosComponent } from './administrar-usuarios/administrar-usuarios.component';
 import { ConfiguracionStreamComponent } from './configuracion-stream/configuracion-stream.component';
 import { ModalEventoComponent } from './configuracion-stream/modal-evento/modal-evento.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PageErrorComponent } from './page-error/page-error.component';
 import { ReporteComponent } from './reporte/reporte.component';
 
@@ -19,7 +19,8 @@ import { ReporteComponent } from './reporte/reporte.component';
         CommonModule,
         RouterModule.forChild(AdministracionRoutes),
         ComponentModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
     exports: [
 
