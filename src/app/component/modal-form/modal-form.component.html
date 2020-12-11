@@ -24,6 +24,13 @@
                         <label for="telForm" aria-placeholder="telefono"></label>
                         <input type="tel" formControlName="phone" class="form-control" id="telForm" placeholder="Teléfono" [ngClass]="{ 'is-invalid': submitted && fm.phone.errors }">
 
+                        <label for="selectEntity" aria-placeholder="Entidad"></label>
+                        <select class="form-control" id="selectEntity">
+                            <option>Gobierno</option>
+                            <option>Empresa</option>
+                            <option>Algo más</option>
+                        </select>
+
                         <label for="questionForm" aria-placeholder="telefono"></label>
                         <input type="text" formControlName="question" class="form-control" id="questionForm" placeholder="¿Cómo conseguiste la entrada?" [ngClass]="{ 'is-invalid': submitted && fm.question.errors }">
 
