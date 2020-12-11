@@ -32,6 +32,6 @@ export class EventoesService {
     }
 
     updateEvent(event, id) {
-        return this.http.post(environment.apiUrl + this.endPoint + "update/" + id, event).pipe(take(1));
+        return this.http.put(environment.apiUrl + this.endPoint + "update/" + id, event).pipe(take(1));
     }
 }
