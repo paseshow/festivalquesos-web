@@ -25,6 +25,7 @@ export class PageInitComponent implements OnInit {
 
     ngOnInit() {
         this.buildForm();
+        
     }
 
     // -------------------------------------------------------------
@@ -43,7 +44,7 @@ export class PageInitComponent implements OnInit {
         const json = {
             id: this.formCodigo.get("codigoIngreso").value,
             idUser: +localStorage.getItem("id_user"),
-            idEvent: 13
+            idEvent: 1
         }
 
         this.codigosService.validCodigo(JSON.stringify(json)).subscribe(
