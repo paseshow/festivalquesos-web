@@ -32,18 +32,18 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
 
     this.modalForm = this.formBuilder.group({
       completeName: ['', Validators.required],
-      email: ['', Validators.required],
-      phone: ['', Validators.required],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
+      phone: ['', [Validators.required, Validators.pattern("\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})")]], 
       question: ['', [Validators.required, Validators.minLength(4)]],
       loaddb: [true],
       suscripcion: [true]
     });
-
-  }
+  };
 
   // ----------------------------------------------------------
   // Validacion de campos requeridos en el formulario modalForm
   // ----------------------------------------------------------
+
   onSubmit() {
     this.submitted = true;
     if (this.modalForm.valid) {
