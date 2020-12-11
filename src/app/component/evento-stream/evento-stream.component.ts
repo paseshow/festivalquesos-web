@@ -31,14 +31,14 @@ export class EventoStreamComponent implements OnInit {
   ) {
     this.marcas = [];
     this.urlStream = '';
-    this.reproductor = new Plyr("#player");
-    this.opcionesReproductor = {
-      clickToPlay: false,
-      fullscreen: { enabled: false, fallback: false, iosNative: false },
-      controls: [],
-      keyboard: { focused: false, global: false },
-      youtube: { noCookie: false },
-    };
+    // this.reproductor = new Plyr("#player");
+    // this.opcionesReproductor = {
+    //   clickToPlay: false,
+    //   fullscreen: { enabled: false, fallback: false, iosNative: false },
+    //   controls: [],
+    //   keyboard: { focused: false, global: false },
+    //   youtube: { noCookie: false },
+    // };
     this.loadCatalogosMarca();
   }
 
