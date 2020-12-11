@@ -12,47 +12,48 @@ import { CodigosService } from '@services/codigos.service';
 
 
 export class PageInitComponent implements OnInit {
-
+    
+    
     formCodigo: FormGroup;
-
+    
     constructor(
         private fb: FormBuilder,
         private codigosService: CodigosService,
         private router: Router
-    ) {
-    }
-
-    ngOnInit() {
-        this.buildForm();
-    }
-
-    // -------------------------------------------------------------
-    // Inicializamos el formulario para validar el codigo de ingreso
-    // -------------------------------------------------------------
-    buildForm() {
-        this.formCodigo = this.fb.group({
-            codigoIngreso: ['', [Validators.required]]
-        });
-    }
-
-    //-------------------------------------------------------------------------------------
-    // Validamos la fecha y si el codigo que se ingresa corresponde al evento seleccionado.
-    //-------------------------------------------------------------------------------------
-    openStream() {
-        const json = {
-            id: this.formCodigo.get("codigoIngreso").value,
-            idUser: +localStorage.getItem("id_user"),
-            idEvent: 2
+        ) {
         }
+                            
+ngOnInit() {
+    this.buildForm();
+}
 
-        this.codigosService.validCodigo(JSON.stringify(json)).subscribe(
-            (resp: any) => {
-                localStorage.setItem("dghjoi3543u", resp.dghjoi3543u);
-                this.router.navigate(['/stream/']);
-            }, error => {
+// -------------------------------------------------------------
+// Inicializamos el formulario para validar el codigo de ingreso
+// -------------------------------------------------------------
+buildForm() {
+    this.formCodigo = this.fb.group({
+        codigoIngreso: ['', [Validators.required]]
+    });
+}
 
-            }
-        )
+//-------------------------------------------------------------------------------------
+// Validamos la fecha y si el codigo que se ingresa corresponde al evento seleccionado.
+//-------------------------------------------------------------------------------------
+openStream() {
+    const json = {
+        id: this.formCodigo.get("codigoIngreso").value,
+        idUser: +localStorage.getItem("id_user"),
+        idEvent: 2
     }
+
+    this.codigosService.validCodigo(JSON.stringify(json)).subscribe(
+        (resp: any) => {
+            localStorage.setItem("dghjoi3543u", resp.dghjoi3543u);
+            this.router.navigate(['/stream/']);
+        }, error => {
+
+        }
+    )
+}
 
 }
