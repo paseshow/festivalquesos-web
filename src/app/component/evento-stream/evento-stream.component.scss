@@ -50,7 +50,7 @@
 
 .logoAcompañan {
     width: 68px;
-    height: 65px;
+    height: 68px;
     margin: 17px auto;
     vertical-align: middle;
 }
@@ -73,6 +73,7 @@
 
 .card-text {
     font-size: 15px;
+    text-align: left;
 }
 
 .containerFlex {
@@ -84,4 +85,36 @@
     width: 200px;
     height: 200px;
     margin: 0 auto;
+}
+
+.containerCard {
+    max-width: 1580px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.cartadequesos {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: white;
+}
+
+.font-weight-bolder {
+    font-size: 50px;
+    text-align: center;
+    margin-top: 8px;
+}
+
+.textoCata {
+    align-items: center;
+    text-align: left;
+    margin: 10px auto;
+    max-width: 55rem;
+}
+
+@media screen and(max-width: 613px) {
+    .containerCard {
+        width: 300px;
+        margin: 0 auto;
+    }
 }

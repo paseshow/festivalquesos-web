@@ -4,4 +4,5 @@ export class Evento extends CommonUser {
     nameEvent: string;
     linkEvent: string;
     active: boolean | string;
+    fechaEvent: string;
 }

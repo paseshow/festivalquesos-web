@@ -26,4 +26,12 @@ export class EventoesService {
     deleteEvent(IdEvent) {
         return this.http.delete(environment.apiUrl + this.endPoint + IdEvent).pipe(take(1));
     }
+
+    getEventoById(idEvent) {
+        return this.http.get(environment.apiUrl + this.endPoint + idEvent).pipe(take(1));
+    }
+
+    updateEvent(event, id) {
+        return this.http.post(environment.apiUrl + this.endPoint + "update/" + id, event).pipe(take(1));
+    }
 }

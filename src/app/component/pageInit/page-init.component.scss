@@ -1,80 +1,58 @@
 .centerCards {
     margin-top: 50px;
+    margin-right: 15px;
+    margin-left: 15px;
 }
 
 .fondoPageInit {
     background-image: url("../../../assets/images/fondo_tabla.jpg");
     background-size: cover;
-    padding: 0;
+    min-height: 95vh;
 }
 
-.row{
+.row {
     margin-left: 4rem;
     margin-right: 4rem;
 }
 
 .card {
-    max-width: 29rem;
+    max-width: 35rem;
     cursor: pointer;
-   margin-bottom: 2rem;
-    
+    margin-bottom: 2rem;
 }
 
-.card-body{
-   max-height: 94rem;
-   position: relative;
-   bottom: 2rem;
+.card-body {
+    max-height: 94rem;
+    position: relative;
+    bottom: 2rem;
 }
-
 
 .card-text {
     font-size: 16px;
     margin-bottom: -3rem;
-    
 }
 
-.orderTextOfImage{
+.orderTextOfImage {
     display: inline-flex;
     justify-content: space-around;
     position: relative;
     bottom: 38px;
-    color:white;
-    
+    color: white;
 }
 
-.orderTextOfImage > h3{
+.orderTextOfImage>h3 {
     font-size: 19px;
     font-weight: 600;
 }
 
-.orderTextOfImage > span{
+.orderTextOfImage>span {
     font-size: 18px;
     font-weight: 600;
 }
 
-
 .card-img-top {
     width: 100%;
     border-radius: 0%;
-}
-
-.cartadequesos {
-   margin-top: 4rem;
-   padding: 1rem;
-   background-color: white;
-}
-
-.font-weight-bolder {
-    font-size: 50px;
-    text-align: center;
-    margin-top: 8px;
-}
-
-.textoCata {
-    align-items: center;
-    text-align: left;
-    margin: 10px auto;
-    max-width: 55rem;
 }
 
 .modal {
@@ -103,33 +81,40 @@
     color: white;
 }
 
-.titlePageInit{
+.titlePageInit {
     text-align: center;
     color: white;
-    margin-top: 2rem;
+    padding-top: 5rem;
+}
+
+#footer {
+    background-color: #343a40 !important;
+}
+
+.footer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    text-align: center;
+    color: white;
 }
 
 @media screen and (max-width: 878px) {
-    .cartadequesos {
-        font-size: 12px;
-        margin: 0 15px;
-    }
     .font-weight-bolder {
         font-size: 30px;
     }
-
-    .card-body{
-       // max-height: 95px;
+    .card-body {
+        // max-height: 95px;
         position: relative;
         bottom: 3rem;
-     }
-
+    }
     .card-text {
         font-size: 14px;
         margin-bottom: unset;
     }
-    .row{
+    .row {
         margin-left: unset;
         margin-right: unset;
+        padding-bottom: 5rem;
     }
 }
