@@ -40,8 +40,8 @@
                         <label class="form-check-label formCheckbox" for="exampleCheck2">Suscribirme a noticias</label>
                         <input type="checkbox" class="form-check-input" id="exampleCheck2">
                     </div>
-                    <!-- [attr.data-dismiss]="modalForm.valid ?'modal' : ''" -->
-                    <button #buttonCloseModal type="button" class="btn btnStyle" (click)="onSubmit()" data-dismiss="modal">Continuar</button>
+                    <!--  -->
+                    <button #buttonCloseModal type="button" class="btn btnStyle" (click)="onSubmit()" [attr.data-dismiss]="modalForm.valid ?'modal' : ''">Continuar</button>
                 </form>
                 <!--END FORM -->
 

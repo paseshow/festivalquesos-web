@@ -243,18 +243,42 @@ export class CommonService {
                     break;
 
                 case 20:
-
+                    this.marcas.push({
+                        title: 'LOS PINOS',
+                        direccion: 'García Montaño 234 - La Playosa',
+                        telefono: '353 6574004 (Adrian Dario Cordero)',
+                        gmail: 'administracion@lospinossrl.com.ar',
+                        link: 'http://www.quesoslospinos.com.ar/'
+                    });
                     break;
 
                 case 21:
-
+                    this.marcas.push({
+                        title: 'ARROYO CABRAL / ESTILO REAL',
+                        direccion: 'Rivadavia y E. Piacenza - Arroyo Cabral',
+                        telefono: '353 4877018 (Marcelo Pautasso)',
+                        gmail: 'mpautasso@cooparroyocabral.com.ar',
+                        link: 'http://cooparroyocabral.com.ar/'
+                    });
                     break;
                 case 22:
-
+                    this.marcas.push({
+                        title: 'LA NUEVA',
+                        direccion: 'Ruta Nacional N° 9 - Km 657 - Pilar',
+                        telefono: '353 4064493 (Julio Cuadros)',
+                        gmail: 'administracion@lacteoslanueva.com.ar',
+                        link: 'http://www.lacteoslanueva.com.ar/'
+                    });
                     break;
 
                 case 23:
-
+                    this.marcas.push({
+                        title: 'CAYELAC',
+                        direccion: 'Vélez Sarsfield 43 - Las Varas',
+                        telefono: '3533 495272 / 273 (Eduardo Ale)',
+                        gmail: 'info@cayelac.com.ar',
+                        link: 'http://www.cayelac.com.ar/'
+                    });
                     break;
                 case 24:
 

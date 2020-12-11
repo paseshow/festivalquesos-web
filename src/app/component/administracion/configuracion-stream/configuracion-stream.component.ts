@@ -15,12 +15,18 @@ export class ConfiguracionStreamComponent implements OnInit {
   @ViewChild('modal', { static: false }) modal: ElementRef;
   listEvent: Evento[];
   formNewEvent: FormGroup;
+  tituloModal: string;
+  isEdit: boolean;
+  idEvento: number;
 
   constructor(
     private fb: FormBuilder,
     private eventoesService: EventoesService,
     private route: Router
   ) {
+    this.idEvento = 0;
+    this.tituloModal = "Nuevo Evento";
+    this.isEdit = false;
   }
 
   ngOnInit(): void {
@@ -51,6 +57,7 @@ export class ConfiguracionStreamComponent implements OnInit {
     this.formNewEvent = this.fb.group({
       nameEvent: ['', [Validators.required]],
       linkEvent: ['', [Validators.required]],
+      fechaEvento: ['', [Validators.required]],
       active: [false]
     });
   };
@@ -63,33 +70,71 @@ export class ConfiguracionStreamComponent implements OnInit {
     let newEvent = {
       nameEvent: this.formNewEvent.get("nameEvent").value,
       linkEvent: this.formNewEvent.get("linkEvent").value,
+      fechaEvent: this.formNewEvent.get("fechaEvento").value,
       active: this.formNewEvent.get("active").value
     };
 
-    this.eventoesService.saveNewEvent(newEvent).subscribe(
-      next => {
+    if (this.isEdit) {
+      this.eventoesService.updateEvent(newEvent, this.idEvento).subscribe(
+        next => {
 
-      }, error => {
-        if (error.status == 201) {
-          this.modal.nativeElement.click();
-          this.loadEvents();
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Evento guardado con exito!',
-            showConfirmButton: false,
-            timer: 1500
-          });
-        }
-      });
+        }, error => {
+          if (error.status == 200) {
+            this.modal.nativeElement.click();
+            this.loadEvents();
+            this.cleanForm();
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Evento actualizado con exito!',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+        });
+
+    } else {
+      this.eventoesService.saveNewEvent(newEvent).subscribe(
+        next => {
+
+        }, error => {
+          if (error.status == 201) {
+            this.cleanForm();
+
+            this.modal.nativeElement.click();
+            this.loadEvents();
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Evento guardado con exito!',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+        });
+    }
   };
 
   // ---------------------------------------------------------------------------------------------
   // Editamos el evento, como parametro nos llega el indice del evento dentro del arreglo listEvent
   // ----------------------------------------------------------------------------------------------
   editEvent(i: number): void {
-    debugger
-  }
+    this.tituloModal = "Editar Evento";
+    this.isEdit = true;
+    this.idEvento = this.listEvent[i].id;
+
+    this.eventoesService.getEventoById(this.idEvento).subscribe(
+      (next: Evento) => {
+        this.formNewEvent.setValue({
+          nameEvent: next.nameEvent,
+          linkEvent: next.linkEvent,
+          fechaEvento: next.fechaEvent,
+          active: next.active
+        })
+      }, error => {
+
+      });
+  };
 
   // -------------------------------------------------------------------------------------
   // Buscamos el id del respectivo evento con el indice que trae de parametro y eliminamos
@@ -135,6 +180,24 @@ export class ConfiguracionStreamComponent implements OnInit {
 
     this.route.navigate([this.route.url, 'codigos']);
 
+  }
+
+  closeModal() {
+    this.modal.nativeElement.click();
+    this.tituloModal = "Nuevo Evento";
+    this.cleanForm();
+  };
+
+  // ------------------------------
+  // Metodo para limpiar formulario
+  // ------------------------------
+  cleanForm() {
+    this.formNewEvent.setValue({
+      nameEvent: '',
+      linkEvent: '',
+      fechaEvento: '',
+      active: ''
+    });
   }
 
 }
