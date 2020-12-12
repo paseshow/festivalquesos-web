@@ -12,6 +12,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor } from '@services/auth-http.interceptor';
 import { UsersService } from '@services/users.service';
+import { ExcelService } from '@services/excel.service';
 
 
 
@@ -27,6 +28,7 @@ import { UsersService } from '@services/users.service';
     HttpClientModule
   ],
   providers: [
+    ExcelService,
     UsersService,
     {
       provide: HTTP_INTERCEPTORS,

@@ -36,7 +36,8 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
       phone: ['', [Validators.required, Validators.pattern("\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})")]],
       question: ['', [Validators.required, Validators.minLength(4)]],
       loaddb: [true],
-      suscripcion: [true]
+      suscripcion: [true],
+      idEvento: ['', [Validators.required]]
     });
   };
 
@@ -56,6 +57,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
       form.descripcionentrada = this.modalForm.get("question").value;
       form.loaddb = this.modalForm.get("loaddb").value;
       form.suscripcion = this.modalForm.get("suscripcion").value;
+      //form.idEvento
 
       // guardamos el formulario y la respuesta del back guardamos el id del usuario.
       this.formularioInitService.addForm(form).subscribe(
