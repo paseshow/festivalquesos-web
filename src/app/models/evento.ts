@@ -6,3 +6,9 @@ export class Evento extends CommonUser {
     active: boolean | string;
     fechaEvent: string;
 }
+
+export class EventoStream {
+    idEvento: number;
+    fechaEvento: string;
+}
+

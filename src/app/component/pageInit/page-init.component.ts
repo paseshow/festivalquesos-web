@@ -1,7 +1,10 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EventoStream } from '@models/evento';
 import { CodigosService } from '@services/codigos.service';
+import { EventoesService } from '@services/eventoes.service';
 
 @Component({
     selector: 'page-init-app',
@@ -13,18 +16,39 @@ import { CodigosService } from '@services/codigos.service';
 
 export class PageInitComponent implements OnInit {
 
-
+    EventosStream: EventoStream[];
     formCodigo: FormGroup;
 
     constructor(
         private fb: FormBuilder,
         private codigosService: CodigosService,
+        private eventoesSerivce: EventoesService,
         private router: Router
     ) {
+        this.EventosStream = [];
     }
 
     ngOnInit() {
         this.buildForm();
+        this.loadEventos();
+    }
+
+    //------------------------------------------
+    // Obtenemos los eventos activos de la fecha
+    //------------------------------------------
+    loadEventos() {
+        let fecha = formatDate(new Date(), 'yyyy-MM-dd', 'en');
+
+        this.eventoesSerivce.listEventActiveStream(fecha).subscribe(
+            (next: EventoStream[]) => {
+                next.forEach(unEvento => {
+                    unEvento.fechaEvento = unEvento.fechaEvento.substring(11);
+                });
+                this.EventosStream = next;
+
+            }, error => {
+
+            });
     }
 
     // -------------------------------------------------------------
@@ -43,7 +67,7 @@ export class PageInitComponent implements OnInit {
         const json = {
             id: this.formCodigo.get("codigoIngreso").value,
             idUser: +localStorage.getItem("id_user"),
-            idEvent: 13
+            idEvent: this.EventosStream[0].idEvento,
         }
 
         this.codigosService.validCodigo(JSON.stringify(json)).subscribe(

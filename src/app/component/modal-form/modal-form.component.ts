@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Formulario } from '@models/formulario';
+import { EventoesService } from '@services/eventoes.service';
 import { FormularioInitService } from '@services/formularioInit.service';
 @Component({
   selector: 'app-modal-form',
@@ -18,7 +19,8 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formularioInitService: FormularioInitService
+    private formularioInitService: FormularioInitService,
+    private eventoesSerivce: EventoesService
   ) { }
 
   ngAfterViewInit(): void {
@@ -37,14 +39,14 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
       question: ['', [Validators.required, Validators.minLength(4)]],
       loaddb: [true],
       suscripcion: [true],
-      idEvento: ['', [Validators.required]]
     });
   };
 
-  // ----------------------------------------------------------
+  // ---------------------------------------------------------------
   // Validacion de campos requeridos en el formulario modalForm
-  // ----------------------------------------------------------
-
+  // Guardamos los datos con el servicio y cuando se haya guardado
+  // correctamente, obtenemos los eventos que estan activos en el dia
+  // ----------------------------------------------------------------
   onSubmit() {
     this.submitted = true;
     if (this.modalForm.valid) {
@@ -65,14 +67,9 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
           localStorage.setItem("id_user", resp.id.toString());
         }, error => {
 
-        }
-      )
-
+        });
       return;
     }
   };
-
-
-
 
 }

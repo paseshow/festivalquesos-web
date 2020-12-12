@@ -34,4 +34,12 @@ export class EventoesService {
     updateEvent(event, id) {
         return this.http.put(environment.apiUrl + this.endPoint + "update/" + id, event).pipe(take(1));
     }
+
+    listEventActiveStream(fecha) {
+
+        const PARAM = new HttpParams()
+            .append("fechaEvento", fecha);
+
+        return this.http.get(environment.apiUrl + this.endPoint + "active", { params: PARAM }).pipe(take(1));
+    }
 }
