@@ -1,12 +1,15 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CodigosLoad } from '@models/codigos';
 import { Evento } from '@models/evento';
+import { CodigosService } from '@services/codigos.service';
 import { EventoesService } from '@services/eventoes.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
+import * as XLSX from 'xlsx';
 
-
+type AOA = any[][];
 @Component({
   selector: 'app-configuracion-stream',
   templateUrl: './configuracion-stream.component.html',
@@ -14,19 +17,23 @@ import Swal from 'sweetalert2';
 })
 export class ConfiguracionStreamComponent implements OnInit {
 
+  data: AOA = [[1, 2], [3, 4]];
+
   @ViewChild('modal', { static: false }) modal: ElementRef;
+  @ViewChild('inputExcel', { static: false }) inputExcel: ElementRef;
   listEvent: Evento[];
   formNewEvent: FormGroup;
   tituloModal: string;
   isEdit: boolean;
   idEvento: number;
 
+
   constructor(
     private fb: FormBuilder,
     private eventoesService: EventoesService,
     private route: Router,
-    public toastr: ToastrService
-    
+    public toastr: ToastrService,
+    private codigosService: CodigosService,
   ) {
     this.idEvento = 0;
     this.tituloModal = "Nuevo Evento";
@@ -89,13 +96,7 @@ export class ConfiguracionStreamComponent implements OnInit {
             this.modal.nativeElement.click();
             this.loadEvents();
             this.cleanForm();
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Evento actualizado con exito!',
-              showConfirmButton: false,
-              timer: 1500
-            });
+            this.swalExit("Evento actualizado con exito!");
           }
         });
 
@@ -109,13 +110,7 @@ export class ConfiguracionStreamComponent implements OnInit {
 
             this.modal.nativeElement.click();
             this.loadEvents();
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Evento guardado con exito!',
-              showConfirmButton: false,
-              timer: 1500
-            });
+            this.swalExit("Evento guardado con exito!");
           }
         });
     }
@@ -167,27 +162,32 @@ export class ConfiguracionStreamComponent implements OnInit {
           }, (error: Response) => {
             if (error.status == 201) {
               this.loadEvents();
-              Swal.fire({
-                position: 'center',
-                icon: 'success',
-                title: 'Evento eliminado!',
-                showConfirmButton: false,
-                timer: 1500
-              });
+              this.swalExit("Evento eliminado!");
             }
           });
       }
     })
   };
 
+  // ----------------------------------------------
+  // Metodo para mostrar msj de exito con swal fire
+  // -----------------------------------------------
+  swalExit(msj: string): void {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: `${msj}`,
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
 
   // -----------------------------------------------------------------------------------------
   // Redirigimos hacia el modal evento para poder cargar los codigos correspondiente al evento
   // -----------------------------------------------------------------------------------------
   codigosEvent(i: number): void {
-
-    this.route.navigate([this.route.url, 'codigos']);
-
+    this.idEvento = this.listEvent[i].id;
+    this.inputExcel.nativeElement.click();
   }
 
   closeModal() {
@@ -199,13 +199,81 @@ export class ConfiguracionStreamComponent implements OnInit {
   // ------------------------------
   // Metodo para limpiar formulario
   // ------------------------------
-  cleanForm() {
+  cleanForm(): void {
     this.formNewEvent.setValue({
       nameEvent: '',
       linkEvent: '',
       fechaEvento: '',
       active: ''
     });
-  }
+  };
+
+
+  //-----------------------------------------------------------------------------------
+  // Leemos el excel y guardamos en un arreglo, donde el primer elemento son los titulos
+  // de las columnas
+  //------------------------------------------------------------------------------------
+  onFileChange(event) {
+    const target: DataTransfer = <DataTransfer>(event.target);
+    if (target.files.length !== 1) throw new Error('Cannot use multiple files');
+    const reader: FileReader = new FileReader();
+    reader.onload = (e: any) => {
+      /* read workbook */
+      const bstr: string = e.target.result;
+      const wb: XLSX.WorkBook = XLSX.read(bstr, { type: 'binary' });
+
+      /* grab first sheet */
+      const wsname: string = wb.SheetNames[0];
+      const ws: XLSX.WorkSheet = wb.Sheets[wsname];
+
+      /* save data */
+      this.data = <AOA>(XLSX.utils.sheet_to_json(ws, { header: 1 }));
+      this.ordenarDatos(this.data);
+    };
+    reader.readAsBinaryString(target.files[0]);
+  };
+
+
+  // -----------------------------------------------------
+  // Ordenamos los datos del excel previamente establecido
+  // recorremos el arreglo(padre) dataCodigos que dentro de el es otro arreglo(hijo)
+  // donde el arreglo hijo cada elemento corresponde a cada columna del excel
+  // creamos nueva variable (arreglo) siguiendo el modelo de CodigosLoad, seteandolo por default
+  // el id del evento que se selecciono
+  // terminando el metodo realizamos la peticion guardando los datos
+  // -----------------------------------------------------
+  ordenarDatos(datosCodigos: any[]): void {
+    let loadCodigos: CodigosLoad[] = [];
+    for (let i = 1; i < datosCodigos.length; i++) {
+      let etiqueta: string = "";
+      let codigo: number = 0;
+      datosCodigos[i].forEach((element, index) => {
+        switch (index) {
+          case 0:
+            etiqueta = element;
+            break;
+          case 1:
+            codigo = element;
+            break;
+          default:
+            break;
+        }
+      });
+      loadCodigos.push({
+        etiqueta: etiqueta,
+        id: codigo,
+        idEvento: this.idEvento
+      });
+    }
+
+    if (loadCodigos) {
+      this.codigosService.loadCodigos(loadCodigos).subscribe(
+        resp => {
+          this.swalExit("Codigos cargado con exito!");
+        }, error => {
+
+        });
+    }
+  };
 
 }

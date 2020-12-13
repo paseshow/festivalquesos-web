@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Formulario } from '@models/formulario';
+import { EventoesService } from '@services/eventoes.service';
 import { FormularioInitService } from '@services/formularioInit.service';
 import { ToastrService } from 'ngx-toastr';
 @Component({
@@ -20,7 +21,8 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private formularioInitService: FormularioInitService,
-    public toastr: ToastrService
+    public toastr: ToastrService,
+    private eventoesSerivce: EventoesService
   ) { }
 
   ngAfterViewInit(): void {
@@ -39,14 +41,15 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
       selectEntity: ['', Validators.required],
       question: ['', [Validators.required, Validators.minLength(4)]],
       loaddb: [true],
-      suscripcion: [true]
+      suscripcion: [true],
     });
   };
 
-  // ----------------------------------------------------------
+  // ---------------------------------------------------------------
   // Validacion de campos requeridos en el formulario modalForm
-  // ----------------------------------------------------------
-
+  // Guardamos los datos con el servicio y cuando se haya guardado
+  // correctamente, obtenemos los eventos que estan activos en el dia
+  // ----------------------------------------------------------------
   onSubmit() {
     this.submitted = true;
     if (this.modalForm.valid) {
@@ -59,6 +62,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
       form.descripcionentrada = this.modalForm.get("question").value;
       form.loaddb = this.modalForm.get("loaddb").value;
       form.suscripcion = this.modalForm.get("suscripcion").value;
+      //form.idEvento
 
       // guardamos el formulario y la respuesta del back, también guardamos el id del usuario.
       this.formularioInitService.addForm(form).subscribe(
@@ -68,9 +72,9 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
           console.error("Error en modal form:", error)
           this.toastr.error("Problemas en servidor");
 
-        }
-      )
+        });
       return;
     }
   };
+
 }

@@ -18,6 +18,10 @@ export class FormularioInitService {
 
     addForm(formulario): Observable<Formulario> {
         return this.http.put<Formulario>(environment.apiUrl + this.endpoint + 'add', JSON.stringify(formulario)).pipe(take(1));
+    };
+
+    reportFormByIdEvento(idEvento) {
+        return this.http.get(environment.apiUrl + this.endpoint + "report/" + idEvento).pipe(take(1));
     }
 
 }
