@@ -1,9 +1,11 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Evento } from '@models/evento';
 import { EventoesService } from '@services/eventoes.service';
+import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-configuracion-stream',
@@ -22,7 +24,9 @@ export class ConfiguracionStreamComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private eventoesService: EventoesService,
-    private route: Router
+    private route: Router,
+    public toastr: ToastrService
+    
   ) {
     this.idEvento = 0;
     this.tituloModal = "Nuevo Evento";
@@ -45,6 +49,8 @@ export class ConfiguracionStreamComponent implements OnInit {
           anEvent.active = anEvent.active ? 'Si' : 'No';
         })
       }, error => {
+        console.error(error);
+        this.toastr.error("Problemas en servidor");
 
       }
     );
@@ -132,6 +138,8 @@ export class ConfiguracionStreamComponent implements OnInit {
           active: next.active
         })
       }, error => {
+        console.log("Error en getEventoById", error);
+        this.toastr.error("Problemas en servidor");
 
       });
   };

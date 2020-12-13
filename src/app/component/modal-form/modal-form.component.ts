@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Formulario } from '@models/formulario';
 import { FormularioInitService } from '@services/formularioInit.service';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-modal-form',
   templateUrl: './modal-form.component.html',
@@ -18,7 +19,8 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private formularioInitService: FormularioInitService
+    private formularioInitService: FormularioInitService,
+    public toastr: ToastrService
   ) { }
 
   ngAfterViewInit(): void {
@@ -58,20 +60,17 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
       form.loaddb = this.modalForm.get("loaddb").value;
       form.suscripcion = this.modalForm.get("suscripcion").value;
 
-      // guardamos el formulario y la respuesta del back guardamos el id del usuario.
+      // guardamos el formulario y la respuesta del back, también guardamos el id del usuario.
       this.formularioInitService.addForm(form).subscribe(
         (resp: Formulario) => {
           localStorage.setItem("id_user", resp.id.toString());
         }, error => {
+          console.error("Error en modal form:", error)
+          this.toastr.error("Problemas en servidor");
 
         }
       )
-
       return;
     }
   };
-
-
-
-
 }

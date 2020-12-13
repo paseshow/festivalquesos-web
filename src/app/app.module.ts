@@ -1,17 +1,19 @@
 // MODULOS -----------------------------------------------------------
+import { CommonModule } from '@angular/common';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-import { AppRoutes } from './app-routing.module';
-
-
-// COMPONENTES -------------------------------------------------------
-import { AppComponent } from './app.component';
-import { CommonModule } from '@angular/common';
-import { NavbarComponent } from './component/navbar/navbar.component';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthHttpInterceptor } from '@services/auth-http.interceptor';
 import { UsersService } from '@services/users.service';
+import { ToastrModule } from 'ngx-toastr';
+import { AppRoutes } from './app-routing.module';
+// COMPONENTES -------------------------------------------------------
+import { AppComponent } from './app.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
+
+
 
 
 
@@ -24,6 +26,8 @@ import { UsersService } from '@services/users.service';
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     HttpClientModule
   ],
   providers: [

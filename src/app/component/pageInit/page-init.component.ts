@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CodigosService } from '@services/codigos.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'page-init-app',
@@ -19,13 +20,17 @@ export class PageInitComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private codigosService: CodigosService,
-        private router: Router
+        private router: Router,
+        public toastr: ToastrService
     ) {
     }
 
+    // toast(){
+    //     this.toastr.success('somthing');
+    // }
+
     ngOnInit() {
         this.buildForm();
-        
     }
 
     // -------------------------------------------------------------
@@ -51,7 +56,12 @@ export class PageInitComponent implements OnInit {
             (resp: any) => {
                 localStorage.setItem("dghjoi3543u", resp.dghjoi3543u);
                 this.router.navigate(['/stream']);
+                //this.toastr.info("Bienvenido");
+                
             }, error => {
+                console.error(error);
+                this.toastr.error("Problemas en servidor");
+           
 
             }
         )
