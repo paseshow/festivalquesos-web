@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Formulario } from '@models/formulario';
 import { EventoesService } from '@services/eventoes.service';
@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   templateUrl: './modal-form.component.html',
   styleUrls: ['./modal-form.component.scss']
 })
-export class ModalFormComponent implements AfterViewInit, OnInit {
+export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
 
   @ViewChild("container") templateModal: ElementRef;
 
@@ -77,4 +77,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit {
     }
   };
 
+  ngOnDestroy(): void {
+    ($('.modal-backdrop') as any).remove();
+  }
 }

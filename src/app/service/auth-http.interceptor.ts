@@ -54,7 +54,7 @@ export class AuthHttpInterceptor implements HttpInterceptor {
                     }
                     if (err.status === 0 || err.status === 401) {
                         // redirect user to login
-                        this.router.navigate(['/autentificacion/']);
+                        //this.router.navigate(['/autentificacion/']);
                     }
 
                 }
