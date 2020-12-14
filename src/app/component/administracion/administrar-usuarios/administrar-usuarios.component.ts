@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NewUser, User } from '@models/user';
 import { UsersService } from '@services/users.service';
+import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 @Component({
   selector: 'app-administrar-usuarios',
@@ -20,7 +21,8 @@ export class AdministrarUsuariosComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private usersService: UsersService
+    private usersService: UsersService,
+    public toastr: ToastrService,
   ) {
     this.isLoading = true;
     this.msjError = '';
@@ -78,6 +80,9 @@ export class AdministrarUsuariosComponent implements OnInit {
         this.users = next;
         this.isLoading = false;
       }, error => {
+        console.error('error en adminstrar usuario component:', error);
+        this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
+
 
       }
     )

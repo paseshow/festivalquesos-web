@@ -56,8 +56,8 @@ export class ConfiguracionStreamComponent implements OnInit {
           anEvent.active = anEvent.active ? 'Si' : 'No';
         })
       }, error => {
-        console.error(error);
-        this.toastr.error("Problemas en servidor");
+        console.error("Error en configuracion Stream", error);
+        this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
 
       }
     );
@@ -141,7 +141,12 @@ export class ConfiguracionStreamComponent implements OnInit {
         })
       }, error => {
         console.log("Error en getEventoById", error);
-        this.toastr.error("Problemas en servidor");
+        this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
+
+        
+        
+        
+
 
       });
   };
@@ -280,6 +285,8 @@ export class ConfiguracionStreamComponent implements OnInit {
         resp => {
           this.swalExit("Codigos cargado con exito!");
         }, error => {
+          console.error("Error en configuracion Stream:", error)
+          this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
 
         });
     }

@@ -13,8 +13,11 @@
                 <form [formGroup]="modalForm">
                     <div class="form-group">
 
-                        <label for="nombreForm" aria-placeholder="nombre completo"></label>
-                        <input type="text" formControlName="completeName" class="form-control" id="nombreForm" placeholder="Nombre Completo" [ngClass]="{ 'is-invalid': submitted && fm.completeName.errors }">
+                        <label for="nameForm" aria-placeholder="nombre"></label>
+                        <input type="text" formControlName="nombre" class="form-control" id="nameForm" placeholder="Nombre" [ngClass]="{ 'is-invalid': submitted && fm.nombre.errors }">
+
+                        <label for="lastNameForm" aria-placeholder="apellido"></label>
+                        <input type="text" formControlName="apellido" class="form-control" id="lastNameForm" placeholder="Apellido" [ngClass]="{ 'is-invalid': submitted && fm.apellido.errors }">
 
                         <label for="exampleInputEmail1" aria-placeholder="email"></label>
                         <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && fm.email.errors }">
@@ -25,11 +28,14 @@
                         <input type="tel" formControlName="phone" class="form-control" id="telForm" placeholder="Teléfono" [ngClass]="{ 'is-invalid': submitted && fm.phone.errors }">
 
                         <label for="selectEntity"></label>
-                        <select class="form-control" formControlName="selectEntity" id="selectEntity">
+                        <select class="form-control form-control-sm" formControlName="selectSector" id="selectEntity">
                             <option value="" selected hidden>Seleccione su sector</option>
                             <option value="gobierno">Gobierno</option>
                             <option value="empresa">Empresa</option>
-                            <option value="otro">Algo más</option>
+                            <option value="gastronomico">Gastronómico</option>
+                            <option value="medios">Medios de Comunicación</option>
+                            <option value="turismo">Turismo</option>
+                            <option value="otro">Otro</option>
                         </select>
 
                         <label for="questionForm" aria-placeholder="telefono"></label>

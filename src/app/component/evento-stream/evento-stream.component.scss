@@ -106,10 +106,20 @@
 
 .textoCata {
     align-items: center;
-    text-align: left;
+    text-align: justify;
     margin: 10px auto;
     max-width: 55rem;
     font-size: 22px;
+}
+
+.tablaStyle{
+    margin: 2rem;
+    max-width: 40%;
+}
+
+.preparacionReceta{
+    text-align: justify;
+    padding: 20px;
 }
 
 .cardsEventosPasados {

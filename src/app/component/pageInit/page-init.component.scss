@@ -40,7 +40,6 @@
   position: relative;
   bottom: 47px;
   color: white;
-  //  background: rgb(52,58,64);
   background: linear-gradient(0deg, rgba(52, 58, 64, 0.89) 20%, rgba(52, 58, 64, 0.1) 95%);
   height: 3rem;
   align-items: center;
@@ -92,7 +91,8 @@
 }
 
 .titlePageInit {
-  font-family: "scarlet-wood", sans-serif;
+  //font-family: "scarlet-wood", sans-serif;
+ font-family: 'Corben', cursive;
   font-size: 55px;
   text-align: center;
   color: white;

@@ -35,10 +35,11 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.modalForm = this.formBuilder.group({
-      completeName: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       phone: ['', [Validators.required, Validators.pattern("\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})")]],
-      selectEntity: ['', Validators.required],
+      selectSector: ['', Validators.required],
       question: ['', [Validators.required, Validators.minLength(4)]],
       loaddb: [true],
       suscripcion: [true],
@@ -56,11 +57,13 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
 
       const form = new Formulario();
 
-      form.nombre = this.modalForm.get("completeName").value;
+      form.nombre = this.modalForm.get("nombre").value;
+      form.apellido = this.modalForm.get("apellido").value;
       form.email = this.modalForm.get("email").value;
       form.telefono = this.modalForm.get("phone").value;
       form.descripcionentrada = this.modalForm.get("question").value;
       form.loaddb = this.modalForm.get("loaddb").value;
+      form.sector = this.modalForm.get("selectSector").value;
       form.suscripcion = this.modalForm.get("suscripcion").value;
       //form.idEvento
 
@@ -70,7 +73,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
           localStorage.setItem("id_user", resp.id.toString());
         }, error => {
           console.error("Error en modal form:", error)
-          this.toastr.error("Problemas en servidor");
+          this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
 
         });
       return;
