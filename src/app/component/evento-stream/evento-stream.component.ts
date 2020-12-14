@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '@services/common.service';
 import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import * as CryptoJS from "crypto-js";
@@ -38,13 +38,15 @@ export class EventoStreamComponent implements OnInit {
   chatEnable2: boolean;
   chatEnable: boolean;
   loggedIn: boolean;
+  url: boolean;
 
 
   constructor(
     private commonService: CommonService,
     private sanitizationService: DomSanitizer,
     private authSocialService: SocialAuthService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {
     this.marcas = [];
     this.enabledChat = false;
@@ -63,6 +65,11 @@ export class EventoStreamComponent implements OnInit {
       youtube: { noCookie: false },
     };
     this.loadCatalogosMarca();
+    if (this.activatedRoute.snapshot.params.quesos == "quesos") {
+      this.url = true;
+    } else if (this.activatedRoute.snapshot.params.quesos == "Quesos") {
+      this.url = false;
+    }
   }
 
   // ---------------------------------------
