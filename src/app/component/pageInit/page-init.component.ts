@@ -93,18 +93,19 @@ export class PageInitComponent implements OnInit {
 
         let horaHoy = DateHoy.substring(11, 16);
         horaHoy = horaHoy.replace(":", "");
-
+        let url;
         let hora = +horaHoy;
         let horaEvento = +this.EventosStream[i].fechaEvento.replace(":", "");
         if (hora >= horaEvento) {
-
+            url = "Quesos";
             const json = {
                 id: this.formCodigo.get("codigoIngreso").value,
                 idUser: +localStorage.getItem("id_user"),
                 idEvent: this.EventosStream[i].idEvento,
             }
             if (i == 1) {
-                json.id = 1
+                json.id = 1;
+                url = "quesos"
             }
             this.codigosService.validCodigo(JSON.stringify(json)).subscribe(
                 (resp: any) => {
@@ -112,7 +113,7 @@ export class PageInitComponent implements OnInit {
                     if (resp.chat != "true")
                         localStorage.setItem("chat", resp.chat);
                     this.modalCodigo.nativeElement.click();
-                    this.router.navigate([`/stream/`]);
+                    this.router.navigate([`/stream/`, url]);
                 }, error => {
 
                     let errorJson = JSON.parse(JSON.stringify(error));
