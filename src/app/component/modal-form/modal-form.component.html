@@ -24,6 +24,14 @@
                         <label for="telForm" aria-placeholder="telefono"></label>
                         <input type="tel" formControlName="phone" class="form-control" id="telForm" placeholder="Teléfono" [ngClass]="{ 'is-invalid': submitted && fm.phone.errors }">
 
+                        <label for="selectEntity"></label>
+                        <select class="form-control" formControlName="selectEntity" id="selectEntity" >
+                            <option value="" selected hidden>Seleccione su sector</option>
+                            <option value="gobierno">Gobierno</option>
+                            <option value="empresa">Empresa</option>
+                            <option value="otro">Algo más</option>
+                        </select>
+
                         <label for="questionForm" aria-placeholder="telefono"></label>
                         <input type="text" formControlName="question" class="form-control" id="questionForm" placeholder="¿Cómo conseguiste la entrada?" [ngClass]="{ 'is-invalid': submitted && fm.question.errors }">
 
@@ -40,10 +48,10 @@
                         <label class="form-check-label formCheckbox" for="exampleCheck2">Suscribirme a noticias</label>
                         <input type="checkbox" class="form-check-input" id="exampleCheck2">
                     </div>
-                    <!-- [attr.data-dismiss]="modalForm.valid ?'modal' : ''" -->
-                    <button #buttonCloseModal type="button" class="btn btnStyle" (click)="onSubmit()" [attr.data-dismiss]="modalForm.valid ?'modal' : ''">Continuar</button>
+                    <!--  -->
+                    <button #buttonCloseModal type="button" class="btn btnStyle"(click)="onSubmit()" data-dismiss="modal">Continuar</button>
                 </form>
-                <!--END FORM data-dismiss="modal"-->
+                <!-- [attr.data-dismiss]="modalForm.valid ?'modal' : ''" END FORM -->
 
             </div>
 

@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~9.0.1",
+    "@angular/animations": "^9.0.7",
     "@angular/common": "~9.0.1",
     "@angular/compiler": "~9.0.1",
     "@angular/core": "~9.0.1",
@@ -29,6 +29,7 @@
     "file-saver": "^2.0.5",
     "jquery": "^3.5.1",
     "ngx-plyr": "^4.0.0",
+    "ngx-toastr": "^13.2.0",
     "plyr": "^3.6.3",
     "rxjs": "~6.5.4",
     "sweetalert2": "^10.12.3",

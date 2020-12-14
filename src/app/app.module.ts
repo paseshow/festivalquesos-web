@@ -1,20 +1,20 @@
 // MODULOS -----------------------------------------------------------
+import { CommonModule } from '@angular/common';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
+import { ToastrModule } from 'ngx-toastr';
 import { AppRoutes } from './app-routing.module';
 import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 'angularx-social-login';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-
-
-// COMPONENTES -------------------------------------------------------
-import { AppComponent } from './app.component';
-import { NavbarComponent } from './component/navbar/navbar.component';
 
 // SERVICIOS ----------------------------------------------------------------
 import { UsersService } from '@services/users.service';
 import { ExcelService } from '@services/excel.service';
+// COMPONENTES -------------------------------------------------------
+import { AppComponent } from './app.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 import { AuthHttpInterceptor } from '@services/auth-http.interceptor';
 @NgModule({
@@ -27,7 +27,10 @@ import { AuthHttpInterceptor } from '@services/auth-http.interceptor';
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
     HttpClientModule,
-    SocialLoginModule
+    SocialLoginModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     ExcelService,
