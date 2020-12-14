@@ -1,0 +1,39 @@
+.container {
+    padding: 55px 0 20px 0;
+    text-align: center;
+}
+
+.edicionPrincipal {
+    font-weight: bold;
+    font-size: 35px;
+    color: #e8be33;
+}
+
+p {
+    margin: 0 0;
+}
+
+.edicionSecundarias {
+    margin: 0 0;
+    font-size: 25px;
+    color: #e8be33;
+}
+
+.carousel {
+    padding-top: 15px;
+    max-width: 900px;
+    max-height: 550px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.imgCarousel {
+    max-width: 900px;
+    max-height: 550px;
+}
+
+@media screen and(max-width:362px) {
+    .col-sm {
+        padding: 0;
+    }
+}

@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { CommonService } from '@services/common.service';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import * as CryptoJS from "crypto-js";
 import * as Plyr from "plyr";
 
@@ -19,26 +22,46 @@ export class Marcas {
 })
 export class EventoStreamComponent implements OnInit {
 
+
+  @ViewChild("btnChat", { static: false }) btnChat: ElementRef;
+
   urlStream: string;
   esHoraShow: boolean;
   opcionesReproductor: Plyr.Options;
   reproductor: Plyr;
   sourceVideo: Plyr.Source[];
   marcas: Marcas[];
+  urlChatAux: string;
+  urlChat: SafeUrl;
+  msjBtnChat: string;
+  enabledChat: boolean;
+  chatEnable2: boolean;
+  chatEnable: boolean;
+  loggedIn: boolean;
+
 
   constructor(
-    private commonService: CommonService
+    private commonService: CommonService,
+    private sanitizationService: DomSanitizer,
+    private authSocialService: SocialAuthService,
+    private router: Router
   ) {
     this.marcas = [];
+    this.enabledChat = false;
+    this.chatEnable = true;
+    this.chatEnable2 = true;
+    this.msjBtnChat = '';
+    this.urlChat = '';
+    this.urlChat = '';
     this.urlStream = '';
-    // this.reproductor = new Plyr("#player");
-    // this.opcionesReproductor = {
-    //   clickToPlay: false,
-    //   fullscreen: { enabled: false, fallback: false, iosNative: false },
-    //   controls: [],
-    //   keyboard: { focused: false, global: false },
-    //   youtube: { noCookie: false },
-    // };
+    this.reproductor = new Plyr("#player");
+    this.opcionesReproductor = {
+      clickToPlay: false,
+      fullscreen: { enabled: false, fallback: false, iosNative: false },
+      controls: [],
+      keyboard: { focused: false, global: false },
+      youtube: { noCookie: false },
+    };
     this.loadCatalogosMarca();
   }
 
@@ -49,7 +72,7 @@ export class EventoStreamComponent implements OnInit {
 
     if (localStorage.length > 1) {
       this.urlStream = localStorage.getItem("dghjoi3543u");
-
+      this.urlChatAux = localStorage.getItem("chat");
       const fechaActual = new Date().getTime();
 
       this.esHoraShow = false;
@@ -112,18 +135,77 @@ export class EventoStreamComponent implements OnInit {
         provider: "youtube",
       },
     ];
+
+
+    if (this.urlChatAux != "undefined") {
+      this.enabledChat = true;
+      this.authSocialService.authState.subscribe(user => this.loggedIn = user != null)
+      //si urlChat es true, el chat esta activo pero no tiene link.
+      //Formamos link de chat con el id del video de stream
+      if (this.urlChatAux == "true") {
+        this.urlChat = this.sanitizationService.bypassSecurityTrustResourceUrl(
+          "https://www.youtube.com/live_chat?v=" +
+          urlStream +
+          "&embed_domain=" +
+          window.location.hostname +
+          "&dark_theme=1"
+        );
+      } else {
+        this.urlChat = this.sanitizationService.bypassSecurityTrustResourceUrl(
+          this.urlChatAux +
+          "&embed_domain=" +
+          window.location.hostname +
+          "&dark_theme=1"
+        );
+      }
+    }
   };
 
   //----------------------------------
   // Metodo propio de la libreria Plyr
   //----------------------------------
-  played(event: Plyr.PlyrEvent) { };
+  played(event: Plyr.PlyrEvent) {
+  };
 
   // ----------------------------------------------
   // Creamos arreglo de marcas , cargando los datos
   // ----------------------------------------------
-  loadCatalogosMarca() {
+  loadCatalogosMarca(): void {
     this.marcas = this.commonService.getMarcas();
+  }
+
+  // ----------------------------------------------------------------------------
+  // metodo que se utiliza para que cuando el usuario quiere usar el chat, primero
+  // se loguea por una cuenta de gmail de google para que obtenga su usuario de youtube
+  // ---------------------------------------------------------------------------------
+  loginGoogle(): void {
+    if (this.chatEnable) {
+      if (this.chatEnable2) {
+        this.chatEnable2 = false;
+        this.chatEnable = false;
+        this.authSocialService.signIn(GoogleLoginProvider.PROVIDER_ID);
+        this.btnChat.nativeElement.style.backgroundColor = "red";
+        this.msjBtnChat = "Salir del chat";
+      } else {
+        this.msjBtnChat = "Salir del chat";
+        this.loggedIn = true;
+        this.btnChat.nativeElement.style.backgroundColor = "red";
+        this.chatEnable = false;
+      }
+    } else {
+      this.chatEnable = true;
+      this.loggedIn = false;
+      this.btnChat.nativeElement.style.backgroundColor = "#e8be33";
+      this.msjBtnChat = "Ingresar al chat";
+    }
+  };
+
+  // --------------------------------------------------------
+  // Metodo que realiza la redireccion al carousel de edicion
+  // determinando que año se clikeo
+  // --------------------------------------------------------
+  redirigirEvento(año: number) {
+    this.router.navigate(['stream/eventos', año.toString()]);
   }
 
 }

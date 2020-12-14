@@ -65,6 +65,8 @@ export class ConfiguracionStreamComponent implements OnInit {
     this.formNewEvent = this.fb.group({
       nameEvent: ['', [Validators.required]],
       linkEvent: ['', [Validators.required]],
+      linkChat: [''],
+      activeChat: [false],
       fechaEvento: ['', [Validators.required]],
       active: [false]
     });
@@ -78,8 +80,10 @@ export class ConfiguracionStreamComponent implements OnInit {
     let newEvent = {
       nameEvent: this.formNewEvent.get("nameEvent").value,
       linkEvent: this.formNewEvent.get("linkEvent").value,
+      linkChat: this.formNewEvent.get("linkChat").value,
+      activeChat: this.formNewEvent.get("activeChat").value ? true : false,
       fechaEvent: this.formNewEvent.get("fechaEvento").value,
-      active: this.formNewEvent.get("active").value
+      active: this.formNewEvent.get("active").value ? true : false
     };
 
     if (this.isEdit) {
@@ -94,6 +98,7 @@ export class ConfiguracionStreamComponent implements OnInit {
             this.swalExit("Evento actualizado con exito!");
           }
         });
+      this.isEdit = false;
 
     } else {
       this.eventoesService.saveNewEvent(newEvent).subscribe(
@@ -124,6 +129,8 @@ export class ConfiguracionStreamComponent implements OnInit {
         this.formNewEvent.setValue({
           nameEvent: next.nameEvent,
           linkEvent: next.linkEvent,
+          linkChat: next.linkChat,
+          activeChat: next.activeChat,
           fechaEvento: next.fechaEvent,
           active: next.active
         })
@@ -196,8 +203,10 @@ export class ConfiguracionStreamComponent implements OnInit {
     this.formNewEvent.setValue({
       nameEvent: '',
       linkEvent: '',
+      linkChat: '',
+      activeChat: false,
       fechaEvento: '',
-      active: ''
+      active: false
     });
   };
 

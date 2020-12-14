@@ -1,4 +1,6 @@
-<app-modal-form></app-modal-form>
+<div *ngIf="yaRegistrado">
+    <app-modal-form></app-modal-form>
+</div>
 <div class="container-fluid fondoPageInit">
     <h1 class="titlePageInit">LA NOCHE DE NUESTROS QUESOS</h1>
     <div class="container-fluid p-0">
@@ -18,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm centerCards p-0">
+            <div class="col-sm centerCards p-0" (click)="openStream(1)">
                 <div class="card mx-auto">
                     <img class="card-img-top" src="https://images.unsplash.com/photo-1551790629-9d5c2d781d8b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=799&q=80" alt="cheese1">
 
@@ -81,8 +83,8 @@
 
 
         <!-- Modal -->
-        <form [formGroup]="formCodigo" (ngSubmit)="openStream()">
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <form [formGroup]="formCodigo" (ngSubmit)="openStream(0)">
+            <div #modalCodigo class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header ">
@@ -94,6 +96,7 @@
                             </p>
                             <input formControlName="codigoIngreso" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
                         </div>
+                        <small *ngIf="msjErrorValidCodigo != ''" class="txtError">{{msjErrorValidCodigo}}</small>
                         <div class="modal-footer" style="align-items: center;">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button>
                             <button type="submit" class="btn btn-warning" [disabled]="formCodigo.invalid">INGRESAR</button>

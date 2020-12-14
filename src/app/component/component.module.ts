@@ -4,7 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ModalFormComponent } from './modal-form/modal-form.component';
 
-
 @NgModule({
     imports: [
         CommonModule,

@@ -1,4 +1,4 @@
-.container-fluid {
+.containStream {
     background-image: url('../../../assets/images/fondoConQuesos.jpg');
     background-size: cover;
 }
@@ -26,15 +26,16 @@
 }
 
 .outer {
+    padding: 120px 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3);
+    // box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
 
 #player {
     --plyr-color-main: #EE4323;
-    width: 600px;
+    width: 700px;
     height: auto;
 }
 
@@ -111,9 +112,86 @@
     font-size: 22px;
 }
 
+.cardsEventosPasados {
+    width: 450px;
+    max-height: 18rem;
+}
+
+.cardEdicionPasada {
+    color: #e8be33;
+    font-weight: bold;
+    font-size: 21px;
+}
+
+.contenedor-chat {
+    padding: 90px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.right-corner-container {
+    padding-bottom: 30px;
+    padding-right: 15px;
+    text-align: right;
+    right: 20px;
+    bottom: 45px;
+}
+
+.right-corner-container .right-corner-container-button {
+    height: 57px;
+    width: 57px;
+    border: none;
+    background-color: #e8be33;
+    border-radius: 62px;
+    /*Transform the square into rectangle, sync that value with the width/height*/
+    transition: all 300ms;
+    /*Animation to close the button (circle)*/
+    //box-shadow: 2px 2px 5px #4C4C4C;
+    cursor: pointer;
+}
+
+.right-corner-container .right-corner-container-button:hover {
+    transition: all 400ms cubic-bezier(.62, .1, .5, 1);
+    width: 100px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 @media screen and(max-width: 613px) {
     .containerCard {
         width: 300px;
         margin: 0 auto;
+    }
+}
+
+@media screen and (max-wodth:525px) {
+    .contenedor-chat {
+        padding: 0px;
+    }
+}
+
+@media screen and(max-width:1546px) {
+    .containerCard {
+        max-width: 1250px;
+    }
+    .cardsEventosPasados {
+        width: 450px;
+    }
+}
+
+@media screen and(max-width:1025px) {
+    .containerCard {
+        max-width: 930px;
+    }
+    .cardsEventosPasados {
+        width: 350px;
+    }
+}
+
+@media screen and(max-width:769px) {
+    .cardsEventosPasados {
+        width: 290px;
     }
 }
