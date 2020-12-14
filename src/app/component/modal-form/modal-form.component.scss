@@ -1,0 +1,37 @@
+.modal-content {
+    width: fit-content;
+    padding: 2rem;
+    border-radius: 0%;
+}
+
+// .modal {
+//     z-index: 1000;
+// }
+
+.form-group > input{
+    font-size: 14px;
+}
+
+.modal-body > h2 {
+    text-align: center;
+}
+
+.btnStyle{
+    background-color: #e8be33;
+    width: 100%;
+    margin-top: 3rem ;
+}
+
+.formCheckbox{
+    font-size: 13px;
+}
+
+input[type="checkbox"] .formCheckbox {
+    background-color: #e8be33;
+    color: #e8be33;
+}
+
+input[type="checkbox"] + label{
+    background-color: #e8be33;
+    color: #e8be33;
+}

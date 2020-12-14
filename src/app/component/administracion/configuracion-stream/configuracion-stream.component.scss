@@ -1,0 +1,33 @@
+.tableStream {
+    max-width: 1280px;
+    padding-top: 35px;
+    margin: 10px auto;
+}
+
+.table {
+    margin: 0 auto;
+    // max-width: 300px;
+}
+
+.bi-trash-fill {
+    margin: 0 10px;
+}
+
+.btn {
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+#birthdaytime {
+    width: 100%;
+    height: 43px;
+}
+
+@media screen and(max-width:360px) {
+    .txtLink {
+        max-width: 73px;
+    }
+    .bi-file-earmark-text-fill {
+        margin: 10px auto;
+    }
+}

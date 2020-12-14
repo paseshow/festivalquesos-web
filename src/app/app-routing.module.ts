@@ -1,11 +1,36 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
+
+// { //autentificacion './component/authentication/authentication.module'
+//         path: '',
+//         loadChildren: () => import('./component/pageInit/page-init.module').then(m => m.PageInitModule)
+//       },
 
 
-const routes: Routes = [];
+export const AppRoutes: Routes = [
+  {
+    path: '',
+    children: [
 
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+      {
+        path: '',
+        loadChildren: () => import('./component/pageInit/page-init.module').then(m => m.PageInitModule)
+      },
+      {  
+        path: 'autentificacion',
+        loadChildren: () => import('./component/authentication/authentication.module').then(m => m.AuthenticationModule)
+      },
+      {
+        path: 'configuracionEvento',
+        loadChildren: () => import('./component/administracion/administracion.module').then(m => m.AdministracionModule)
+      },
+      {
+        path: 'form',
+        loadChildren: () => import('./component/modal-form/modal-form.component').then(m => m.ModalFormComponent)
+      },
+      {
+        path: 'stream',
+        loadChildren: () => import('./component/evento-stream/evento-stream.module').then(m => m.EventoStreamModule)
+      }
+    ]
+  },
+];

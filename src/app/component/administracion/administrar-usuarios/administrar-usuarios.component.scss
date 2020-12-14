@@ -1,0 +1,29 @@
+.tableStream {
+    max-width: 900px;
+    margin: 10px auto;
+    padding-top: 35px;
+}
+
+.roles {
+    font-size: 12px;
+}
+
+.bi-trash-fill {
+    margin: 0 10px;
+}
+
+.inputPass {
+    margin-right: 10px;
+}
+
+small {
+    color: red;
+    text-align: center;
+}
+
+@media screen and(max-width:539px) {
+    #exampleModal {
+        max-width: 350px;
+        align-items: center;
+    }
+}
