@@ -9,7 +9,7 @@ const app = express();
 //app.use(sslRedirect());
 
 // Serve only the static files form the dist directory
-app.use(express.static('./dist'));
+app.use(express.static('./dist/festivalQuesoWeb'));
 
 app.get('/*', function(req, res) {
 
