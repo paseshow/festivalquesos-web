@@ -15,7 +15,7 @@ export const AppRoutes: Routes = [
         path: '',
         loadChildren: () => import('./component/pageInit/page-init.module').then(m => m.PageInitModule)
       },
-      {  
+      {
         path: 'autentificacion',
         loadChildren: () => import('./component/authentication/authentication.module').then(m => m.AuthenticationModule)
       },
@@ -28,7 +28,7 @@ export const AppRoutes: Routes = [
         loadChildren: () => import('./component/modal-form/modal-form.component').then(m => m.ModalFormComponent)
       },
       {
-        path: 'stream',
+        path: 'stream/:quesos',
         loadChildren: () => import('./component/evento-stream/evento-stream.module').then(m => m.EventoStreamModule)
       }
     ]
