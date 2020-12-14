@@ -1,0 +1,115 @@
+<div *ngIf="!isLoading" class="tableStream">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Usuario</th>
+                <th scope="col">Roles</th>
+                <th scope="col">Actividad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users, let i = index">
+                <td>{{user.id}}</td>
+                <td>{{user.nameUser}}</td>
+                <td>
+                    <p class="roles" *ngFor="let rol of user.roles">{{rol.rolName}}</p>
+                </td>
+                <td>
+                    <!-- <svg width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="green" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                        <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                      </svg> -->
+                    <svg (click)="deletUser(i)" width="1.5em" height="1.5em" viewBox="0 0 16 16" class="bi bi-trash-fill" fill="red" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5a.5.5 0 0 0-1 0v7a.5.5 0 0 0 1 0v-7z"/>
+                      </svg>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        Agregar Usuario
+    </button>
+</div>
+
+<form [formGroup]="formNewUser" (ngSubmit)="saveUsuario()">
+    <div #modal class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nuevo usuario</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <label for="basic-url">Nombre:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" formControlName="name">
+                    </div>
+                    <label for="basic-url">Usuario:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" formControlName="nameUser">
+                    </div>
+                    <label for="basic-url">Email:</label>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" aria-describedby="basic-addon3" formControlName="email">
+                    </div>
+                    <label for="basic-url">Contraseña :</label>
+                    <div class="input-group mb-3">
+                        <input type="{{typePassword}}" class="form-control inputPass" aria-describedby="basic-addon3" formControlName="password">
+                        <svg *ngIf="viewPassow" (click)="viewPass()" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                        </svg>
+                        <svg *ngIf="!viewPassow" (click)="viewPass()" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-eye-slash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.79 12.912l-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                            <path
+                                d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708l-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829z" />
+                            <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z" />
+                        </svg>
+                    </div>
+                    <label for="basic-url">Repetir Contraseña :</label>
+                    <div class="input-group mb-3">
+                        <input type="{{typePassword}}" class="form-control inputPass" aria-describedby="basic-addon3" formControlName="passwordRepeat">
+                        <svg *ngIf="viewPassow" (click)="viewPass()" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                            <path fill-rule="evenodd"
+                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                        </svg>
+                        <svg *ngIf="!viewPassow" (click)="viewPass()" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-eye-slash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.79 12.912l-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z" />
+                            <path
+                                d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708l-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829z" />
+                            <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z" />
+                        </svg>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" formControlName="roleAdmin">
+                        <label class="form-check-label" for="defaultCheck1">
+                            ADMIN
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" formControlName="roleSuperAdmin">
+                        <label class="form-check-label" for="defaultCheck1">
+                            SUPER ADMIN
+                        </label>
+                    </div>
+                </div>
+                <label *ngIf="msjError != ''" for="basic-url" style="color: red; text-align: center;">{{msjError}}</label>
+                <small *ngIf="!pass2NoValid">No coinciden las contraseñas.</small>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button> -->
+                    <button type="submit" class="btn btn-success" [disabled]="formNewUser.invalid || !pass2NoValid">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
