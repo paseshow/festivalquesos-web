@@ -27,7 +27,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
 
   ngAfterViewInit(): void {
     ($('#modalFormInit') as any).modal('show');
-    
+
   }
 
   get fm() { return this.modalForm.controls; }
@@ -63,7 +63,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
       form.telefono = this.modalForm.get("phone").value;
       form.descripcionentrada = this.modalForm.get("question").value;
       form.loaddb = this.modalForm.get("loaddb").value;
-      form.sector = this.modalForm.get("selectSector").value;
+      form.tipoSector = this.modalForm.get("selectSector").value;
       form.suscripcion = this.modalForm.get("suscripcion").value;
       //form.idEvento
 

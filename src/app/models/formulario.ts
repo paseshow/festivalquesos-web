@@ -5,7 +5,7 @@ export class Formulario {
     email: string;
     telefono: string;
     descripcionentrada: string;
-    sector: any;
+    tipoSector: any;
     loaddb: boolean;
     suscripcion: boolean;
     eventoquesos: any;

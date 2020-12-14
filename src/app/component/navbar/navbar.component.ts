@@ -86,6 +86,10 @@ export class NavbarComponent implements OnInit {
 
 
   smmoothScroll(seccion: string) {
-    document.getElementById(`${seccion}`).scrollIntoView();
+    if (this.router.url.includes("uesos")) {
+      document.getElementById(`${seccion}`).scrollIntoView();
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 }
