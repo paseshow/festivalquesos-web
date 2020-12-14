@@ -83,7 +83,6 @@ export class PageInitComponent implements OnInit {
         }
     }
 
-<<<<<<< HEAD
     //---------------------------------------------------------------------------------------------------------
     // Validamos la fecha y si el codigo que se ingresa corresponde al evento seleccionado.
     // Si estas validaciones se afirman, obtendremos los links de stream y de chat si es que se haya habilitado
@@ -105,19 +104,6 @@ export class PageInitComponent implements OnInit {
             }
             if (i == 1) {
                 json.id = 1
-=======
-        this.codigosService.validCodigo(JSON.stringify(json)).subscribe(
-            (resp: any) => {
-                localStorage.setItem("dghjoi3543u", resp.dghjoi3543u);
-                this.router.navigate(['/stream']);
-                //this.toastr.info("Bienvenido");
-
-            }, error => {
-                console.error(error);
-                this.toastr.error("Problemas en servidor");
-
-
->>>>>>> brFront
             }
             this.codigosService.validCodigo(JSON.stringify(json)).subscribe(
                 (resp: any) => {
