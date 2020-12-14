@@ -39,7 +39,7 @@ export class EventosPasadosComponent implements OnInit {
     }
     switch (anioRe) {
       case "2016":
-        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8];
         this.anioEventoAntes = "2019";
         this.anioEventoDespues = "2017";
         this.anioEvento = "2016";
