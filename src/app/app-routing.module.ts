@@ -28,7 +28,7 @@ export const AppRoutes: Routes = [
         loadChildren: () => import('./component/modal-form/modal-form.component').then(m => m.ModalFormComponent)
       },
       {
-        path: 'stream/:quesos',
+        path: 'stream',
         loadChildren: () => import('./component/evento-stream/evento-stream.module').then(m => m.EventoStreamModule)
       }
     ]
