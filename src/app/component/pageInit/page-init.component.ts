@@ -1,14 +1,12 @@
 import { formatDate } from '@angular/common';
-import { JsonpClientBackend } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { environment } from '@environments/environment';
 import { EventoStream } from '@models/evento';
 import { CodigosService } from '@services/codigos.service';
 import { EventoesService } from '@services/eventoes.service';
-import Swal from 'sweetalert2';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'page-init-app',
@@ -65,6 +63,9 @@ export class PageInitComponent implements OnInit {
                 });
                 this.EventosStream = next;
             }, error => {
+                console.error("Error en page init component:", error)
+                this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
+
             });
     }
 

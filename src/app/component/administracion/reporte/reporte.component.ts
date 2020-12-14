@@ -4,6 +4,7 @@ import { CodigosService } from '@services/codigos.service';
 import { EventoesService } from '@services/eventoes.service';
 import { ExcelService } from '@services/excel.service';
 import { FormularioInitService } from '@services/formularioInit.service';
+import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -25,6 +26,7 @@ export class ReporteComponent implements OnInit {
     private eventoesService: EventoesService,
     private formulariosService: FormularioInitService,
     private codigosService: CodigosService,
+    public toastr: ToastrService,
     private excelService: ExcelService
   ) {
     this.listEvent = [];
@@ -46,6 +48,8 @@ export class ReporteComponent implements OnInit {
       (next: Evento[]) => {
         this.listEvent = next;
       }, error => {
+        console.error("Error en reporte Component:", error)
+        this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
 
       });
   };

@@ -70,7 +70,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
           localStorage.setItem("id_user", resp.id.toString());
         }, error => {
           console.error("Error en modal form:", error)
-          this.toastr.error("Problemas en servidor");
+          this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
 
         });
       return;
