@@ -1,4 +1,4 @@
-var sslRedirect = require('heroku-ssl-redirect');
+//var sslRedirect = require('heroku-ssl-redirect');
 
 const express = require('express');
 const path = require('path');
@@ -6,7 +6,7 @@ const path = require('path');
 const app = express();
 
 // enable ssl redirect
-app.use(sslRedirect());
+//app.use(sslRedirect());
 
 // Serve only the static files form the dist directory
 app.use(express.static('./dist'));
