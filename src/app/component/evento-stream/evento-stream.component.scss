@@ -15,6 +15,24 @@
   color: white;
 }
 
+/// STREAM BOTON
+
+.interactuarBtn{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 86px;
+}
+
+.interactuar{
+  width: 200px;
+  height: 60px;
+  background-color: #e8be33;
+  color: #343a40;
+  font-family: 'Open Sans';
+  font-size: 19px;
+}
+
 .fondoLogos {
   background-color: white;
   border-radius: 100%;
@@ -97,7 +115,9 @@
 .cartadequesos {
   margin-top: 2rem;
   padding: 1rem;
-  background-color: white;
+  background-image: url("../../../assets/images/fondoQuesoGRISCLARO.jpg");
+  //background-size:cover;
+  background-repeat: repeat;
 }
 
 
@@ -115,6 +135,11 @@
   justify-content: space-evenly;
 
 }
+
+// .seccionRecetas{
+//   background-color: #fdc1eb;
+//   padding: 1%;
+// }
 
 .preparacionReceta {
   background-color: #f1f1f193;
@@ -236,6 +261,15 @@
     width: 300px;
     margin: 0 auto;
   }
+
+  // STREAM BOTON
+
+.interactuarBtn{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 63px;
+}
 
   /// Boton Volver al stream ///
 

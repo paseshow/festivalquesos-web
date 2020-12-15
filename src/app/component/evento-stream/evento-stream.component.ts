@@ -72,6 +72,10 @@ export class EventoStreamComponent implements OnInit {
     element.scrollIntoView()
   };
 
+  eventZoom(){
+    window.open('https://stackoverflow.com/questions/50544464/angular-mat-button-link-to-external-url/50544934')
+  }
+
   // ---------------------------------------
   // Validamos la ocupacion del localStorage
   // ---------------------------------------
