@@ -178,6 +178,10 @@
   border-bottom-right-radius: 5px;
 }
 
+.btn{
+    border-radius: 0;
+}
+
 @media screen and(max-width: 613px) {
   .containerCard {
     width: 300px;
