@@ -9,8 +9,8 @@
 }
 
 .logoInit {
-    width: 630px;
-    height: 130px;
+    width: 330px;
+    height: 70px;
 }
 
 .fondoPageInit {
@@ -26,12 +26,13 @@
 
 .card {
     max-width: 35rem;
+    max-height: 530px;
     cursor: pointer;
     margin-bottom: 2rem;
 }
 
 .card-body {
-    max-height: 94rem;
+    max-height: 90rem;
     position: relative;
     bottom: 2rem;
     margin: auto auto;
