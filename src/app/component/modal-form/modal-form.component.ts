@@ -87,7 +87,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
     //let fecha = formatDate(new Date(), 'dd/MM/yyyy HH:mm:ss', 'en');
     //document.getElementById("reloj").innerHTML = fecha;
 
-    var fecha = new Date(2020, 11, 16, 21, 0, 0);
+    var fecha = new Date(2020, 11, 16, 20, 15, 0);
     var hoy = new Date();
     var dias = 0
     var horas = 0
