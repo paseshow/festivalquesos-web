@@ -102,10 +102,11 @@
 
 
 .tituloReceta {
+  margin-top: 3vw;
   margin-bottom: 2vw;
   font-family: 'Corben', cursive;
   text-align: center;
-  color: #F20519;
+  color: #e8be33;
 }
 
 .tableOrden {
@@ -116,12 +117,22 @@
 }
 
 .preparacionReceta {
+  background-color: #f1f1f193;
+  padding: 1rem;
+  height: 100%;
   text-align: justify;
   display: inline-block;
-  max-width: 35vw;
+  max-width: 42vw;
+  position: relative;
+  right: 60px;
 
   & h4 {
     font-family: 'Corben', cursive;
+  }
+  & p {
+
+    font-size: 20px;
+
   }
 }
 
@@ -266,11 +277,20 @@
 }
 
 .preparacionReceta {
+  background-color: none;
+  padding: 1rem;
+  height: unset;
   text-align: justify;
   max-width: 89vw;
+  position: unset;
+  right: 0;
 
   & h4 {
     font-family: 'Corben', cursive;
+    font-size: 20px;
+  }
+  & p{
+    font-size: 18px;
   }
 }
 
