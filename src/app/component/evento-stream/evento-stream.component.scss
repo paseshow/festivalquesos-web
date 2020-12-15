@@ -178,9 +178,20 @@
   border-bottom-right-radius: 5px;
 }
 
-.btn{
-    border-radius: 0;
+.positionBoton{
+    position: fixed;
+    right: 2%;
+    bottom: 4%;
+    z-index: 1000;
 }
+
+.btn{
+    width: 87px;
+    height: 87px;
+    color: #343a40;
+    background-color: #e8be33 ;
+}
+
 
 @media screen and(max-width: 613px) {
   .containerCard {

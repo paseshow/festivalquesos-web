@@ -1,4 +1,4 @@
-<section id="inicio">
+<section id="inicio" #element>
   <div class="containStream">
     <div class="container">
       <div class="row">
@@ -30,7 +30,19 @@
 
 </section>
 
+<!--BOTON PARA SUBIR A STREAM-->
 
+<div class="positionBoton">
+  <button class="btn rounded-circle" type="submit" (click)="scroll(element)">
+    <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-arrow-up"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z" />
+    </svg>
+  </button>
+</div>
+
+<!--NOS ACOMPAÑAN-->
 
 <div class="fondoNosAcompañan">
   <br>
@@ -319,7 +331,7 @@
 
 
       </table>
-      
+
       <div class="preparacionReceta">
         <h4>Preparación</h4>
         <p> Cortar la manteca en cubitos y mantenerla en la heladera hasta el momento de utilizarla.
@@ -592,14 +604,3 @@
     </div>
   </div>
 </section>
-
-<!--BOTON PARA SUBIR A STREAM-->
-
-<div>
-<a class="btn btn-primary" href="#" role="button">
-
-    <button class="btn btn-primary" type="submit">Button</button>
-
-
-</a>
-</div>
