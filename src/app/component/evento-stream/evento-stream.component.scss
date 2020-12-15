@@ -30,6 +30,23 @@
     font-size: 15px;
 }
 
+/// STREAM BOTON
+.interactuarBtn {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 86px;
+}
+
+.interactuar {
+    width: 200px;
+    height: 60px;
+    background-color: #e8be33;
+    color: #343a40;
+    font-family: 'Open Sans';
+    font-size: 19px;
+}
+
 .fondoLogos {
     height: 100px !important;
     max-width: 100px;
@@ -121,11 +138,22 @@
     margin: 0 auto;
 }
 
-////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
 .cartadequesos {
     margin-top: 2rem;
     padding: 1rem;
     background-color: white;
+}
+
+.container-lg {
+    background-color: white;
+    max-width: 1400px;
+}
+
+.cartadequesos {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-image: url("../../../assets/images/fondoQuesoGRISCLARO.jpg");
+    background-size: cover;
 }
 
 .font-weight-bolder {
@@ -156,13 +184,11 @@
     text-align: justify;
     display: inline-block;
     max-width: 42vw;
-    position: relative;
-    right: 60px;
     & h4 {
         font-family: 'Corben', cursive;
     }
     & p {
-        font-size: 20px;
+        font-size: 17px;
     }
 }
 
@@ -265,19 +291,68 @@
     color: #343a40;
 }
 
-.orderTextOfImage {
-    width: 100%;
-    display: inline-flex;
-    justify-content: space-around;
-    position: relative;
-    bottom: 47px;
-    color: white;
-    background: linear-gradient(0deg, rgba(52, 58, 64, 0.89) 20%, rgba(52, 58, 64, 0.1) 95%);
-    height: 3rem;
-    align-items: center;
-    & h3 {
-        font-size: 23px;
-        font-weight: 600;
+@media screen and(max-width: 613px) {
+    .containerCard {
+        width: 300px;
+        margin: 0 auto;
+    }
+    // STREAM BOTON
+    .interactuarBtn {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        bottom: 63px;
+    }
+    /// Boton Volver al stream ///
+    .positionBoton {
+        position: fixed;
+        right: 2%;
+        bottom: 4%;
+        z-index: 1000;
+    }
+    .btn {
+        width: 87px;
+        height: 87px;
+        color: #343a40;
+        background-color: #e8be33;
+    }
+    .volverStream {
+        font-size: 24px;
+        display: block;
+        position: relative;
+        right: 36px;
+        top: 89px;
+        font-family: 'Lobster', cursive;
+        color: #343a40;
+    }
+    .orderTextOfImage {
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-around;
+        position: relative;
+        bottom: 47px;
+        color: white;
+        background: linear-gradient(0deg, rgba(52, 58, 64, 0.89) 20%, rgba(52, 58, 64, 0.1) 95%);
+        height: 3rem;
+        align-items: center;
+        & h3 {
+            font-size: 23px;
+            font-weight: 600;
+        }
+        .preparacionReceta {
+            background-color: unset;
+            padding: 1rem;
+            height: unset;
+            text-align: justify;
+            max-width: 89vw;
+            & h4 {
+                font-family: 'Corben', cursive;
+                font-size: 20px;
+            }
+            & p {
+                font-size: 18px;
+            }
+        }
     }
 }
 
@@ -334,7 +409,6 @@
     }
 }
 
-;
 @media screen and (max-width:525px) {
     .contenedor-chat {
         padding: 0px;

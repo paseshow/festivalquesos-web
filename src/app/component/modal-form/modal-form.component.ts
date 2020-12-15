@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Formulario } from '@models/formulario';
@@ -23,7 +24,8 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
     private formularioInitService: FormularioInitService,
     public toastr: ToastrService,
     private eventoesSerivce: EventoesService
-  ) { }
+  ) {
+  }
 
   ngAfterViewInit(): void {
     ($('#modalFormInit') as any).modal('show');
@@ -42,6 +44,8 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
       selectSector: ['', Validators.required],
       loaddb: [true],
     });
+
+    this.contador();
   };
 
   // ---------------------------------------------------------------
@@ -77,5 +81,36 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     ($('.modal-backdrop') as any).remove();
+  }
+
+  contador() {
+    //let fecha = formatDate(new Date(), 'dd/MM/yyyy HH:mm:ss', 'en');
+    //document.getElementById("reloj").innerHTML = fecha;
+
+    var fecha = new Date(2020, 11, 16, 21, 0, 0);
+    var hoy = new Date();
+    var dias = 0
+    var horas = 0
+    var minutos = 0
+    var segundos = 0
+    if (fecha > hoy) {
+      var diferencia = (fecha.getTime() - hoy.getTime()) / 1000
+      dias = Math.floor(diferencia / 86400)
+      diferencia = diferencia - (86400 * dias)
+      horas = Math.floor(diferencia / 3600)
+      diferencia = diferencia - (3600 * horas)
+      minutos = Math.floor(diferencia / 60)
+      diferencia = diferencia - (60 * minutos)
+      segundos = Math.floor(diferencia)
+      document.getElementById("contador").innerHTML = "" + dias + " : " + horas + " : " + minutos + " : " + segundos;
+      if (dias > 0 || horas > 0 || minutos > 0 || segundos > 0) {
+        setTimeout(() => {
+          this.contador();
+        }, 1000)
+      }
+    }
+    else {
+      document.getElementById("contador").innerHTML = "0 Días ¡Comenzo el Mundial Brasil 2014!";
+    }
   }
 }
