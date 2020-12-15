@@ -1,3 +1,4 @@
+import { Identifiers } from '@angular/compiler';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -23,6 +24,7 @@ export class EventoStreamComponent implements OnInit {
 
 
   @ViewChild("btnChat", { static: false }) btnChat: ElementRef;
+  @ViewChild("inicio") seccionInicio: Identifiers;
 
   urlStream: string;
   esHoraShow: boolean;
@@ -38,6 +40,7 @@ export class EventoStreamComponent implements OnInit {
   chatEnable: boolean;
   loggedIn: boolean;
   url: boolean;
+  element: any;
 
 
   constructor(
@@ -69,6 +72,10 @@ export class EventoStreamComponent implements OnInit {
       this.url = true;
     }
   }
+
+  scroll(element: HTMLElement) {
+    element.scrollIntoView()
+  };
 
   // ---------------------------------------
   // Validamos la ocupacion del localStorage
