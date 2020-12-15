@@ -21,7 +21,7 @@
                         <a class="nav-link" (click)="smmoothScroll('eventosPasados')">EVENTOS ANTERIORES</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link">CONTACTO</a>
+                        <a class="nav-link" (click)="smmoothScroll('ganadores')">GANADORES</a>
                     </li>
                     <li class="nav-item active liLogos">
                         <a href="https://www.instagram.com/minagricba/"><img class="logos" src="../../../assets/images/instagram-logo.png"></a>
@@ -30,30 +30,10 @@
                             <img class="logos" src="../../../assets/images/twitter.png"></a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <ul class="navbar-nav mr-auto">
-                        <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" (click)="smmoothScroll('inicio')">INICIO</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" (click)="smmoothScroll('catalogosMarcas')">CATALOGOS DE MARGAS</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" (click)="smmoothScroll('eventosPasados')">EVENTOS ANTERIORES</a>
-                            </li>
-                            <li class="nav-item active">
-                                <a class="nav-link" (click)="smmoothScroll('ganadores')">GANADORES</a>
-                            </li>
-                            <li class="nav-item active liLogos">
-                                <img class="logos" src="../../../assets/images/instagram-logo.png">
-                                <img class="logos" src="../../../assets/images/facebook.png">
-                                <img class="logos" src="../../../assets/images/twitter.png">
-                            </li>
-                        </ul>
-                    </ul>
-                </form>
+            </ul>
+        </form>
     </div>
+
 
     <div *ngIf="config" class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
