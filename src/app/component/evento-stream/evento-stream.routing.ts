@@ -7,7 +7,7 @@ export const EventoStreamRoutes: Routes = [
         path: '',
         children: [
             {
-                path: '',
+                path: ':quesos',
                 component: EventoStreamComponent
             },
             {

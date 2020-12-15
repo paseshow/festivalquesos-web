@@ -4,25 +4,29 @@
     border-radius: 0%;
 }
 
+#reloj {
+    font-weight: bold;
+    font-size: 25px;
+}
+
 // .modal {
 //     z-index: 1000;
 // }
-
-.form-group > input{
+.form-group>input {
     font-size: 14px;
 }
 
-.modal-body > h2 {
+.modal-body>h2 {
     text-align: center;
 }
 
-.btnStyle{
+.btnStyle {
     background-color: #e8be33;
     width: 100%;
-    margin-top: 3rem ;
+    margin-top: 3rem;
 }
 
-.formCheckbox{
+.formCheckbox {
     font-size: 13px;
 }
 
@@ -31,7 +35,53 @@ input[type="checkbox"] .formCheckbox {
     color: #e8be33;
 }
 
-input[type="checkbox"] + label{
+input[type="checkbox"]+label {
     background-color: #e8be33;
     color: #e8be33;
+}
+
+#contenedor {
+    // text-align: center;
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // width: 450px;
+    // height: 490px;
+    // overflow: hidden;
+    // background: #222;
+    // color: #fff;
+    // font-family: sans-serif;
+    // font-weight: 300;
+    // font-size: 16px;
+}
+
+.bottom {
+    padding-top: 20px;
+}
+
+.r3 {
+    font-weight: bold;
+    font-size: 30px;
+    color: red;
+    background-color: #555;
+    padding: 10px;
+    border: 2px solid #111;
+}
+
+.y3 {
+    font-weight: bold;
+    font-size: 30px;
+    color: yellow;
+    background-color: #555;
+    padding: 10px;
+    border: 2px solid #111;
+}
+
+.b3 {
+    font-weight: bold;
+    font-size: 30px;
+    color: blue;
+    background-color: #555;
+    padding: 10px;
+    border: 2px solid #111;
 }

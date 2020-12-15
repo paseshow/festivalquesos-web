@@ -1,14 +1,13 @@
 import { formatDate } from '@angular/common';
-import { JsonpClientBackend } from '@angular/common/http';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { environment } from '@environments/environment';
 import { EventoStream } from '@models/evento';
 import { CodigosService } from '@services/codigos.service';
+import { CommonService } from '@services/common.service';
 import { EventoesService } from '@services/eventoes.service';
-import Swal from 'sweetalert2';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'page-init-app',
@@ -34,6 +33,7 @@ export class PageInitComponent implements OnInit {
         // private router: Router,
         public toastr: ToastrService,
         private eventoesSerivce: EventoesService,
+        private commonService: CommonService,
         private router: Router
     ) {
         this.EventosStream = [];
@@ -65,6 +65,9 @@ export class PageInitComponent implements OnInit {
                 });
                 this.EventosStream = next;
             }, error => {
+                console.error("Error en page init component:", error);
+                this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
+
             });
     }
 
@@ -92,26 +95,29 @@ export class PageInitComponent implements OnInit {
 
         let horaHoy = DateHoy.substring(11, 16);
         horaHoy = horaHoy.replace(":", "");
-
+        let url;
         let hora = +horaHoy;
         let horaEvento = +this.EventosStream[i].fechaEvento.replace(":", "");
         if (hora >= horaEvento) {
-
+            url = "festival";
             const json = {
                 id: this.formCodigo.get("codigoIngreso").value,
                 idUser: +localStorage.getItem("id_user"),
                 idEvent: this.EventosStream[i].idEvento,
             }
             if (i == 1) {
-                json.id = 1
+                json.id = 1;
+                url = "quesos"
             }
             this.codigosService.validCodigo(JSON.stringify(json)).subscribe(
                 (resp: any) => {
+                    localStorage.setItem("codigos", json.id);
                     localStorage.setItem("dghjoi3543u", resp.dghjoi3543u);
                     if (resp.chat != "true")
                         localStorage.setItem("chat", resp.chat);
                     this.modalCodigo.nativeElement.click();
-                    this.router.navigate([`/stream/`]);
+                    this.commonService.setUrl(url);
+                    this.router.navigate([`/stream/`, url]);
                 }, error => {
 
                     let errorJson = JSON.parse(JSON.stringify(error));

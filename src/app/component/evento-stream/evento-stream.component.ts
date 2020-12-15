@@ -1,6 +1,7 @@
+import { Identifiers } from '@angular/compiler';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '@services/common.service';
 import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import * as CryptoJS from "crypto-js";
@@ -9,7 +10,6 @@ import * as Plyr from "plyr";
 
 export class Marcas {
   title: string;
-  telefono: string;
   gmail: string;
   direccion: string;
   link: string;
@@ -24,6 +24,7 @@ export class EventoStreamComponent implements OnInit {
 
 
   @ViewChild("btnChat", { static: false }) btnChat: ElementRef;
+  @ViewChild("inicio") seccionInicio: Identifiers;
 
   urlStream: string;
   esHoraShow: boolean;
@@ -38,13 +39,15 @@ export class EventoStreamComponent implements OnInit {
   chatEnable2: boolean;
   chatEnable: boolean;
   loggedIn: boolean;
+  url: boolean;
+  element: any;
 
 
   constructor(
     private commonService: CommonService,
     private sanitizationService: DomSanitizer,
     private authSocialService: SocialAuthService,
-    private router: Router
+    private router: Router,
   ) {
     this.marcas = [];
     this.enabledChat = false;
@@ -63,6 +66,19 @@ export class EventoStreamComponent implements OnInit {
       youtube: { noCookie: false },
     };
     this.loadCatalogosMarca();
+    if (this.commonService.getUrl() == "festival") {
+      this.url = false;
+    } else {
+      this.url = true;
+    }
+  }
+
+  scroll(element: HTMLElement) {
+    element.scrollIntoView()
+  };
+
+  eventZoom(){
+    window.open('https://stackoverflow.com/questions/50544464/angular-mat-button-link-to-external-url/50544934')
   }
 
   // ---------------------------------------

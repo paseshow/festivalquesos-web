@@ -4,5 +4,6 @@ import { PageInitComponent } from './page-init.component';
 
 export const pageInitRoutes: Routes = [
     { path: '', component: PageInitComponent },
-    { path: 'form', component: ModalFormComponent }
+    { path: 'form', component: ModalFormComponent },
+   // { path: 'ganadores', component: GanadoresComponent }
 ];
