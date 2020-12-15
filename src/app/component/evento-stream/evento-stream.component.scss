@@ -242,15 +242,37 @@
 
   .volverStream {
     display: none;
-    // font-size: 19px;
-    // display: block;
-    // position: relative;
-    // right: 36px;
-    // top: 89px;
-    // font-family: 'Lobster', cursive;
-    // color: white;
+    font-size: unset;
+    position: unset;
+    right: unset;
+    top: unset;
 
   }
+
+  ////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
+
+
+// .tituloReceta {
+//   margin-bottom: 2vw;
+//   font-family: 'Corben', cursive;
+//   text-align: center;
+// }
+
+.tableOrden {
+  display: unset;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.preparacionReceta {
+  text-align: justify;
+  display: inline-block;
+  max-width: auto;
+
+  & h4 {
+    font-family: 'Corben', cursive;
+  }
+}
 
 }
 
