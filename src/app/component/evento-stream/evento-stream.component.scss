@@ -3,30 +3,44 @@
     background-size: cover;
 }
 
-.containerLogosAcompañantes {
-    padding-bottom: 18px;
+#eventosPasados {
+    background-image: url('../../../assets/images/fondo_quesos_claro.jpg');
+    background-size: cover;
 }
 
-.fondoNosAcompañan {
-    background-color: #343a40;
+#ganadores {
+    background-image: url('../../../assets/images/fondo_quesos_claro.jpg');
+    background-size: cover;
+}
+
+.containerLogosAcompañantes {
+    padding-bottom: 18px;
+    max-width: 1200px;
 }
 
 .textTitle {
-    color: white;
+    color: black;
+    margin-bottom: 0;
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.text-break {
+    font-size: 15px;
 }
 
 .fondoLogos {
-    background-color: white;
-    border-radius: 100%;
     height: 100px !important;
     max-width: 100px;
-    margin: 10px auto;
+    margin: 0 auto;
     text-align: center;
     display: block;
 }
 
 .outer {
-    padding: 120px 0;
+    padding: 80px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,16 +73,22 @@
     max-height: 350px;
 }
 
+.logoMinisterio {
+    max-width: 600px;
+    max-height: 150px
+}
+
 .card {
     margin: 25px 10px 10px 10px;
     width: 290px;
-    height: 400px;
+    height: 380px;
     float: left;
     position: relative;
 }
 
 .card-body {
     padding: 1rem;
+    margin-bottom: 2px;
 }
 
 .card-title {
@@ -86,6 +106,11 @@
 }
 
 .card-img-top {
+    width: 80%;
+    height: 100%;
+}
+
+.cardEvPImg {
     width: 100%;
     height: 100%;
 }
@@ -96,6 +121,7 @@
     margin: 0 auto;
 }
 
+////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
 .cartadequesos {
     margin-top: 2rem;
     padding: 1rem;
@@ -106,6 +132,38 @@
     font-size: 32px;
     text-align: center;
     margin-top: 8px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.tituloReceta {
+    margin-top: 3vw;
+    margin-bottom: 2vw;
+    font-family: 'Corben', cursive;
+    text-align: center;
+    color: #e8be33;
+}
+
+.tableOrden {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.preparacionReceta {
+    background-color: #f1f1f193;
+    padding: 1rem;
+    height: 100%;
+    text-align: justify;
+    display: inline-block;
+    max-width: 42vw;
+    position: relative;
+    right: 60px;
+    & h4 {
+        font-family: 'Corben', cursive;
+    }
+    & p {
+        font-size: 20px;
+    }
 }
 
 .textoCata {
@@ -117,6 +175,10 @@
 }
 
 .tablaStyle {
+    max-width: 500px;
+}
+
+.tablaStyle {
     margin: 2rem;
     max-width: 40%;
 }
@@ -124,8 +186,14 @@
 .preparacionReceta {
     text-align: justify;
     padding: 20px;
+    .seccionRecetas {
+        & h4 {
+            font-family: 'Corben', cursive;
+        }
+    }
 }
 
+////// EVENTOS PASADOS /////
 .cardsEventosPasados {
     width: 450px;
     max-height: 18rem;
@@ -173,6 +241,30 @@
     border-bottom-right-radius: 5px;
 }
 
+.positionBoton {
+    position: fixed;
+    right: 2%;
+    bottom: 4%;
+    z-index: 1000;
+}
+
+.btn {
+    width: 87px;
+    height: 87px;
+    color: #343a40;
+    background-color: #e8be33;
+}
+
+.volverStream {
+    font-size: 24px;
+    display: block;
+    position: relative;
+    right: 36px;
+    top: 89px;
+    font-family: 'Lobster', cursive;
+    color: #343a40;
+}
+
 .orderTextOfImage {
     width: 100%;
     display: inline-flex;
@@ -194,9 +286,56 @@
         width: 300px;
         margin: 0 auto;
     }
+    /// Boton Volver al stream ///
+    .positionBoton {
+        position: fixed;
+        left: 80%;
+        bottom: 4%;
+        z-index: 1000;
+    }
+    .btn {
+        width: 50px;
+        height: 50px;
+        color: #343a40;
+        background-color: #e8be33;
+    }
+    .volverStream {
+        display: none;
+        font-size: unset;
+        position: unset;
+        right: unset;
+        top: unset;
+    }
+    ////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
+    .tituloReceta {
+        font-size: 18px;
+        margin-bottom: 4vw;
+    }
+    .tableOrden {
+        display: unset;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .preparacionReceta {
+        background-color: none;
+        padding: 1rem;
+        height: unset;
+        text-align: justify;
+        max-width: 89vw;
+        position: unset;
+        right: 0;
+        & h4 {
+            font-family: 'Corben', cursive;
+            font-size: 20px;
+        }
+        & p {
+            font-size: 18px;
+        }
+    }
 }
 
-@media screen and (max-wodth:525px) {
+;
+@media screen and (max-width:525px) {
     .contenedor-chat {
         padding: 0px;
     }
@@ -213,15 +352,28 @@
 
 @media screen and(max-width:1025px) {
     .containerCard {
-        max-width: 930px;
+        max-width: 630px;
     }
     .cardsEventosPasados {
         width: 350px;
+    }
+    .logoMinisterio {
+        max-width: 420px;
+        max-height: 150px;
     }
 }
 
 @media screen and(max-width:769px) {
     .cardsEventosPasados {
         width: 290px;
+    }
+    .logoMinisterio {
+        max-width: 320px;
+        max-height: 100px;
+    }
+    .orderTextOfImage {
+        & h3 {
+            font-size: 18px;
+        }
     }
 }

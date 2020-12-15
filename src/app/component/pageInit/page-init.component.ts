@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EventoStream } from '@models/evento';
 import { CodigosService } from '@services/codigos.service';
+import { CommonService } from '@services/common.service';
 import { EventoesService } from '@services/eventoes.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
@@ -32,6 +33,7 @@ export class PageInitComponent implements OnInit {
         // private router: Router,
         public toastr: ToastrService,
         private eventoesSerivce: EventoesService,
+        private commonService: CommonService,
         private router: Router
     ) {
         this.EventosStream = [];
@@ -63,7 +65,7 @@ export class PageInitComponent implements OnInit {
                 });
                 this.EventosStream = next;
             }, error => {
-                console.error("Error en page init component:", error)
+                console.error("Error en page init component:", error);
                 this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
 
             });
@@ -97,7 +99,7 @@ export class PageInitComponent implements OnInit {
         let hora = +horaHoy;
         let horaEvento = +this.EventosStream[i].fechaEvento.replace(":", "");
         if (hora >= horaEvento) {
-            url = "Quesos";
+            url = "festival";
             const json = {
                 id: this.formCodigo.get("codigoIngreso").value,
                 idUser: +localStorage.getItem("id_user"),
@@ -113,6 +115,7 @@ export class PageInitComponent implements OnInit {
                     if (resp.chat != "true")
                         localStorage.setItem("chat", resp.chat);
                     this.modalCodigo.nativeElement.click();
+                    this.commonService.setUrl(url);
                     this.router.navigate([`/stream/`, url]);
                 }, error => {
 
