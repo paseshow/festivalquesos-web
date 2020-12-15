@@ -9,7 +9,6 @@ import * as Plyr from "plyr";
 
 export class Marcas {
   title: string;
-  telefono: string;
   gmail: string;
   direccion: string;
   link: string;
@@ -46,7 +45,6 @@ export class EventoStreamComponent implements OnInit {
     private sanitizationService: DomSanitizer,
     private authSocialService: SocialAuthService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
   ) {
     this.marcas = [];
     this.enabledChat = false;
@@ -65,10 +63,10 @@ export class EventoStreamComponent implements OnInit {
       youtube: { noCookie: false },
     };
     this.loadCatalogosMarca();
-    if (this.activatedRoute.snapshot.params.quesos == "quesos") {
-      this.url = true;
-    } else if (this.activatedRoute.snapshot.params.quesos == "Quesos") {
+    if (this.commonService.getUrl() == "festival") {
       this.url = false;
+    } else {
+      this.url = true;
     }
   }
 
