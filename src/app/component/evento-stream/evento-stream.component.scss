@@ -112,12 +112,16 @@
 
 ////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
 
+.container-lg{
+  background-color: white;
+  max-width: 1400px;
+}
+
 .cartadequesos {
   margin-top: 2rem;
   padding: 1rem;
   background-image: url("../../../assets/images/fondoQuesoGRISCLARO.jpg");
-  //background-size:cover;
-  background-repeat: repeat;
+  background-size:cover;
 }
 
 
@@ -136,11 +140,6 @@
 
 }
 
-// .seccionRecetas{
-//   background-color: #fdc1eb;
-//   padding: 1%;
-// }
-
 .preparacionReceta {
   background-color: #f1f1f193;
   padding: 1rem;
@@ -148,15 +147,13 @@
   text-align: justify;
   display: inline-block;
   max-width: 42vw;
-  position: relative;
-  right: 60px;
 
   & h4 {
     font-family: 'Corben', cursive;
   }
   & p {
 
-    font-size: 20px;
+    font-size: 17px;
 
   }
 }
@@ -311,13 +308,12 @@
 }
 
 .preparacionReceta {
-  background-color: none;
+  background-color: unset;
   padding: 1rem;
   height: unset;
   text-align: justify;
   max-width: 89vw;
-  position: unset;
-  right: 0;
+  
 
   & h4 {
     font-family: 'Corben', cursive;
