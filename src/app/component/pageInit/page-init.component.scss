@@ -1,8 +1,11 @@
 @import url("https://p.typekit.net/p.css?s=1&k=epz6nwf&ht=tk&f=43882&a=3270395&app=typekit&e=css");
 .centerCards {
-    margin-top: 40px;
     margin-right: 15px;
     margin-left: 15px;
+}
+
+.cardDv {
+    padding-top: 15px;
 }
 
 .fondoPageInit {
@@ -55,6 +58,7 @@
 
 .card-img-top {
     width: 100%;
+    height: 90%;
     border-radius: 0%;
 }
 
