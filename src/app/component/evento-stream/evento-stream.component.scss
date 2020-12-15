@@ -229,6 +229,21 @@
             width: 300px;
             margin: 0 auto;
         }
+        .positionBoton {
+            position: fixed;
+            left: 80%;
+            bottom: 4%;
+            z-index: 1000;
+        }
+        .btn {
+            width: 50px;
+            height: 50px;
+            color: #343a40;
+            background-color: #e8be33;
+        }
+        .volverStream {
+            display: none;
+        }
     }
     @media screen and (max-wodth:525px) {
         .contenedor-chat {
