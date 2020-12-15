@@ -121,6 +121,7 @@
     margin: 0 auto;
 }
 
+////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
 .cartadequesos {
     margin-top: 2rem;
     padding: 1rem;
@@ -131,6 +132,38 @@
     font-size: 32px;
     text-align: center;
     margin-top: 8px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.tituloReceta {
+    margin-top: 3vw;
+    margin-bottom: 2vw;
+    font-family: 'Corben', cursive;
+    text-align: center;
+    color: #e8be33;
+}
+
+.tableOrden {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.preparacionReceta {
+    background-color: #f1f1f193;
+    padding: 1rem;
+    height: 100%;
+    text-align: justify;
+    display: inline-block;
+    max-width: 42vw;
+    position: relative;
+    right: 60px;
+    & h4 {
+        font-family: 'Corben', cursive;
+    }
+    & p {
+        font-size: 20px;
+    }
 }
 
 .textoCata {
@@ -160,6 +193,7 @@
     }
 }
 
+////// EVENTOS PASADOS /////
 .cardsEventosPasados {
     width: 450px;
     max-height: 18rem;
@@ -252,6 +286,7 @@
         width: 300px;
         margin: 0 auto;
     }
+    /// Boton Volver al stream ///
     .positionBoton {
         position: fixed;
         left: 80%;
@@ -266,10 +301,41 @@
     }
     .volverStream {
         display: none;
+        font-size: unset;
+        position: unset;
+        right: unset;
+        top: unset;
+    }
+    ////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
+    .tituloReceta {
+        font-size: 18px;
+        margin-bottom: 4vw;
+    }
+    .tableOrden {
+        display: unset;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .preparacionReceta {
+        background-color: none;
+        padding: 1rem;
+        height: unset;
+        text-align: justify;
+        max-width: 89vw;
+        position: unset;
+        right: 0;
+        & h4 {
+            font-family: 'Corben', cursive;
+            font-size: 20px;
+        }
+        & p {
+            font-size: 18px;
+        }
     }
 }
 
-@media screen and (max-wodth:525px) {
+;
+@media screen and (max-width:525px) {
     .contenedor-chat {
         padding: 0px;
     }

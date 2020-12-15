@@ -1,4 +1,3 @@
-import { IfStmt } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtDTO } from '@models/user';
@@ -15,6 +14,7 @@ export class NavbarComponent implements OnInit {
   @Input() optinesNavbar: string;
   config: boolean;
   logoutB: boolean;
+  inst: string = "https://www.instagram.com/minagricba/";
 
   constructor(
     private commonService: CommonService,
