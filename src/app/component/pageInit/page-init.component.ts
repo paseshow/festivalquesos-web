@@ -63,7 +63,7 @@ export class PageInitComponent implements OnInit {
                 });
                 this.EventosStream = next;
             }, error => {
-                console.error("Error en page init component:", error)
+                console.error("Error en page init component:", error);
                 this.toastr.error("Ups, parece que hubo un problema, aguarde un momento");
 
             });

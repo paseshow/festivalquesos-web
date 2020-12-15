@@ -92,16 +92,36 @@
   margin: 0 auto;
 }
 
+////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
+
 .cartadequesos {
   margin-top: 2rem;
   padding: 1rem;
   background-color: white;
 }
 
-.font-weight-bolder {
-  font-size: 32px;
+
+.tituloReceta {
+  margin-bottom: 2vw;
+  font-family: 'Corben', cursive;
   text-align: center;
-  margin-top: 8px;
+}
+
+.tableOrden {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+
+}
+
+.preparacionReceta {
+  text-align: justify;
+  display: inline-block;
+  max-width: 35vw;
+
+  & h4 {
+    font-family: 'Corben', cursive;
+  }
 }
 
 .textoCata {
@@ -116,20 +136,13 @@
   max-width: 500px;
 }
 
-.seccionRecetas {
-  & h4 {
-    font-family: 'Corben', cursive;
-  }
+.font-weight-bolder {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 8px;
 }
 
-.preparacionReceta {
-  text-align: justify;
-  padding: 20px;
-
-  & h4 {
-    font-family: 'Corben', cursive;
-  }
-}
+////// EVENTOS PASADOS /////
 
 .cardsEventosPasados {
   width: 450px;
@@ -178,21 +191,23 @@
   border-bottom-right-radius: 5px;
 }
 
-.positionBoton{
-    position: fixed;
-    right: 2%;
-    bottom: 4%;
-    z-index: 1000;
+//// BOTON PARA VOLVER AL STREAM ////
+
+.positionBoton {
+  position: fixed;
+  right: 2%;
+  bottom: 4%;
+  z-index: 1000;
 }
 
-.btn{
-    width: 87px;
-    height: 87px;
-    color: #343a40;
-    background-color: #e8be33 ;
+.btn {
+  width: 87px;
+  height: 87px;
+  color: #343a40;
+  background-color: #e8be33;
 }
 
-.volverStream{
+.volverStream {
   font-size: 24px;
   display: block;
   position: relative;
@@ -208,9 +223,38 @@
     width: 300px;
     margin: 0 auto;
   }
+
+  /// Boton Volver al stream ///
+
+  .positionBoton {
+    position: fixed;
+    left: 80%;
+    bottom: 4%;
+    z-index: 1000;
+  }
+
+  .btn {
+    width: 50px;
+    height: 50px;
+    color: #343a40;
+    background-color: #e8be33;
+  }
+
+  .volverStream {
+    display: none;
+    // font-size: 19px;
+    // display: block;
+    // position: relative;
+    // right: 36px;
+    // top: 89px;
+    // font-family: 'Lobster', cursive;
+    // color: white;
+
+  }
+
 }
 
-@media screen and (max-wodth:525px) {
+@media screen and (max-width:525px) {
   .contenedor-chat {
     padding: 0px;
   }
