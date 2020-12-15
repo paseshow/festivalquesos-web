@@ -37,22 +37,12 @@
                             <option value="turismo">Turismo</option>
                             <option value="otro">Otro</option>
                         </select>
-
-                        <label for="questionForm" aria-placeholder="telefono"></label>
-                        <input type="text" formControlName="question" class="form-control" id="questionForm" placeholder="¿Cómo conseguiste la entrada?" [ngClass]="{ 'is-invalid': submitted && fm.question.errors }">
-
                     </div>
 
                     <!-- Check 1 -->
                     <div class="form-group form-check d-flex justify-content-start">
-                        <label class="form-check-label formCheckbox" for="exampleCheck1">Quedar registrado en la base de datos</label>
+                        <label class="form-check-label formCheckbox" for="exampleCheck1">Deseo participar del sorteo.</label>
                         <input type="checkbox" class="form-check-input formCheckbox" name="dealtype[]" id="exampleCheck1">
-                    </div>
-
-                    <!-- Check 2 -->
-                    <div class="form-group form-check d-flex justify-content-start">
-                        <label class="form-check-label formCheckbox" for="exampleCheck2">Suscribirme a noticias</label>
-                        <input type="checkbox" class="form-check-input" id="exampleCheck2">
                     </div>
                     <!-- data-dismiss="modal" -->
                     <button #buttonCloseModal type="button" class="btn btnStyle" (click)="onSubmit()" [attr.data-dismiss]="modalForm.valid ?'modal' : ''">Continuar</button>

@@ -4,10 +4,8 @@ export class Formulario {
     apellido: string;
     email: string;
     telefono: string;
-    descripcionentrada: string;
     tipoSector: any;
     loaddb: boolean;
-    suscripcion: boolean;
     eventoquesos: any;
     idCodigo?: any;
 }

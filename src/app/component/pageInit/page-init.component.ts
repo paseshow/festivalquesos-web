@@ -111,6 +111,7 @@ export class PageInitComponent implements OnInit {
             }
             this.codigosService.validCodigo(JSON.stringify(json)).subscribe(
                 (resp: any) => {
+                    localStorage.setItem("codigos", json.id);
                     localStorage.setItem("dghjoi3543u", resp.dghjoi3543u);
                     if (resp.chat != "true")
                         localStorage.setItem("chat", resp.chat);

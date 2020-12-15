@@ -11,12 +11,21 @@ export class CommonService {
     menu: string[];
     marcas: Marcas[];
     url: string;
+    codigos: number;
 
     constructor() {
         this.url = '';
         this.marcas = [];
         this.menu = [];
         this.cargarMarcas();
+    }
+
+    getCodigos(): number {
+        return this.codigos;
+    }
+
+    setCodigos(codigos) {
+        this.codigos = codigos;
     }
 
     getUrl(): string {
@@ -85,7 +94,7 @@ export class CommonService {
 
                 case 4:
                     this.marcas.push({
-                        title: 'COOPERATIVA LECHERA EL FORTÍN LTDA.',
+                        title: 'COOPERATIVA LECHERA EL FORTÍN LTDA',
                         direccion: 'Bv. Horacio Shedden 335 - El Fortín',
                         gmail: 'clef.elfortin@gmail.com',
                         link: ''
