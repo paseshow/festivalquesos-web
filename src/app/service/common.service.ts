@@ -60,7 +60,7 @@ export class CommonService {
             switch (i) {
                 case 0:
                     this.marcas.push({
-                        title: 'ARROYO CABRAL / ESTILO REAL',
+                        title: 'ARROYO CABRAL - ESTILO REAL',
                         direccion: 'Rivadavia y E. Piacenza - Arroyo Cabral',
                         gmail: 'mpautasso@cooparroyocabral.com.ar',
                         link: 'https://www.facebook.com/cooparroyocabral'
@@ -68,7 +68,7 @@ export class CommonService {
                     break;
                 case 1:
                     this.marcas.push({
-                        title: 'CAÑADA NEGRA / ESNAOLA',
+                        title: 'CAÑADA NEGRA - ESNAOLA',
                         direccion: 'Camino a Ticino km7 - Ucacha',
                         gmail: 'schavez41@hotmail.com  /  sergio@ucalac.com.ar',
                         link: 'https://www.facebook.com/Ucalac'
@@ -314,7 +314,7 @@ export class CommonService {
                     break;
                 case 29:
                     this.marcas.push({
-                        title: 'LOMBARDE-LACNAT-QUESOS ONLINE',
+                        title: 'LOMBARDE - LACNAT - QUESOS ONLINE',
                         direccion: 'Lisandro de la Torre 234 - Villa María',
                         gmail: 'augartemendia@lacteoscds.com.ar',
                         link: 'https://www.facebook.com/QuesosOnline',
