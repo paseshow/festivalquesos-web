@@ -86,7 +86,9 @@ export class NavbarComponent implements OnInit {
 
 
   smmoothScroll(seccion: string): void {
-    if (localStorage.getItem("codigos").length > 0) {
+
+    let a = this.commonService.getUrl()
+    if (localStorage.getItem("codigos").length > 0 && a.length > 0) {
       if (this.router.url.includes("quesos") || this.router.url.includes("festival")) {
         if (seccion == "inicio") {
           this.router.navigate(['/']);

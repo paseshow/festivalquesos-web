@@ -17,6 +17,14 @@
     max-width: 1200px;
 }
 
+.colLogos {
+    //max-width: 500px !important;
+    //max-height: 80px !important;
+    margin: 0 auto;
+    flex-shrink: 1;
+    flex-grow: 1;
+}
+
 .textTitle {
     color: black;
     margin-bottom: 0;
@@ -32,19 +40,21 @@
 
 /// STREAM BOTON
 .interactuarBtn {
-    display: flex;
-    justify-content: center;
-    position: relative;
-    bottom: 86px;
+    max-width: 170px;
+    max-height: 25px;
+    border: none;
+    margin: 0 auto;
+    padding-bottom: 5px;
 }
 
 .interactuar {
-    width: 200px;
-    height: 60px;
+    width: 300px !important;
+    height: 30px;
     background-color: #e8be33;
     color: #343a40;
     font-family: 'Open Sans';
-    font-size: 19px;
+    font-size: 17px;
+    padding: 0;
 }
 
 .fondoLogos {
@@ -57,7 +67,7 @@
 
 .outer {
     padding-top: 70px;
-    padding-bottom: 15px;
+    padding-bottom: 7px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,7 +102,8 @@
 
 .logoMinisterio {
     max-width: 400px;
-    max-height: 115px
+    max-height: 115px;
+    padding-top: 10px;
 }
 
 .card {
@@ -138,19 +149,12 @@
     margin: 0 auto;
 }
 
-.cartadequesos {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: white;
-}
-
 .container-lg {
-    background-color: white;
+    //  background-color: white;
     max-width: 1400px;
 }
 
 .cartadequesos {
-    margin-top: 2rem;
     padding: 1rem;
     background-image: url("../../../assets/images/fondoQuesoGRISCLARO.jpg");
     background-size: cover;
@@ -160,10 +164,12 @@
     font-size: 32px;
     text-align: center;
     margin-top: 8px;
+    margin-bottom: 0px;
     font-family: 'Open Sans', sans-serif;
 }
 
 .tituloReceta {
+    padding-top: 25px;
     margin-top: 3vw;
     margin-bottom: 2vw;
     font-family: 'Corben', cursive;
@@ -225,6 +231,22 @@
     max-height: 18rem;
 }
 
+.orderTextOfImage {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    position: relative;
+    bottom: 47px;
+    color: white;
+    background: linear-gradient(0deg, rgba(52, 58, 64, 0.89) 20%, rgba(52, 58, 64, 0.1) 95%);
+    height: 3rem;
+    align-items: center;
+    & h3 {
+        font-size: 23px;
+        font-weight: 600;
+    }
+}
+
 .cardEdicionPasada {
     color: #e8be33;
     font-weight: bold;
@@ -240,7 +262,7 @@
 }
 
 .right-corner-container {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
     padding-right: 15px;
     text-align: right;
     right: 20px;
@@ -339,19 +361,19 @@
             font-size: 23px;
             font-weight: 600;
         }
-        .preparacionReceta {
-            background-color: unset;
-            padding: 1rem;
-            height: unset;
-            text-align: justify;
-            max-width: 89vw;
-            & h4 {
-                font-family: 'Corben', cursive;
-                font-size: 20px;
-            }
-            & p {
-                font-size: 18px;
-            }
+    }
+    .preparacionReceta {
+        background-color: unset;
+        padding: 1rem;
+        height: unset;
+        text-align: justify;
+        max-width: 89vw;
+        & h4 {
+            font-family: 'Corben', cursive;
+            font-size: 20px;
+        }
+        & p {
+            font-size: 18px;
         }
     }
 }
@@ -407,11 +429,20 @@
             font-size: 18px;
         }
     }
+    .logoMinisterio {
+        max-width: 270px !important;
+    }
 }
 
 @media screen and (max-width:525px) {
     .contenedor-chat {
         padding: 0px;
+    }
+    .colEventos {
+        padding: 4px;
+    }
+    .tablaStyle {
+        width: 250px;
     }
 }
 
@@ -449,5 +480,15 @@
         & h3 {
             font-size: 18px;
         }
+    }
+    .fondoLogos {
+        margin: 0;
+        padding: 0;
+    }
+    .logoAcompañan {
+        height: 58px;
+    }
+    .card {
+        width: 100px !important;
     }
 }

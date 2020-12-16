@@ -3,10 +3,16 @@
     text-align: center;
 }
 
+#carouselExampleInterval {
+    max-width: 700px;
+    max-height: 550px;
+}
+
 .fondo {
     background-image: url('../../../../assets/images/fondo_quesos_claro.jpg');
     background-size: cover;
-    min-height: 97vh;
+    min-height: 97.5vh;
+    padding-bottom: 80px;
 }
 
 .edicionPrincipal {
@@ -35,12 +41,15 @@ p {
 }
 
 .imgCarousel {
-    max-width: 900px;
+    max-width: 700px;
     max-height: 550px;
 }
 
 @media screen and(max-width:362px) {
     .col-sm {
         padding: 0;
+    }
+    .row {
+        margin: 0;
     }
 }

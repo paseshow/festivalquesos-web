@@ -9,14 +9,15 @@
 }
 
 .logoInit {
-    width: 630px;
-    height: 130px;
+    width: 330px;
+    height: 70px;
 }
 
 .fondoPageInit {
     background-image: url("../../../assets/images/fondo_tabla.jpg");
     background-size: cover;
     min-height: 95vh;
+    padding-bottom: 120px;
 }
 
 .row {
@@ -26,12 +27,13 @@
 
 .card {
     max-width: 35rem;
+    max-height: 530px;
     cursor: pointer;
     margin-bottom: 2rem;
 }
 
 .card-body {
-    max-height: 94rem;
+    max-height: 90rem;
     position: relative;
     bottom: 2rem;
     margin: auto auto;
@@ -39,7 +41,7 @@
 
 .card-text {
     font-size: 16px;
-    margin-bottom: -3rem;
+    //margin-bottom: -3rem;
 }
 
 .orderTextOfImage {
@@ -140,8 +142,9 @@
     }
     .orderTextOfImage {
         & h3 {
-            font-size: 18px;
-            font-weight: 600;
+            // font-size: 18px;
+            // font-weight: 600;
+            display: none;
         }
         & span {
             font-size: 17px;
