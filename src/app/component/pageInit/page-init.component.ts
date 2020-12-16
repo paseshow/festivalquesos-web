@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EventoStream } from '@models/evento';
 import { CodigosService } from '@services/codigos.service';
+import { CommonService } from '@services/common.service';
 import { EventoesService } from '@services/eventoes.service';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
@@ -32,6 +33,7 @@ export class PageInitComponent implements OnInit {
         // private router: Router,
         public toastr: ToastrService,
         private eventoesSerivce: EventoesService,
+        private commonService: CommonService,
         private router: Router
     ) {
         this.EventosStream = [];
@@ -93,26 +95,29 @@ export class PageInitComponent implements OnInit {
 
         let horaHoy = DateHoy.substring(11, 16);
         horaHoy = horaHoy.replace(":", "");
-
+        let url;
         let hora = +horaHoy;
         let horaEvento = +this.EventosStream[i].fechaEvento.replace(":", "");
         if (hora >= horaEvento) {
-
+            url = "festival";
             const json = {
                 id: this.formCodigo.get("codigoIngreso").value,
                 idUser: +localStorage.getItem("id_user"),
                 idEvent: this.EventosStream[i].idEvento,
             }
             if (i == 1) {
-                json.id = 1
+                json.id = 1;
+                url = "quesos"
             }
             this.codigosService.validCodigo(JSON.stringify(json)).subscribe(
                 (resp: any) => {
+                    localStorage.setItem("codigos", json.id);
                     localStorage.setItem("dghjoi3543u", resp.dghjoi3543u);
                     if (resp.chat != "true")
                         localStorage.setItem("chat", resp.chat);
                     this.modalCodigo.nativeElement.click();
-                    this.router.navigate([`/stream/`]);
+                    this.commonService.setUrl(url);
+                    this.router.navigate([`/stream/`, url]);
                 }, error => {
 
                     let errorJson = JSON.parse(JSON.stringify(error));

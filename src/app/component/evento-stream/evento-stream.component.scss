@@ -1,359 +1,492 @@
 .containStream {
-  background-image: url('../../../assets/images/fondoConQuesos.jpg');
-  background-size: cover;
+    background-image: url('../../../assets/images/fondoConQuesos.jpg');
+    background-size: cover;
+}
+
+#eventosPasados {
+    background-image: url('../../../assets/images/fondo_quesos_claro.jpg');
+    background-size: cover;
+}
+
+#ganadores {
+    background-image: url('../../../assets/images/fondo_quesos_claro.jpg');
+    background-size: cover;
 }
 
 .containerLogosAcompañantes {
-  padding-bottom: 18px;
+    max-width: 1200px;
 }
 
-.fondoNosAcompañan {
-  background-color: #343a40;
+.colLogos {
+    //max-width: 500px !important;
+    //max-height: 80px !important;
+    margin: 0 auto;
+    flex-shrink: 1;
+    flex-grow: 1;
 }
 
 .textTitle {
-  color: white;
+    color: black;
+    margin-bottom: 0;
+    font-size: 19px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+}
+
+.text-break {
+    font-size: 15px;
 }
 
 /// STREAM BOTON
+.interactuarBtn {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 43px;
 
-.interactuarBtn{
-  display: flex;
-  justify-content: center;
-  position: relative;
-  bottom: 86px;
 }
 
-.interactuar{
-  width: 200px;
-  height: 60px;
-  background-color: #e8be33;
-  color: #343a40;
-  font-family: 'Open Sans';
-  font-size: 19px;
+.interactuar {
+    width: 147px;
+    height: 30px;
+    background-color: #e8be33;
+    color: #343a40;
+    font-family: 'Open Sans';
+    font-size: 17px;
+    
 }
 
 .fondoLogos {
-  background-color: white;
-  border-radius: 100%;
-  height: 100px !important;
-  max-width: 100px;
-  margin: 10px auto;
-  text-align: center;
-  display: block;
+    height: 100px !important;
+    max-width: 100px;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
 }
 
 .outer {
-  padding: 120px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3);
+    padding-top: 70px;
+    padding-bottom: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3);
 }
 
 #player {
-  --plyr-color-main: #EE4323;
-  width: 700px;
-  height: auto;
+    --plyr-color-main: #EE4323;
+    width: 700px;
+    height: auto;
 }
 
 #player iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .logoAcompañan {
-  width: 68px;
-  height: 68px;
-  margin: 17px auto;
-  vertical-align: middle;
+    width: 68px;
+    height: 68px;
+    margin: 17px auto;
+    vertical-align: middle;
+}
+
+.colEventos {
+    padding: 25px;
+    max-height: 350px;
+}
+
+.logoMinisterio {
+    max-width: 400px;
+    max-height: 115px;
+    padding-top: 10px;
 }
 
 .card {
-  margin: 25px 10px 10px 10px;
-  width: 290px;
-  height: 500px;
-  float: left;
-  position: relative;
+    margin: 25px 10px 10px 10px;
+    width: 290px;
+    height: 380px;
+    float: left;
+    position: relative;
 }
 
 .card-body {
-  padding: 1rem;
+    padding: 1rem;
+    margin-bottom: 2px;
 }
 
 .card-title {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .card-text {
-  font-size: 15px;
-  text-align: left;
+    font-size: 15px;
+    text-align: left;
 }
 
 .containerFlex {
-  display: flex;
-  flex-wrap: wrap;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .card-img-top {
-  width: 200px;
-  height: 200px;
-  margin: 0 auto;
+    width: 80%;
+    height: 100%;
+}
+
+.cardEvPImg {
+    width: 100%;
+    height: 100%;
 }
 
 .containerCard {
-  max-width: 1580px;
-  text-align: center;
-  margin: 0 auto;
+    max-width: 1580px;
+    text-align: center;
+    margin: 0 auto;
 }
 
-////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
-
-.container-lg{
-  background-color: white;
-  max-width: 1400px;
+.container-lg {
+    //  background-color: white;
+    max-width: 1400px;
 }
 
 .cartadequesos {
-  margin-top: 2rem;
-  padding: 1rem;
-  background-image: url("../../../assets/images/fondoQuesoGRISCLARO.jpg");
-  background-size:cover;
-}
-
-
-.tituloReceta {
-  margin-top: 3vw;
-  margin-bottom: 2vw;
-  font-family: 'Corben', cursive;
-  text-align: center;
-  color: #e8be33;
-}
-
-.tableOrden {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-
-}
-
-.preparacionReceta {
-  background-color: #f1f1f193;
-  padding: 1rem;
-  height: 100%;
-  text-align: justify;
-  display: inline-block;
-  max-width: 42vw;
-
-  & h4 {
-    font-family: 'Corben', cursive;
-  }
-  & p {
-
-    font-size: 17px;
-
-  }
-}
-
-.textoCata {
-  align-items: center;
-  text-align: justify;
-  margin: 10px auto;
-  max-width: 55rem;
-  font-size: 22px;
-}
-
-.tablaStyle {
-  max-width: 500px;
+    padding: 1rem;
+    background-image: url("../../../assets/images/fondoQuesoGRISCLARO.jpg");
+    background-size: cover;
 }
 
 .font-weight-bolder {
-  font-size: 32px;
-  text-align: center;
-  margin-top: 8px;
-  font-family: 'Open Sans', sans-serif;
+    font-size: 32px;
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 0px;
+    font-family: 'Open Sans', sans-serif;
 }
-
-////// EVENTOS PASADOS /////
-
-.cardsEventosPasados {
-  width: 450px;
-  max-height: 18rem;
-}
-
-.cardEdicionPasada {
-  color: #e8be33;
-  font-weight: bold;
-  font-size: 21px;
-}
-
-.contenedor-chat {
-  padding: 90px 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  //box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3);
-}
-
-.right-corner-container {
-  padding-bottom: 30px;
-  padding-right: 15px;
-  text-align: right;
-  right: 20px;
-  bottom: 45px;
-}
-
-.right-corner-container .right-corner-container-button {
-  height: 57px;
-  width: 57px;
-  border: none;
-  background-color: #e8be33;
-  border-radius: 62px;
-  /*Transform the square into rectangle, sync that value with the width/height*/
-  transition: all 300ms;
-  /*Animation to close the button (circle)*/
-  //box-shadow: 2px 2px 5px #4C4C4C;
-  cursor: pointer;
-}
-
-.right-corner-container .right-corner-container-button:hover {
-  transition: all 400ms cubic-bezier(.62, .1, .5, 1);
-  width: 100px;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-//// BOTON PARA VOLVER AL STREAM ////
-
-.positionBoton {
-  position: fixed;
-  right: 2%;
-  bottom: 4%;
-  z-index: 1000;
-}
-
-.btn {
-  width: 87px;
-  height: 87px;
-  color: #343a40;
-  background-color: #e8be33;
-}
-
-.volverStream {
-  font-size: 24px;
-  display: block;
-  position: relative;
-  right: 36px;
-  top: 89px;
-  font-family: 'Lobster', cursive;
-  color: #343a40;
-
-}
-
-@media screen and(max-width: 613px) {
-  .containerCard {
-    width: 300px;
-    margin: 0 auto;
-  }
-
-  // STREAM BOTON
-
-.interactuarBtn{
-  display: flex;
-  justify-content: center;
-  position: relative;
-  bottom: 63px;
-}
-
-  /// Boton Volver al stream ///
-
-  .positionBoton {
-    position: fixed;
-    left: 80%;
-    bottom: 4%;
-    z-index: 1000;
-  }
-
-  .btn {
-    width: 50px;
-    height: 50px;
-    color: #343a40;
-    background-color: #e8be33;
-  }
-
-  .volverStream {
-    display: none;
-    font-size: unset;
-    position: unset;
-    right: unset;
-    top: unset;
-
-  }
-
-  ////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
-
 
 .tituloReceta {
-  font-size: 18px;
-  margin-bottom: 4vw;
+    padding-top: 25px;
+    margin-top: 3vw;
+    margin-bottom: 2vw;
+    font-family: 'Corben', cursive;
+    text-align: center;
+    color: #e8be33;
 }
 
 .tableOrden {
-  display: unset;
-  flex-direction: column;
-  align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .preparacionReceta {
-  background-color: unset;
-  padding: 1rem;
-  height: unset;
-  text-align: justify;
-  max-width: 89vw;
-  
-
-  & h4 {
-    font-family: 'Corben', cursive;
-    font-size: 20px;
-  }
-  & p{
-    font-size: 18px;
-  }
+    background-color: #f1f1f193;
+    padding: 1rem;
+    height: 100%;
+    text-align: justify;
+    display: inline-block;
+    max-width: 42vw;
+    & h4 {
+        font-family: 'Corben', cursive;
+    }
+    & p {
+        font-size: 17px;
+    }
 }
 
-};
+.textoCata {
+    align-items: center;
+    text-align: justify;
+    margin: 10px auto;
+    max-width: 55rem;
+    font-size: 22px;
+}
+
+.tablaStyle {
+    max-width: 500px;
+}
+
+.tablaStyle {
+    margin: 2rem;
+    max-width: 40%;
+}
+
+.preparacionReceta {
+    text-align: justify;
+    padding: 20px;
+    .seccionRecetas {
+        & h4 {
+            font-family: 'Corben', cursive;
+        }
+    }
+}
+
+////// EVENTOS PASADOS /////
+.cardsEventosPasados {
+    width: 450px;
+    max-height: 18rem;
+}
+
+.orderTextOfImage {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-around;
+    position: relative;
+    bottom: 47px;
+    color: white;
+    background: linear-gradient(0deg, rgba(52, 58, 64, 0.89) 20%, rgba(52, 58, 64, 0.1) 95%);
+    height: 3rem;
+    align-items: center;
+    & h3 {
+        font-size: 23px;
+        font-weight: 600;
+    }
+}
+
+.cardEdicionPasada {
+    color: #e8be33;
+    font-weight: bold;
+    font-size: 27px;
+}
+
+.contenedor-chat {
+    padding: 90px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //box-shadow: 0px 0px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.right-corner-container {
+    padding-bottom: 5px;
+    padding-right: 15px;
+    text-align: right;
+    right: 20px;
+    bottom: 45px;
+}
+
+.right-corner-container .right-corner-container-button {
+    height: 57px;
+    width: 57px;
+    border: none;
+    background-color: #e8be33;
+    border-radius: 62px;
+    /*Transform the square into rectangle, sync that value with the width/height*/
+    transition: all 300ms;
+    /*Animation to close the button (circle)*/
+    //box-shadow: 2px 2px 5px #4C4C4C;
+    cursor: pointer;
+}
+
+.right-corner-container .right-corner-container-button:hover {
+    transition: all 400ms cubic-bezier(.62, .1, .5, 1);
+    width: 100px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.positionBoton {
+    position: fixed;
+    right: 2%;
+    bottom: 4%;
+    z-index: 1000;
+}
+
+.btn {
+    width: 87px;
+    height: 87px;
+    color: #343a40;
+    background-color: #e8be33;
+}
+
+.volverStream {
+    font-size: 24px;
+    display: block;
+    position: relative;
+    right: 36px;
+    top: 89px;
+    font-family: 'Lobster', cursive;
+    color: #343a40;
+}
+
+@media screen and(max-width: 613px) {
+    .containerCard {
+        width: 300px;
+        margin: 0 auto;
+    }
+    // STREAM BOTON
+    .interactuarBtn {
+        bottom: 47px;
+    
+    }
+    /// Boton Volver al stream ///
+    .positionBoton {
+        position: fixed;
+        right: 2%;
+        bottom: 4%;
+        z-index: 1000;
+    }
+    .btn {
+        width: 87px;
+        height: 87px;
+        color: #343a40;
+        background-color: #e8be33;
+    }
+    .volverStream {
+        font-size: 24px;
+        display: block;
+        position: relative;
+        right: 36px;
+        top: 89px;
+        font-family: 'Lobster', cursive;
+        color: #343a40;
+    }
+    .orderTextOfImage {
+        width: 100%;
+        display: inline-flex;
+        justify-content: space-around;
+        position: relative;
+        bottom: 47px;
+        color: white;
+        background: linear-gradient(0deg, rgba(52, 58, 64, 0.89) 20%, rgba(52, 58, 64, 0.1) 95%);
+        height: 3rem;
+        align-items: center;
+        & h3 {
+            font-size: 23px;
+            font-weight: 600;
+        }
+    }
+    .preparacionReceta {
+        background-color: unset;
+        padding: 1rem;
+        height: unset;
+        text-align: justify;
+        max-width: 89vw;
+        & h4 {
+            font-family: 'Corben', cursive;
+            font-size: 20px;
+        }
+        & p {
+            font-size: 18px;
+        }
+    }
+}
+
+@media screen and(max-width: 613px) {
+    .containerCard {
+        width: 300px;
+        margin: 0 auto;
+    }
+    /// Boton Volver al stream ///
+    .positionBoton {
+        position: fixed;
+        left: 80%;
+        bottom: 4%;
+        z-index: 1000;
+    }
+    .btn {
+        width: 50px;
+        height: 50px;
+        color: #343a40;
+        background-color: #e8be33;
+    }
+    .volverStream {
+        display: none;
+        font-size: unset;
+        position: unset;
+        right: unset;
+        top: unset;
+    }
+    ////// CATA DE QUESOS, SECCION RECETAS TABLA Y PREPARACION /////
+    .tituloReceta {
+        font-size: 18px;
+        margin-bottom: 4vw;
+    }
+    .tableOrden {
+        display: unset;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .preparacionReceta {
+        background-color: none;
+        padding: 1rem;
+        height: unset;
+        text-align: justify;
+        max-width: 89vw;
+        position: unset;
+        right: 0;
+        & h4 {
+            font-family: 'Corben', cursive;
+            font-size: 20px;
+        }
+        & p {
+            font-size: 18px;
+        }
+    }
+    .logoMinisterio {
+        max-width: 270px !important;
+    }
+}
 
 @media screen and (max-width:525px) {
-  .contenedor-chat {
-    padding: 0px;
-  }
+    .contenedor-chat {
+        padding: 0px;
+    }
+    .colEventos {
+        padding: 4px;
+    }
+    .tablaStyle {
+        width: 250px;
+    }
 }
 
 @media screen and(max-width:1546px) {
-  .containerCard {
-    max-width: 1250px;
-  }
-
-  .cardsEventosPasados {
-    width: 450px;
-  }
+    .containerCard {
+        max-width: 1250px;
+    }
+    .cardsEventosPasados {
+        width: 450px;
+    }
 }
 
 @media screen and(max-width:1025px) {
-  .containerCard {
-    max-width: 930px;
-  }
-
-  .cardsEventosPasados {
-    width: 350px;
-  }
+    .containerCard {
+        max-width: 630px;
+    }
+    .cardsEventosPasados {
+        width: 350px;
+    }
+    .logoMinisterio {
+        max-width: 420px;
+        max-height: 150px;
+    }
 }
 
 @media screen and(max-width:769px) {
-  .cardsEventosPasados {
-    width: 290px;
-  }
+    .cardsEventosPasados {
+        width: 290px;
+    }
+    .logoMinisterio {
+        max-width: 320px;
+        max-height: 100px;
+    }
+    .orderTextOfImage {
+        & h3 {
+            font-size: 18px;
+        }
+    }
+    .fondoLogos {
+        margin: 0;
+        padding: 0;
+    }
+    .logoAcompañan {
+        height: 58px;
+    }
+    .card {
+        width: 100px !important;
+    }
 }

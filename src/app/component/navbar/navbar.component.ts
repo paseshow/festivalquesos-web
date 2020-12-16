@@ -85,7 +85,20 @@ export class NavbarComponent implements OnInit {
   }
 
 
-  smmoothScroll(seccion: string) {
-    document.getElementById(`${seccion}`).scrollIntoView();
+  smmoothScroll(seccion: string): void {
+
+    let a = this.commonService.getUrl()
+    if (localStorage.getItem("codigos").length > 0 && a.length > 0) {
+      if (this.router.url.includes("quesos") || this.router.url.includes("festival")) {
+        if (seccion == "inicio") {
+          this.router.navigate(['/']);
+        } else {
+          document.getElementById(`${seccion}`).scrollIntoView();
+        }
+      } else {
+        let url = this.commonService.getUrl();
+        this.router.navigate(['/stream/', url]);
+      }
+    }
   }
 }

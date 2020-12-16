@@ -39,16 +39,14 @@ export class EventosPasadosComponent implements OnInit {
     }
     switch (anioRe) {
       case "2016":
-        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8];
         this.anioEventoAntes = "2019";
         this.anioEventoDespues = "2017";
         this.anioEvento = "2016";
         break;
 
       case "2017":
-        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8, 9,
-          10, 11, 12, 13, 14, 15, 16, 17, 18,
-          19, 20, 21, 22, 23, 24, 25, 26, 27];
+        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8];
         this.anioEventoAntes = "2016";
         this.anioEventoDespues = "2018";
         this.anioEvento = "2017";
@@ -56,8 +54,7 @@ export class EventosPasadosComponent implements OnInit {
         break;
 
       case "2018":
-        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-          , 11, 12];
+        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8];
         this.anioEventoAntes = "2017";
         this.anioEventoDespues = "2019";
         this.anioEvento = "2018";
@@ -65,7 +62,7 @@ export class EventosPasadosComponent implements OnInit {
         break;
 
       case "2019":
-        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+        this.eventos = [1, 2, 3, 4, 5, 6, 7, 8];
         this.anioEventoAntes = "2018";
         this.anioEventoDespues = "2016";
         this.anioEvento = "2019";

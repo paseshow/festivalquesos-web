@@ -1,3 +1,4 @@
+import { formatDate } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Formulario } from '@models/formulario';
@@ -17,17 +18,20 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
   modalForm: FormGroup
   submitted = false;
   buttonCloseModal: any;
+  estreno: boolean
 
   constructor(
     private formBuilder: FormBuilder,
     private formularioInitService: FormularioInitService,
     public toastr: ToastrService,
     private eventoesSerivce: EventoesService
-  ) { }
+  ) {
+    this.estreno = true;
+  }
 
   ngAfterViewInit(): void {
     ($('#modalFormInit') as any).modal('show');
-    
+
   }
 
   get fm() { return this.modalForm.controls; }
@@ -40,10 +44,10 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       phone: ['', [Validators.required, Validators.pattern("\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})")]],
       selectSector: ['', Validators.required],
-      question: ['', [Validators.required, Validators.minLength(4)]],
       loaddb: [true],
-      suscripcion: [true],
     });
+
+    this.contador();
   };
 
   // ---------------------------------------------------------------
@@ -61,11 +65,8 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
       form.apellido = this.modalForm.get("apellido").value;
       form.email = this.modalForm.get("email").value;
       form.telefono = this.modalForm.get("phone").value;
-      form.descripcionentrada = this.modalForm.get("question").value;
       form.loaddb = this.modalForm.get("loaddb").value;
-      form.sector = this.modalForm.get("selectSector").value;
-      form.suscripcion = this.modalForm.get("suscripcion").value;
-      //form.idEvento
+      form.tipoSector = this.modalForm.get("selectSector").value;
 
       // guardamos el formulario y la respuesta del back, también guardamos el id del usuario.
       this.formularioInitService.addForm(form).subscribe(
@@ -82,5 +83,35 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     ($('.modal-backdrop') as any).remove();
+  }
+
+  contador() {
+    //var fecha = new Date(2020, 11, 16, 20, 15, 0);
+    var fecha = new Date(2020, 11, 16, 20, 15, 0);
+    var hoy = new Date();
+    var dias = 0
+    var horas = 0
+    var minutos = 0
+    var segundos = 0
+    if (fecha >= hoy) {
+      var diferencia = (fecha.getTime() - hoy.getTime()) / 1000
+      dias = Math.floor(diferencia / 86400)
+      diferencia = diferencia - (86400 * dias)
+      horas = Math.floor(diferencia / 3600)
+      diferencia = diferencia - (3600 * horas)
+      minutos = Math.floor(diferencia / 60)
+      diferencia = diferencia - (60 * minutos)
+      segundos = Math.floor(diferencia)
+      document.getElementById("contador").innerHTML = "" + dias + " : " + horas + " : " + minutos + " : " + segundos;
+      if (dias >= 0 || horas >= 0 || minutos >= 0 || segundos >= 0) {
+        setTimeout(() => {
+          this.contador();
+        }, 1000)
+      }
+    }
+    else {
+      this.estreno = false;
+      //document.getElementById("contador").innerHTML = "0 Días ¡Comenzo el Mundial Brasil 2014!";
+    }
   }
 }

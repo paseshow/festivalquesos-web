@@ -3,10 +3,22 @@
     text-align: center;
 }
 
+#carouselExampleInterval {
+    max-width: 700px;
+    max-height: 550px;
+}
+
+.fondo {
+    background-image: url('../../../../assets/images/fondo_quesos_claro.jpg');
+    background-size: cover;
+    min-height: 97.5vh;
+    padding-bottom: 80px;
+}
+
 .edicionPrincipal {
     font-weight: bold;
-    font-size: 35px;
-    color: #e8be33;
+    font-size: 38px;
+    color: black;
 }
 
 p {
@@ -14,9 +26,10 @@ p {
 }
 
 .edicionSecundarias {
+    font-weight: bold;
     margin: 0 0;
     font-size: 25px;
-    color: #e8be33;
+    color: black;
 }
 
 .carousel {
@@ -28,12 +41,15 @@ p {
 }
 
 .imgCarousel {
-    max-width: 900px;
+    max-width: 700px;
     max-height: 550px;
 }
 
 @media screen and(max-width:362px) {
     .col-sm {
         padding: 0;
+    }
+    .row {
+        margin: 0;
     }
 }
