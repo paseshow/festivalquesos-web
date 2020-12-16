@@ -522,6 +522,7 @@
 </div>
 
 <section id="catalogosMarcas">
+    <p class="font-weight-bolder" style="padding-top: 60px;">Catalogos de Marcas</p>
     <div class="containerCard">
         <div class="card" *ngFor="let marca of marcas">
             <a [ngClass]="{noCursor: marca.link == ''}" style="text-align: center;" target="_blank" rel="noreferrer noopener" href={{marca.link}}>
@@ -564,6 +565,7 @@
 
 
 <section id="eventosPasados">
+    <p class="font-weight-bolder" style="padding-top: 60px;">Eventos Anteriores</p>
     <div class="container ">
         <div class="row ">
             <div class="col colEventos " (click)="redirigirEvento(2016) ">
