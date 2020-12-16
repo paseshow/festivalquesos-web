@@ -40,10 +40,13 @@
 
 /// STREAM BOTON
 .interactuarBtn {
-    display: flex;
-    justify-content: center;
-    position: relative;
+    //display: flex;
+    //  justify-content: center;
+    // position: relative;
+    text-align: center;
+    margin: 0 auto;
     bottom: 43px;
+    padding-bottom: 10px;
 }
 
 .interactuar {
@@ -51,6 +54,8 @@
     height: 30px;
     background-color: #e8be33;
     color: #343a40;
+    border-color: #e8be33 !important;
+    border-radius: 10px !important;
     font-family: 'Open Sans';
     font-size: 17px;
 }
@@ -83,7 +88,6 @@
 }
 
 .footer {
-    
     // margin-top: 10px;
     // margin-bottom: 10px;
     align-items: center;
@@ -93,7 +97,6 @@
         position: relative;
         left: 32%;
         text-align: right;
-        
     }
 }
 
