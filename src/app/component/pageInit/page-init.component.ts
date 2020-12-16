@@ -117,6 +117,7 @@ export class PageInitComponent implements OnInit {
                         localStorage.setItem("chat", resp.chat);
                     this.modalCodigo.nativeElement.click();
                     this.commonService.setUrl(url);
+                    localStorage.setItem("url", url);
                     this.router.navigate([`/stream/`, url]);
                 }, error => {
 

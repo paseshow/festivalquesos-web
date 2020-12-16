@@ -40,6 +40,7 @@ export class EventoStreamComponent implements OnInit {
   chatEnable: boolean;
   loggedIn: boolean;
   url: boolean;
+  urlValid: string;
   element: any;
 
 
@@ -48,6 +49,7 @@ export class EventoStreamComponent implements OnInit {
     private sanitizationService: DomSanitizer,
     private authSocialService: SocialAuthService,
     private router: Router,
+    private activatedRouter: ActivatedRoute
   ) {
     this.marcas = [];
     this.enabledChat = false;
@@ -66,7 +68,8 @@ export class EventoStreamComponent implements OnInit {
       youtube: { noCookie: false },
     };
     this.loadCatalogosMarca();
-    if (this.commonService.getUrl() == "festival") {
+    this.urlValid = this.router.url;
+    if (this.commonService.getUrl() == "festival" || this.urlValid.includes("festival")) {
       this.url = false;
     } else {
       this.url = true;
@@ -77,7 +80,7 @@ export class EventoStreamComponent implements OnInit {
     element.scrollIntoView()
   };
 
-  eventZoom(){
+  eventZoom() {
     window.open('https://stackoverflow.com/questions/50544464/angular-mat-button-link-to-external-url/50544934')
   }
 
