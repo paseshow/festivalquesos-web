@@ -41,8 +41,8 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
     this.modalForm = this.formBuilder.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      phone: ['', [Validators.required, Validators.pattern("\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})")]],
+      email: [''],
+      phone: [''],
       selectSector: ['', Validators.required],
       loaddb: [true],
     });

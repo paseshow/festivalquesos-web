@@ -104,6 +104,9 @@
     padding-top: 4rem;
 }
 
+// .footerIT{
+//     text-align: right;
+// }
 #footer {
     background-color: #343a40 !important;
 }
@@ -112,8 +115,14 @@
     margin-top: 10px;
     margin-bottom: 10px;
     align-items: center;
-    text-align: center;
+    text-align: right;
+    //text-align: center;
     color: white;
+    & span {
+        position: relative;
+        left: 27%;
+        text-align: right;
+    }
 }
 
 .txtError {
@@ -154,5 +163,10 @@
     .titlePageInit {
         font-size: 39px;
         padding-top: 3rem;
+    }
+    .footer {
+        & span {
+            left: 20%;
+        }
     }
 }

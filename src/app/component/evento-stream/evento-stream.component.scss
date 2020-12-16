@@ -40,21 +40,24 @@
 
 /// STREAM BOTON
 .interactuarBtn {
-    max-width: 170px;
-    max-height: 25px;
-    border: none;
+    //display: flex;
+    //  justify-content: center;
+    // position: relative;
+    text-align: center;
     margin: 0 auto;
-    padding-bottom: 5px;
+    bottom: 43px;
+    padding-bottom: 10px;
 }
 
 .interactuar {
-    width: 300px !important;
+    width: 147px;
     height: 30px;
     background-color: #e8be33;
     color: #343a40;
+    border-color: #e8be33 !important;
+    border-radius: 10px !important;
     font-family: 'Open Sans';
     font-size: 17px;
-    padding: 0;
 }
 
 .fondoLogos {
@@ -78,6 +81,23 @@
     --plyr-color-main: #EE4323;
     width: 700px;
     height: auto;
+}
+
+#footer {
+    background-color: #1f1e1c !important;
+}
+
+.footer {
+    // margin-top: 10px;
+    // margin-bottom: 10px;
+    align-items: center;
+    text-align: right;
+    color: white;
+    & span {
+        position: relative;
+        left: 32%;
+        text-align: right;
+    }
 }
 
 #player iframe {
@@ -104,6 +124,10 @@
     max-width: 400px;
     max-height: 115px;
     padding-top: 10px;
+}
+
+.noCursor {
+    pointer-events: none;
 }
 
 .card {
@@ -254,7 +278,7 @@
 }
 
 .contenedor-chat {
-    padding: 90px 0;
+    padding-top: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,6 +286,7 @@
 }
 
 .right-corner-container {
+    margin-top: 5px;
     padding-bottom: 5px;
     padding-right: 15px;
     text-align: right;
@@ -320,10 +345,7 @@
     }
     // STREAM BOTON
     .interactuarBtn {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        bottom: 63px;
+        bottom: 47px;
     }
     /// Boton Volver al stream ///
     .positionBoton {
@@ -487,8 +509,5 @@
     }
     .logoAcompañan {
         height: 58px;
-    }
-    .card {
-        width: 100px !important;
     }
 }

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtDTO } from '@models/user';
 import { CommonService } from '@services/common.service';
+import { ignoreElements } from 'rxjs/operators';
 
 
 @Component({
@@ -15,12 +16,12 @@ export class NavbarComponent implements OnInit {
   config: boolean;
   logoutB: boolean;
   inst: string = "https://www.instagram.com/minagricba/";
-
+  aux: boolean;
   constructor(
     private commonService: CommonService,
     private router: Router
   ) {
-
+    this.aux = false;
   }
 
   ngOnInit(): void {
@@ -87,8 +88,9 @@ export class NavbarComponent implements OnInit {
 
   smmoothScroll(seccion: string): void {
 
-    let a = this.commonService.getUrl()
-    if (localStorage.getItem("codigos").length > 0 && a.length > 0) {
+    let a = this.commonService.getUrl();
+
+    if (localStorage.getItem("codigos").length > 0 || a.length > 0) {
       if (this.router.url.includes("quesos") || this.router.url.includes("festival")) {
         if (seccion == "inicio") {
           this.router.navigate(['/']);
@@ -97,6 +99,9 @@ export class NavbarComponent implements OnInit {
         }
       } else {
         let url = this.commonService.getUrl();
+        if (url == "") {
+          url = localStorage.getItem("url");
+        }
         this.router.navigate(['/stream/', url]);
       }
     }

@@ -14,6 +14,7 @@ export const EventoStreamRoutes: Routes = [
                 path: 'eventos/:anio',
                 component: EventosPasadosComponent
             }
+            
         ]
     }
 ]
