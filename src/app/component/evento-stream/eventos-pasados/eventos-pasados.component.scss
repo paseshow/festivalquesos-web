@@ -6,7 +6,7 @@
 .fondo {
     background-image: url('../../../../assets/images/fondo_quesos_claro.jpg');
     background-size: cover;
-    min-height: 97vh;
+    min-height: 97.5vh;
 }
 
 .edicionPrincipal {
@@ -42,5 +42,8 @@ p {
 @media screen and(max-width:362px) {
     .col-sm {
         padding: 0;
+    }
+    .row {
+        margin: 0;
     }
 }

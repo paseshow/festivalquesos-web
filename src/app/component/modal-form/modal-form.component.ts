@@ -18,6 +18,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
   modalForm: FormGroup
   submitted = false;
   buttonCloseModal: any;
+  estreno: boolean
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,6 +26,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
     public toastr: ToastrService,
     private eventoesSerivce: EventoesService
   ) {
+    this.estreno = true;
   }
 
   ngAfterViewInit(): void {
@@ -84,16 +86,14 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   contador() {
-    //let fecha = formatDate(new Date(), 'dd/MM/yyyy HH:mm:ss', 'en');
-    //document.getElementById("reloj").innerHTML = fecha;
-
-    var fecha = new Date(2020, 11, 16, 20, 15, 0);
+    //var fecha = new Date(2020, 11, 16, 20, 15, 0);
+    var fecha = new Date(2020, 11, 15, 21, 22, 0);
     var hoy = new Date();
     var dias = 0
     var horas = 0
     var minutos = 0
     var segundos = 0
-    if (fecha > hoy) {
+    if (fecha >= hoy) {
       var diferencia = (fecha.getTime() - hoy.getTime()) / 1000
       dias = Math.floor(diferencia / 86400)
       diferencia = diferencia - (86400 * dias)
@@ -103,14 +103,15 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
       diferencia = diferencia - (60 * minutos)
       segundos = Math.floor(diferencia)
       document.getElementById("contador").innerHTML = "" + dias + " : " + horas + " : " + minutos + " : " + segundos;
-      if (dias > 0 || horas > 0 || minutos > 0 || segundos > 0) {
+      if (dias >= 0 || horas >= 0 || minutos >= 0 || segundos >= 0) {
         setTimeout(() => {
           this.contador();
         }, 1000)
       }
     }
     else {
-      document.getElementById("contador").innerHTML = "0 Días ¡Comenzo el Mundial Brasil 2014!";
+      this.estreno = false;
+      //document.getElementById("contador").innerHTML = "0 Días ¡Comenzo el Mundial Brasil 2014!";
     }
   }
 }
