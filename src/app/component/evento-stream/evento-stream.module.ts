@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { PlyrModule } from 'ngx-plyr';
+import { ComponentModule } from '../component.module';
+import { GanadoresComponent } from '../ganadores/ganadores.component';
 import { EventoStreamComponent } from './evento-stream.component';
 import { EventoStreamRoutes } from './evento-stream.routing';
-import { PlyrModule } from 'ngx-plyr';
 import { EventosPasadosComponent } from './eventos-pasados/eventos-pasados.component';
-import { ComponentModule } from '../component.module';
 
 @NgModule({
     imports: [
@@ -18,6 +19,7 @@ import { ComponentModule } from '../component.module';
     declarations: [
         EventoStreamComponent,
         EventosPasadosComponent,
+        GanadoresComponent
     ],
     providers: [],
 })
