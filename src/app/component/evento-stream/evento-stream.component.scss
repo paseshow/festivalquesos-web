@@ -78,6 +78,25 @@
     height: auto;
 }
 
+#footer {
+    background-color: #1f1e1c !important;
+}
+
+.footer {
+    
+    // margin-top: 10px;
+    // margin-bottom: 10px;
+    align-items: center;
+    text-align: right;
+    color: white;
+    & span {
+        position: relative;
+        left: 32%;
+        text-align: right;
+        
+    }
+}
+
 #player iframe {
     position: absolute;
     top: 0;
