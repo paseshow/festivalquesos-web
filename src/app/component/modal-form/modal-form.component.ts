@@ -87,7 +87,7 @@ export class ModalFormComponent implements AfterViewInit, OnInit, OnDestroy {
 
   contador() {
     //var fecha = new Date(2020, 11, 16, 20, 15, 0);
-    var fecha = new Date(2020, 11, 15, 21, 22, 0);
+    var fecha = new Date(2020, 11, 16, 20, 15, 0);
     var hoy = new Date();
     var dias = 0
     var horas = 0
