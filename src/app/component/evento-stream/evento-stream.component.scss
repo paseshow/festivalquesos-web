@@ -40,21 +40,19 @@
 
 /// STREAM BOTON
 .interactuarBtn {
-    max-width: 170px;
-    max-height: 25px;
-    border: none;
-    margin: 0 auto;
-    padding-bottom: 5px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 43px;
 }
 
 .interactuar {
-    width: 300px !important;
+    width: 147px;
     height: 30px;
     background-color: #e8be33;
     color: #343a40;
     font-family: 'Open Sans';
     font-size: 17px;
-    padding: 0;
 }
 
 .fondoLogos {
@@ -320,10 +318,7 @@
     }
     // STREAM BOTON
     .interactuarBtn {
-        display: flex;
-        justify-content: center;
-        position: relative;
-        bottom: 63px;
+        bottom: 47px;
     }
     /// Boton Volver al stream ///
     .positionBoton {

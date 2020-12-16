@@ -1,7 +1,42 @@
-.seccionGanadores{
-    background-color: #1f1e1c;
+.seccionGanadores {
+  background-color: #1f1e1c;
+  padding-top: 70px;
+  
 }
 
-.titleGanadores{
-    text-align: center;
+.contenedorTablas {
+  color: white;
+  max-width: 75%;
+  padding: 2px;
+  
 }
+
+.titleGanadores {
+  text-align: center;
+  color: white;
+
+  & h3 {
+
+    color: white;
+    font-size: 18px;
+  }
+
+  & h2 {
+    font-size: 26px;
+    color: #e8be33;
+  }
+}
+
+.titleTable {
+  font-size: 20px;
+  color: #e8be33;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+
+}
+
+.table {
+  color: white;
+}
+
