@@ -10,17 +10,18 @@ import { ModalFormComponent } from './modal-form/modal-form.component';
         CommonModule,
         RouterModule,
         ReactiveFormsModule,
-        
+
     ],
     exports: [
-        ModalFormComponent
+        ModalFormComponent,
+        GanadoresComponent
     ],
     declarations: [
         ModalFormComponent,
         GanadoresComponent,
     ],
     providers: [],
-   
+
 
 })
 export class ComponentModule { }

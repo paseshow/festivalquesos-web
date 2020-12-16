@@ -5,17 +5,19 @@ import { EventoStreamComponent } from './evento-stream.component';
 import { EventoStreamRoutes } from './evento-stream.routing';
 import { PlyrModule } from 'ngx-plyr';
 import { EventosPasadosComponent } from './eventos-pasados/eventos-pasados.component';
+import { ComponentModule } from '../component.module';
 
 @NgModule({
     imports: [
         RouterModule.forChild(EventoStreamRoutes),
         CommonModule,
-        PlyrModule
+        PlyrModule,
+        ComponentModule
     ],
     exports: [],
     declarations: [
         EventoStreamComponent,
-        EventosPasadosComponent
+        EventosPasadosComponent,
     ],
     providers: [],
 })
