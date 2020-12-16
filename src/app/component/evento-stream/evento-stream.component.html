@@ -517,7 +517,7 @@
 <section id="catalogosMarcas">
     <div class="containerCard">
         <div class="card" *ngFor="let marca of marcas">
-            <a style="text-align: center;" rel="noreferrer noopener" href={{marca.link}}>
+            <a [ngClass]="{noCursor: marca.link == ''}" style="text-align: center;" target="_blank" rel="noreferrer noopener" href={{marca.link}}>
                 <img src="../../../assets/images/catalogos de marcas/{{marca.title}}.png " class="card-img-top "></a>
             <div class="card-body ">
                 <h5 class="card-title ">{{marca.title}}</h5>
@@ -544,7 +544,7 @@
 </div>
 
 
-<section id="eventosPasados ">
+<section id="eventosPasados">
     <div class="container ">
         <div class="row ">
             <div class="col colEventos " (click)="redirigirEvento(2016) ">
@@ -588,6 +588,6 @@
     </div>
 </section>
 
-<section id="ganadores ">
+<section id="ganadores">
     <app-ganadores></app-ganadores>
 </section>

@@ -104,6 +104,10 @@
     padding-top: 10px;
 }
 
+.noCursor {
+    pointer-events: none;
+}
+
 .card {
     margin: 25px 10px 10px 10px;
     width: 290px;
@@ -260,6 +264,7 @@
 }
 
 .right-corner-container {
+    margin-top: 5px;
     padding-bottom: 5px;
     padding-right: 15px;
     text-align: right;
