@@ -25,7 +25,7 @@
             </button>
         </div>
         <!--BOTON ZOOM  style="text-align: center; margin: 0 auto;-->
-        <div class="interactuarBtn">
+        <div *ngIf="!url" class="interactuarBtn">
             <button class="interactuar btn-primary" type="submit" (click)="eventZoom()">INTERACTUAR</button>
             <!-- <a class="interactuar" target="_blank" ref="noreferrer noopener" href="https://zoom.us/j/99111309607?pwd=dDdhNVNIbFR4a2VNRjhDYUcxQnFhZz09">INTERACTUAR</a> -->
         </div>
@@ -608,11 +608,11 @@
 
 <!--FOOTER-->
 <div id="footer" class="container-fluid wh-100">
-           
+
     <div class="footer">
-        
+
         <div style="text-align: center;">
-            <span class="footerIT">Powered by IT LABS®</span>
+            <span class="footerIT">Powered by IT LAB®</span>
         </div>
     </div>
 </div>
