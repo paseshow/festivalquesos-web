@@ -160,7 +160,7 @@ export class CommonService {
                         title: 'EL TAMBO DON SANTIAGO',
                         direccion: 'Presidente Perón 798 - Calchín',
                         gmail: 'mauro.bessone@eltambodonsantiago.com.ar  /  mario.bessone@eltambodonsantiago.com.ar',
-                        link: 'www.eltambodonsantiago.com.ar',
+                        link: 'http://eltambodonsantiago.com.ar/',
                     });
                     break;
 
@@ -314,7 +314,7 @@ export class CommonService {
                     break;
                 case 29:
                     this.marcas.push({
-                        title: 'LOMBARDE / LACNAT / QUESOS ONLINE',
+                        title: 'LOMBARDE-LACNAT-QUESOS ONLINE',
                         direccion: 'Lisandro de la Torre 234 - Villa María',
                         gmail: 'augartemendia@lacteoscds.com.ar',
                         link: 'https://www.facebook.com/QuesosOnline',

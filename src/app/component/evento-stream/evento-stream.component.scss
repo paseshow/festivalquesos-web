@@ -44,7 +44,6 @@
     justify-content: center;
     position: relative;
     bottom: 43px;
-
 }
 
 .interactuar {
@@ -54,7 +53,6 @@
     color: #343a40;
     font-family: 'Open Sans';
     font-size: 17px;
-    
 }
 
 .fondoLogos {
@@ -104,6 +102,10 @@
     max-width: 400px;
     max-height: 115px;
     padding-top: 10px;
+}
+
+.noCursor {
+    pointer-events: none;
 }
 
 .card {
@@ -254,7 +256,7 @@
 }
 
 .contenedor-chat {
-    padding: 90px 0;
+    padding-top: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -262,6 +264,7 @@
 }
 
 .right-corner-container {
+    margin-top: 5px;
     padding-bottom: 5px;
     padding-right: 15px;
     text-align: right;
@@ -321,7 +324,6 @@
     // STREAM BOTON
     .interactuarBtn {
         bottom: 47px;
-    
     }
     /// Boton Volver al stream ///
     .positionBoton {
@@ -485,8 +487,5 @@
     }
     .logoAcompañan {
         height: 58px;
-    }
-    .card {
-        width: 100px !important;
     }
 }

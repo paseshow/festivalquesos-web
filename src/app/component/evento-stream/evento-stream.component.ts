@@ -1,7 +1,7 @@
 import { Identifiers } from '@angular/compiler';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '@services/common.service';
 import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 import * as CryptoJS from "crypto-js";
@@ -40,6 +40,7 @@ export class EventoStreamComponent implements OnInit {
   chatEnable: boolean;
   loggedIn: boolean;
   url: boolean;
+  urlValid: string;
   element: any;
 
 
@@ -48,6 +49,7 @@ export class EventoStreamComponent implements OnInit {
     private sanitizationService: DomSanitizer,
     private authSocialService: SocialAuthService,
     private router: Router,
+    private activatedRouter: ActivatedRoute
   ) {
     this.marcas = [];
     this.enabledChat = false;
@@ -66,7 +68,8 @@ export class EventoStreamComponent implements OnInit {
       youtube: { noCookie: false },
     };
     this.loadCatalogosMarca();
-    if (this.commonService.getUrl() == "festival") {
+    this.urlValid = this.router.url;
+    if (this.commonService.getUrl() == "festival" || this.urlValid.includes("festival")) {
       this.url = false;
     } else {
       this.url = true;
@@ -77,7 +80,7 @@ export class EventoStreamComponent implements OnInit {
     element.scrollIntoView()
   };
 
-  eventZoom(){
+  eventZoom() {
     window.open('https://zoom.us/j/99111309607?pwd=dDdhNVNIbFR4a2VNRjhDYUcxQnFhZz09');
   };
 

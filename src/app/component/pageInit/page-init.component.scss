@@ -114,6 +114,9 @@
     align-items: center;
     text-align: center;
     color: white;
+    & span {
+        text-align: left;
+    }
 }
 
 .txtError {
