@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://festivalquesos-api-test.herokuapp.com/",
- //apiUrl: "http://localhost:8080/"
+  apiUrl: "https://festival-api-prod.herokuapp.com/",
+  //apiUrl: "https://festivalquesos-api-test.herokuapp.com/",
+  //apiUrl: "http://localhost:8080/"
 };
 
 /*
